@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 15:15:16 by gsever            #+#    #+#              #
-#    Updated: 2022/12/27 16:10:43 by gsever           ###   ########.fr        #
+#    Updated: 2022/12/27 16:50:20 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ all:
 
 #	Compiling
 %.o: %.c
-	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 	@printf "%-57b %b" "$(BLUE)COMPILED $(CYAN)$@" "$(GREEN)[✓]$(X)\n"
 
 $(NAME): $(OBJECTS)
