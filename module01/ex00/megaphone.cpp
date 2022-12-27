@@ -6,15 +6,15 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 15:32:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/12/27 18:15:18 by gsever           ###   ########.fr       */
+/*   Updated: 2022/12/27 20:59:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>// Basic functions inside this library.
-// using namespace std;
+// using namespace std; We can't use this namespace thing. :')
 
 /**
- * @brief 
+ * @brief We are changing lower character to upper.
  * 
  * std::cout => standart->cout => standart->c_language_out(1);
  * 	Meaning, inside standart library's cout func().
