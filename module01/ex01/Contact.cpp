@@ -26,8 +26,14 @@ std::string	Contact::_getInput(std::string str) const
 {
 	std::string	enteredInput;
 
-	std::cout << str;
-	std::getline(std::cin, enteredInput);
+	while (1)
+	{
+		std::cout << str;
+		std::getline(std::cin, enteredInput);
+		if (!enteredInput.empty())
+			break ;
+		std::cout << "You can't go next if empty imput sir!\n" << std::flush;
+	}
 	return (enteredInput);
 }
 
