@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:47:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/12/29 19:25:16 by gsever           ###   ########.fr       */
+/*   Updated: 2022/12/30 13:11:10 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ std::string	Contact::_getInput(std::string str) const
 	std::string	enteredInput;
 
 	std::cout << str;
-	std::cin >> enteredInput;
+	std::getline(std::cin, enteredInput);
 	return (enteredInput);
 }
 
@@ -45,14 +45,14 @@ void	Contact::setContact(int	index)
 	this->_nickName = this->_getInput("Enter Nickname: ");
 	this->_phoneNumber = this->_getInput("Enter Phone Number: ");
 	this->_dSecret = this->_getInput("Enter Darkest Secret: ");
-	this->index = index;
+	this->_index = index;
 }
 
 void	Contact::getContact(void) const
 {
 	if (this->_name.empty() || this->_lastName.empty() || this->_nickName.empty())
 		return ;
-	std::cout << "|" << std::setw(10) << index << std::flush;// std::flush -> bellege almadan direkt yazmani sagliyor.
+	std::cout << "|" << std::setw(10) << _index << std::flush;// std::flush -> bellege almadan direkt yazmani sagliyor.
 	std::cout << "|" << std::setw(10) << this->_getLimited(this->_name) << std::flush;
 	std::cout << "|" << std::setw(10) << this->_getLimited(this->_lastName) << std::flush;
 	std::cout << "|" << std::setw(10) << this->_getLimited(this->_nickName) << std::flush;
@@ -61,9 +61,9 @@ void	Contact::getContact(void) const
 
 void	Contact::getUserInfo(void) const
 {
-	std::cout << "User[" << index << "] First Name: " << this->_name << std::flush << std::endl;
-	std::cout << "User[" << index << "] Last Name: " << this->_lastName << std::flush << std::endl;
-	std::cout << "User[" << index << "] Nickname: " << this->_nickName << std::flush << std::endl;
-	std::cout << "User[" << index << "] Phone Number: " << this->_phoneNumber << std::flush << std::endl;
-	std::cout << "User[" << index << "] Darkest Secret: " << this->_dSecret << std::flush << std::endl;
+	std::cout << "User[" << _index << "] First Name: " << this->_name << std::flush << std::endl;
+	std::cout << "User[" << _index << "] Last Name: " << this->_lastName << std::flush << std::endl;
+	std::cout << "User[" << _index << "] Nickname: " << this->_nickName << std::flush << std::endl;
+	std::cout << "User[" << _index << "] Phone Number: " << this->_phoneNumber << std::flush << std::endl;
+	std::cout << "User[" << _index << "] Darkest Secret: " << this->_dSecret << std::flush << std::endl;
 }

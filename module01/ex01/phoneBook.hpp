@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:22:11 by gsever            #+#    #+#             */
-/*   Updated: 2022/12/29 18:37:09 by gsever           ###   ########.fr       */
+/*   Updated: 2022/12/30 12:28:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <string>
 
 /**
  * @brief 
@@ -39,7 +40,7 @@ class Contact// Phone Book's contact.
 		std::string	_nickName;
 		std::string	_phoneNumber;
 		std::string	_dSecret;
-		int			index;
+		int			_index;
 
 		std::string	_getInput(std::string str) const;
 		std::string	_getLimited(std::string str) const;
@@ -55,7 +56,7 @@ class Contact// Phone Book's contact.
 class PhoneBook
 {
 	private:
-		Contact	users[8];
+		Contact	_users[8];
 		// static int	userNumber;
 	public:
 		PhoneBook();

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:43:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/12/29 20:03:34 by gsever           ###   ########.fr       */
+/*   Updated: 2022/12/30 13:06:16 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,32 +35,35 @@ void	PhoneBook::addCommand(void)
 	if (userNumber >= 8)
 		userNumber = 0;
 	std::cout << "User's number: " << userNumber << std::endl;
-	this->users[userNumber].setContact(userNumber);
+	this->_users[userNumber].setContact(userNumber);
 	userNumber++;
 }
 
-
+/**
+ * @brief Printing
+ * 
+ */
 void	PhoneBook::searchCommand(void) const
 {
-	int num;
+	int			num;
+	std::string	input;
 
 	std::cout << "***** PHONE BOOK *****" << std::endl;
 	for (int i = 0; i < 8; i++)
-		this->users[i].getContact();
+		this->_users[i].getContact();
 	while (1)
 	{
 		std::cout << "Enter index num: ";
-		// std::cin >> numStr;
-		std::cin >> num;
-		// std::getline(std::cin, input);
+		std::getline(std::cin, input);
 		// if (!strcmp(numStr, "EXIT"))
 			// exit(0);
-		// num = atoi(numStr);
-		if (std::cin.good() && (num >= 0 && num <= 8))
+		num = atoi(input.c_str());
+		if (std::cin.good()
+			&& (std::to_string(num).length() == input.length())
+			&& (num >= 0 && num <= 8))
 			break ;
 		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "You must be enter between 0-8 value!" << std::endl;
 	}
-	this->users[num].getUserInfo();
+	this->_users[num].getUserInfo();
 }
