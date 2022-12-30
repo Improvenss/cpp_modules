@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 15:15:16 by gsever            #+#    #+#              #
-#    Updated: 2022/12/30 12:42:27 by gsever           ###   ########.fr        #
+#    Updated: 2022/12/30 14:17:31 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME		= phonebook
 
 #	Flags for compile
-CC			= g++
+CC			= c++
 FLAGS		= -Wall -Werror -Wextra -std=c++98
 
 #	All process use for compiling.
