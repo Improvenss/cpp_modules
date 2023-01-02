@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:24:12 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/02 11:56:47 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/02 16:25:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,20 @@
  */
 int	main()
 {
-	std::string	brain = "HI THIS IS BRAIN";
-	std::string	*stringPTR = &brain;
-	std::string	&stringREF = brain;
+	std::string	brain = "HI THIS IS BRAIN";// kendisi
+	std::string	*stringPTR = &brain;// adresini turuyor = adresini atiyoruz
+	std::string	&stringREF = brain;// referansini aliyor. Yani stringREF = brain gibi :D
 
-	std::cout << 
+	//&str : str
+	// stringPTR : *stringPTR
+	// &stringREF : stringREF
+	std::cout << "___________MEMORY ADDRESS__________" << std::flush << std::endl;
+	std::cout << "&String-> " << &brain << std::flush << std::endl;
+	std::cout << "stringPTR-> " << stringPTR << std::flush << std::endl;
+	std::cout << "&stringREF-> " << &stringREF<< std::flush << std::endl;
+	std::cout << "___________POINTER VALUE___________" << std::flush << std::endl;
+	std::cout << "String-> " << brain << std::flush << std::endl;
+	std::cout << "*stringPTR-> " << *stringPTR << std::flush << std::endl;
+	std::cout << "stringREF-> " << stringREF << std::flush << std::endl;
+	return (0);
 }
