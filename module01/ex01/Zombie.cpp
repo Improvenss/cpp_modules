@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 00:10:23 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/02 09:21:20 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/02 12:50:06 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@
  * Creating new Zombie in 'Stack'.
  * @param name 
  */
-Zombie::Zombie( std::string name )
+Zombie::Zombie()
 {
-	this->_name = name;
 }
+
+// Zombie::Zombie( std::string name )
+// {
+// 	this->_name = name;
+// }
 
 /**
  * @brief Destroy the Zombie:: Zombie object
@@ -39,4 +43,9 @@ Zombie::~Zombie()
 void	Zombie::announce( void )
 {
 	std::cout << CYAN << this->_name << END << ": BraiiiiiiinnnzzzZ..." << std::flush << std::endl;
+}
+
+void	Zombie::setName( std::string name )
+{
+	this->_name = name;
 }

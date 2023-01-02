@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 00:06:08 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/02 09:17:54 by gsever           ###   ########.fr       */
+/*   Created: 2023/01/02 09:25:31 by gsever            #+#    #+#             */
+/*   Updated: 2023/01/02 12:49:46 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,14 @@ class Zombie
 		std::string	_name;
 
 	public:
-		Zombie( std::string name );
+		// Zombie( std::string name );
+		Zombie();
 		~Zombie();
 		void	announce( void );
+		void	setName( std::string name );
 
-		// Zombie*	newZombie( std::string name );
-		// void	randomChump( std::string name );
+		// Zombie*	zombieHorde( int N, std::string name );
 };
 
-Zombie*	newZombie( std::string name );
-void	randomChump( std::string name );
-
+Zombie* zombieHorde( int N, std::string name );
 #endif

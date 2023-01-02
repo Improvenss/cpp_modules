@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 13:37:42 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/01 23:50:35 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/02 12:12:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 {
 	_displayTimestamp();
 	std::cout << BLUE << "index:" << _accountIndex << ";" << std::flush;
-	std::cout << "p_amount:" << _amount << ";" << std::flush;
+	std::cout << "p_amount:" << _amount << ";" << std::flush;// previous amount
 	if (withdrawal <= _amount && withdrawal > 0)
 	{
 		getNbWithdrawals();
