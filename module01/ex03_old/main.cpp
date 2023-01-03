@@ -6,13 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:27:09 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/03 13:05:41 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/02 16:49:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
 
 int main()
 {

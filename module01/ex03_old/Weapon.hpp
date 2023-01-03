@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 16:56:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/03 13:18:28 by gsever           ###   ########.fr       */
+/*   Created: 2023/01/02 16:27:38 by gsever            #+#    #+#             */
+/*   Updated: 2023/01/03 12:31:59 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-#include "Weapon.hpp"
+# include <iostream>
+# include "HumanA.hpp"
+# include "HumanB.hpp"
 
-class HumanB
+class Weapon
 {
-	private:
-		std::string	_name;
-		Weapon		*_weapon;
-	public:
-		HumanB( std::string name );
-		~HumanB( void );
-		void	attack( void );
-		void	setWeapon( Weapon &weapon );
+private:
+	std::string	_type;
+public:
+	Weapon( std::string type);
+	~Weapon();
+	const std::string	&getType( void );
+	void		setType( std::string type );
 };
 
 #endif
