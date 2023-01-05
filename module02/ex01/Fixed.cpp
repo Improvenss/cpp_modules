@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:33:02 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/05 21:02:17 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/05 23:09:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@
 Fixed::Fixed( const int number) : _fixPoint(0)
 {
 	std::cout << "Default constructor called" << std::flush << std::endl;
-	this->_fixPoint = 0;
+	// this->_fixPoint = 0;
 }
 
 Fixed::Fixed( const int numberInt ) : _fixPoint(numberInt << _fractBits)
 {
 	std::cout << "Int constructor called" << std::flush << std::endl;
-	this->_fixPoint = numberInt;
+	// this->_fixPoint = numberInt;
 }
 
 Fixed::Fixed( const float numberFloat) : _fixPoint(std::roundf(numberFloat * (1 << _fractBits)))
 {
 	std::cout << "Float constructor called" << std::flush << std::endl;
-	this->_fixPoint = numberFloat;
+	// this->_fixPoint = numberFloat;
 }
 
 /**
@@ -83,6 +83,17 @@ void	Fixed::setRawBits( int const raw )
 	this->_fixPoint = raw;
 }
 
-float	Fixed::toFloat( void ) const
-{
-}
+// float	Fixed::toFloat( void ) const
+// {
+// 	return ()
+// }
+
+// int	Fixed::toInt( void ) const
+// {
+
+// }
+
+// std::ostream	&operator<<(std::ostream &foo, Fixed &bar )
+// {
+
+// }
