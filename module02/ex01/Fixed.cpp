@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:33:02 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/04 17:47:06 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/05 21:02:17 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
  * @brief Construct a new Fixed::Fixed object
  * Default Constructor.
  */
-Fixed::Fixed( const int number)
+Fixed::Fixed( const int number) : _fixPoint(0)
 {
 	std::cout << "Default constructor called" << std::flush << std::endl;
 	this->_fixPoint = 0;
 }
 
-Fixed::Fixed( const int numberInt )
+Fixed::Fixed( const int numberInt ) : _fixPoint(numberInt << _fractBits)
 {
 	std::cout << "Int constructor called" << std::flush << std::endl;
 	this->_fixPoint = numberInt;
 }
 
-Fixed::Fixed( const float numberFloat)
+Fixed::Fixed( const float numberFloat) : _fixPoint(std::roundf(numberFloat * (1 << _fractBits)))
 {
 	std::cout << "Float constructor called" << std::flush << std::endl;
 	this->_fixPoint = numberFloat;

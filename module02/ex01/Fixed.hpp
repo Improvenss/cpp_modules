@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:32:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/04 18:08:31 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/04 22:37:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ class	Fixed
 		int		toInt( void ) const;
 };
 
-std::ostream &operator<<(std::ostream & foo, )
+std::ostream &operator<<(std::ostream &foo, Fixed const &bar);
 
 #endif
