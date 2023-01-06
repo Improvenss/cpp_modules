@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:44:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/06 12:44:04 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/06 15:34:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,44 @@
 /**
  * @brief 
  * 
- * @link https://www.geeksforgeeks.org/constants-in-c-cpp/
  * @return int 
  */
 int	main()
 {
 	Fixed		a;
-	Fixed const	b(10);
-	Fixed const	c(42.42f);
-	Fixed const	d(b);
+	Fixed const	b(Fixed(5.05f) * Fixed(2));
 
-	a = Fixed(1234.4321f);
+	{
+		Fixed		c;
+		Fixed		cSmall;
 
+		c = 10;
+		cSmall = 5;
+		std::cout << "b: " << a << std::endl;
+		std::cout << "cSmall: " << cSmall << std::endl;
+			std::cout << "cSmall + a: " << cSmall + c << std::endl;
+		std::cout << "cSmall - a: " << cSmall - c << std::endl;
+		std::cout << "cSmall * a: " << cSmall * c << std::endl;
+		std::cout << "cSmall / a: " << cSmall / c << std::endl;
+	}
 
-	// std::cout << "123" << std::endl;// '<<' operatoru sonrasinda class alirsa kutuphanede tanimladigimiz &operator<< func() calismis oluyor.
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
 
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max(a, b) << std::endl;
 
 	return (0);
 }
+// $> ./a.out
+// 0
+// 0.00390625
+// 0.00390625
+// 0.00390625
+// 0.0078125
+// 10.1016
+// 10.1016

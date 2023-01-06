@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:32:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/04 22:37:56 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/06 12:21:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cmath>// just roundf() allowed.
+#include <fstream>
 
 class	Fixed
 {
@@ -36,6 +37,6 @@ class	Fixed
 		int		toInt( void ) const;
 };
 
-std::ostream &operator<<(std::ostream &foo, Fixed const &bar);
+std::ostream	&operator<<(std::ostream &foo, Fixed const &bar);
 
 #endif
