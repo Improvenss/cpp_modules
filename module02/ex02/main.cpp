@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:44:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/06 15:34:54 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/06 16:49:55 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ int	main()
 	Fixed const	b(Fixed(5.05f) * Fixed(2));
 
 	{
-		Fixed		c;
-		Fixed		cSmall;
+		// Fixed		c;
+		// Fixed		cSmall;
 
-		c = 10;
-		cSmall = 5;
-		std::cout << "b: " << a << std::endl;
-		std::cout << "cSmall: " << cSmall << std::endl;
-			std::cout << "cSmall + a: " << cSmall + c << std::endl;
-		std::cout << "cSmall - a: " << cSmall - c << std::endl;
-		std::cout << "cSmall * a: " << cSmall * c << std::endl;
-		std::cout << "cSmall / a: " << cSmall / c << std::endl;
+		// c = 10;
+		// cSmall = 5;
+		// std::cout << "b: " << a << std::endl;
+		// std::cout << "cSmall: " << cSmall << std::endl;
+		// 	std::cout << "cSmall + a: " << cSmall + c << std::endl;
+		// std::cout << "cSmall - a: " << cSmall - c << std::endl;
+		// std::cout << "cSmall * a: " << cSmall * c << std::endl;
+		// std::cout << "cSmall / a: " << cSmall / c << std::endl;
 	}
 
 	std::cout << a << std::endl;
@@ -45,6 +45,10 @@ int	main()
 	std::cout << b << std::endl;
 
 	std::cout << Fixed::max(a, b) << std::endl;
+	{
+		// std::cout << "max:" << Fixed::max(a, b) << std::endl;
+		// std::cout << "min:" << Fixed::min(a, b) << std::endl;
+	}
 
 	return (0);
 }

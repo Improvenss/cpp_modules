@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:33:02 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/06 15:48:35 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/06 16:46:48 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,21 +192,29 @@ int	Fixed::toInt( void ) const
 
 Fixed	&Fixed::min( Fixed &lhs, Fixed &rhs )
 {
-
+	if (lhs.getRawBits() < rhs.getRawBits())
+		return (lhs);
+	return (rhs);
 }
 const Fixed	&Fixed::min( const Fixed &lhs, const Fixed &rhs )
 {
-
+	if (lhs.getRawBits() < rhs.getRawBits())
+		return (lhs);
+	return (rhs);
 }
 
 Fixed	&Fixed::max( Fixed &lhs, Fixed &rhs )
 {
-
+	if (lhs.getRawBits() > rhs.getRawBits())
+		return (lhs);
+	return (rhs);
 }
 
-const	&Fixed::max( const Fixed &lhs, const Fixed &rhs )
+const Fixed	&Fixed::max( const Fixed &lhs, const Fixed &rhs )
 {
-
+	if (lhs.getRawBits() > rhs.getRawBits())
+		return (lhs);
+	return (rhs);
 }
 
 std::ostream	&operator<<(std::ostream &foo, Fixed const &bar )
