@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:43:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/12/30 13:06:16 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/10 13:43:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,14 @@ void	PhoneBook::searchCommand(void) const
 		// if (!strcmp(numStr, "EXIT"))
 			// exit(0);
 		num = atoi(input.c_str());
+		std::cout << "Entered num: " << num << std::endl;
 		if (std::cin.good()
-			&& (std::to_string(num).length() == input.length())
-			&& (num >= 0 && num <= 8))
+			&& (input.length() == 1)
+			&& ((num > 0 && num < 8)
+			|| (input.compare("0") == 0 && num == 0)))
 			break ;
 		std::cin.clear();
-		std::cout << "You must be enter between 0-8 value!" << std::endl;
+		std::cout << "You must be enter between 0-7 value!" << std::endl;
 	}
 	this->_users[num].getUserInfo();
 }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:47:22 by gsever            #+#    #+#             */
-/*   Updated: 2022/12/30 13:11:10 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/10 13:01:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,14 @@ void	Contact::getContact(void) const
 
 void	Contact::getUserInfo(void) const
 {
-	std::cout << "User[" << _index << "] First Name: " << this->_name << std::flush << std::endl;
-	std::cout << "User[" << _index << "] Last Name: " << this->_lastName << std::flush << std::endl;
-	std::cout << "User[" << _index << "] Nickname: " << this->_nickName << std::flush << std::endl;
-	std::cout << "User[" << _index << "] Phone Number: " << this->_phoneNumber << std::flush << std::endl;
-	std::cout << "User[" << _index << "] Darkest Secret: " << this->_dSecret << std::flush << std::endl;
+	if (!(this->_index >= 0 && this->_index <= 7))
+	{
+		std::cout << "No user is registered. :)" << std::endl;
+		return ;
+	}
+	std::cout << "User[" << _index << "] First Name: " << this->_name << std::endl;
+	std::cout << "User[" << _index << "] Last Name: " << this->_lastName << std::endl;
+	std::cout << "User[" << _index << "] Nickname: " << this->_nickName << std::endl;
+	std::cout << "User[" << _index << "] Phone Number: " << this->_phoneNumber << std::endl;
+	std::cout << "User[" << _index << "] Darkest Secret: " << this->_dSecret << std::endl;
 }
