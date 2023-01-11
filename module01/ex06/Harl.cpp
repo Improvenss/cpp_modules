@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:54:42 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/04 12:16:05 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/11 13:35:17 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ Harl::~Harl()
 void	Harl::debug( void )
 {
 	std::cout << "[ DEBUG ]" << std::flush << std::endl;
-	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special- ketchup burger. I really do!" << std::flush << std::endl;
+	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special- ketchup burger.\
+I really do!" << std::flush << std::endl;
 	std::cout << std::flush << std::endl;
 }
 void	Harl::info( void )

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:24:14 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/03 15:27:51 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/11 13:24:19 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	main(int argc, char **argv)
 			std::cout << argv[1] << " can't open!" << std::flush << std::endl;
 			return (1);
 		}
-		writeFile.open(tmpReadFile.append(".replace"));// File creating for write.
+		// writeFile.open(tmpReadFile.append(".replace"));// File creating for write.
+		writeFile.open(tmpReadFile + ".replace");// File creating for write.
 		if (writeFile.is_open())
 		{
 			while (std::getline(readFile, readedLine))
@@ -45,22 +46,3 @@ int	main(int argc, char **argv)
 		std::cout << "You must be enter: ./replace <filename> <s1> <s2>" << std::flush << std::endl;
 	return (0);
 }
-
-    // ofstream dosya;
-    // dosya.open(“./deneme.txt”); //path verilebilir
-    // if (dosya.is_open())
-    // {
-    //  dosya << “MERHABA YARINYA\n” << endl;
-    //  dosya.close();
-    // }
-    // //okuma
-    // string satir;
-    // ifstream dosya_two (“./deneme.txt”);
-    // if (dosya_two.is_open())
-    // {
-    //  while (getline(dosya_two,satir))
-    //  {
-    //      cout << satir << ‘\n’;
-    //  }
-    //  dosya_two.close();
-    // }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 00:05:35 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/02 09:15:53 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/11 12:04:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main()
 
 	std::cout << "Creating randomChump(name)" << std::flush << std::endl;
 	randomChump("randomZombie");
+	// while (1);
 	return (0);
 
 	/*
@@ -74,5 +75,5 @@ int	main()
 			std::cout << RED << "Wrong choise, try again!" << END << std::flush << std::endl;
 	}
 	*/
-	return (0);
+	// return (0);
 }

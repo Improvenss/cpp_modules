@@ -6,12 +6,12 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 15:15:16 by gsever            #+#    #+#              #
-#    Updated: 2023/01/01 23:54:58 by gsever           ###   ########.fr        #
+#    Updated: 2023/01/11 12:05:55 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!!!!!!!!! NOTE: < here > you need change with your customize. !!!!!!!
-NAME		= myjob
+NAME		= nZombies
 
 #	Flags for compile
 CC			= c++

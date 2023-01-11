@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:27:09 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/03 13:05:41 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/11 12:48:37 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
+	// while (1);// For testing leaks.
 
 	return (0);
 }
