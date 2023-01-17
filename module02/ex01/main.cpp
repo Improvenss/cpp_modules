@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:44:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/06 12:44:04 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/17 20:54:17 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
  */
 int	main()
 {
-	Fixed		a;
-	Fixed const	b(10);
-	Fixed const	c(42.42f);
-	Fixed const	d(b);
+	Fixed		a;// Default Constructor.
+	Fixed const	b(10);// Int Constructor.
+	Fixed const	c(42.42f);// Float Constructor.
+	Fixed const	d(b);// Copy Constructor.
 
-	a = Fixed(1234.4321f);
+	a = Fixed(1234.4321f);// Copy assignment operator.
 
 
 	// std::cout << "123" << std::endl;// '<<' operatoru sonrasinda class alirsa kutuphanede tanimladigimiz &operator<< func() calismis oluyor.

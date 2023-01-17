@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:32:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/06 12:21:01 by gsever           ###   ########.fr       */
+/*   Updated: 2023/01/17 20:58:36 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ class	Fixed
 		int					_fixPoint;
 		static const int	_fractBits = 8;
 	public:
-		Fixed( void );
-		Fixed( const int numberInt);
-		Fixed( const float numberFloat );
-		Fixed( const Fixed &old_class );
-		Fixed &operator=( const Fixed &old_class );
-		~Fixed( void );
+		Fixed( void );// Default Constructor.
+		Fixed( const int numberInt);// Int Constructor.
+		Fixed( const float numberFloat );// Float Constructor.
+		Fixed( const Fixed &old_class );// Copy Constructor.
+		Fixed &operator=( const Fixed &old_class );// Copy assignment operator.
+		~Fixed( void );// Destructor.
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
@@ -37,6 +37,6 @@ class	Fixed
 		int		toInt( void ) const;
 };
 
-std::ostream	&operator<<(std::ostream &foo, Fixed const &bar);
+std::ostream	&operator<<( std::ostream &foo, Fixed const &bar );
 
 #endif
