@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:48:42 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/06 20:17:01 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/13 17:50:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 Point::Point( void ) : _x(0), _y(0)
 {
-	std::cout << "Default constructor called" << std::flush << std::endl;
+	// std::cout << "Default constructor called" << std::flush << std::endl;
 }
 
 Point::Point( const float x, const float y) : _x(x), _y(y)
 {
-	std::cout << "2 param constructor called" << std::flush << std::endl;
+	// std::cout << "2 param constructor called" << std::flush << std::endl;
 }
 
 Point::Point( const Point &rhs ) : _x(rhs._x.getRawBits()), _y(rhs._y.getRawBits())
 {
-	std::cout << "Copy constructor called" << std::flush << std::endl;
+	// std::cout << "Copy constructor called" << std::flush << std::endl;
+}
+
+Point::~Point( void )
+{
+	// std::cout << "Destructor called" << std::flush << std::endl;
 }
 
 Point	&Point::operator=( const Point &rhs )
 {
-	std::cout << "Copy assignment operator called" << std::flush << std::endl;
+	// std::cout << "Copy assignment operator called" << std::flush << std::endl;
 	if (this != &rhs)
 	{
 		(Fixed)this->_x = rhs.getPointX();
@@ -37,11 +42,6 @@ Point	&Point::operator=( const Point &rhs )
 	}
 	return (*this);
 }
-
-Point::~Point( void )
-{
-}
-
 
 Fixed	Point::getPointX( void ) const
 {

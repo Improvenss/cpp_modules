@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:32:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/06 18:42:41 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/13 14:18:42 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ class	Fixed
 		Fixed	operator++( void );// Prefix increment operator.
 		Fixed	operator++( int );// Postfix increment operator.
 		Fixed	operator--( void );// Prefix decrement operator.
-		Fixed	operator--(int);// Postfix decrement operator.
+		Fixed	operator--( int );// Postfix decrement operator.
 /*_______________________________________________________*/
 
 		int		getRawBits( void ) const;
