@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:32:08 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/14 22:47:11 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/17 16:23:44 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main()
 	ClapTrap	p5 = p3;
 
 	p4 = p5;
-	std::cout << "-------- Players created! ------" << std::flush << std::endl << std::endl;
+	std::cout << "-------- Players Created! ------" << std::flush << std::endl << std::endl;
 	while (p1.isALive() && p2.isALive() && p3.isALive())
 	{
 		p1.attack("player2");

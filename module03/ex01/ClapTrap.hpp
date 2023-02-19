@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:34:58 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/14 22:43:52 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/17 18:05:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,21 @@
 # define END		"\033[m"
 # define RESET		"\033[0m"
 
+/**
+ * @brief Main(mother) class.
+ * 
+ * 
+ * Parameters	Public/Private/Protected Access Modifier
+ * 
+ * -Public-	Accessible from anywhere.
+ * -Private-	Accessible for only one class.
+ * -Protected-	Accessible for any particularly given class along with its
+ *  derived class or child classes. (Inheritance)
+ * @link https://www.programiz.com/cpp-programming/public-protected-private-inheritance#:~:text=public%2C%20protected%20and%20private%20inheritance%20in%20C%2B%2B&text=protected%20inheritance%20makes%20the%20public,private%20in%20the%20derived%20class.
+*/
 class ClapTrap
 {
-	private:
+	protected:
 		std::string		_name;
 		unsigned int	_hitPoints;
 		unsigned int	_energyPoints;
@@ -37,14 +49,15 @@ class ClapTrap
 		ClapTrap( void );
 		ClapTrap( std::string name );
 		ClapTrap( const ClapTrap &rhs );
-		ClapTrap	&operator=( const ClapTrap &rhs );
 		~ClapTrap();
+		ClapTrap		&operator=( const ClapTrap &rhs );
 
-		void	attack( const std::string &target);// ok
-		void	takeDamage( unsigned int amount );// ok
-		void	beRepaired( unsigned int amount );// ok
-		bool	isALive( void );// ok
-		void	setDamage( unsigned int amount );// ok
+		// virtual void	attack( const std::string &target );
+		void			attack( const std::string &target );
+		void			takeDamage( unsigned int amount );
+		void			beRepaired( unsigned int amount );
+		bool			isALive( void );
+		void			setDamage( unsigned int amount );
 };
 
 #endif
