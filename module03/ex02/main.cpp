@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:32:08 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/20 09:48:54 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/20 18:32:42 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	main()
 	ScavTrap	s1("scav1");
 	FragTrap	f1("frag1");
 
-	std::cout << "-------- Players Created! ------" << std::flush << std::endl << std::endl;
+	std::cout << "-------- Players Created! ------"\
+		<< std::flush << std::endl << std::endl;
 	s1.attack("frag1");
 	f1.takeDamage(s1.getDamage());
 	std::cout << std::flush << std::endl;
@@ -29,6 +30,7 @@ int	main()
 	s1.beRepaired(50);
 	std::cout << std::flush << std::endl;
 	f1.highFivesGuys();
-	std::cout << "\n-------- Players Destroying! ------" << std::flush << std::endl;
+	std::cout << "\n-------- Players Destroying! ------"\
+		<< std::flush << std::endl;
 	return (0);
 }

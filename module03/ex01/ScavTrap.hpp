@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:58:30 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/17 18:06:47 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/20 19:02:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class ScavTrap : public ClapTrap
 		ScavTrap( void );
 		ScavTrap( std::string name );
 		ScavTrap( const ScavTrap &rhs );
-		ScavTrap &operator=( const ScavTrap &rhs );
 		~ScavTrap( void );
+		ScavTrap &operator=( const ScavTrap &rhs );
 
 		void			attack( const std::string &target );
 		void			takeDamage( unsigned int amount );

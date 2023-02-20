@@ -6,14 +6,14 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:34:58 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/20 09:43:10 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/20 19:17:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-#include <iostream>
+# include <iostream>
 
 # define BLACK		"\033[0;30m"
 # define RED		"\033[0;31m"
@@ -49,8 +49,8 @@ class ClapTrap
 		ClapTrap( void );
 		ClapTrap( std::string name );
 		ClapTrap( const ClapTrap &rhs );
-		~ClapTrap();
-		ClapTrap		&operator=( const ClapTrap &rhs );
+		~ClapTrap( void );
+		ClapTrap	&operator=( const ClapTrap &rhs );
 
 		// virtual void	attack( const std::string &target );
 		void			attack( const std::string &target );
@@ -61,4 +61,4 @@ class ClapTrap
 		unsigned int	getDamage( void );
 };
 
-#endif
+#endif // CLAPTRAP_HPP
