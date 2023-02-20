@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:58:42 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/20 09:44:03 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/20 21:22:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap( void ) : ClapTrap()
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
 	this->isGuardOn = false;
-	std::cout << "ScavTrap Constructor called: "\
+	std::cout << "ScavTrap Default Constructor called: "\
 		<< this->_name << std::flush << std::endl;
 }
 

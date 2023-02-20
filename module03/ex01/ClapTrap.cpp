@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:37:00 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/20 19:10:59 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/20 19:26:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,17 @@ ClapTrap::ClapTrap( const ClapTrap &rhs ) : _name(rhs._name),\
 }
 
 /**
+ * @brief Destroy the Clap Trap:: Clap Trap object
+ * 
+ * Destructor.
+ */
+ClapTrap::~ClapTrap( void )
+{
+	std::cout << "ClapTrap Destructor called: "\
+		<< this->_name << std::flush << std::endl;
+}
+
+/**
  * @brief ClapTrap = ClapTrap class equal operator.
  * 
  * Copy Assignment Operator.
@@ -67,17 +78,6 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &rhs )
 	std::cout << "ClapTrap Copy Assignment Operator called: "\
 		<< this->_name << std::flush << std::endl;
 	return (*this);
-}
-
-/**
- * @brief Destroy the Clap Trap:: Clap Trap object
- * 
- * Destructor.
- */
-ClapTrap::~ClapTrap( void )
-{
-	std::cout << "ClapTrap Destructor called: "\
-		<< this->_name << std::flush << std::endl;
 }
 
 void	ClapTrap::attack( const std::string &target )
