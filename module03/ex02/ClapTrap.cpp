@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:37:00 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/20 09:43:50 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/20 19:25:43 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap( void ) : _name("Default"), _hitPoints(10),\
 	_energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap Default Constructor called: "\
-		<< _name <<  std::flush << std::endl;
+		<< this->_name <<  std::flush << std::endl;
 }
 
 /**
@@ -34,7 +34,7 @@ ClapTrap::ClapTrap( std::string name ) : _name(name), _hitPoints(10),\
 	_energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap Name Constructor called: "\
-		<< _name <<  std::flush << std::endl;
+		<< this->_name <<  std::flush << std::endl;
 }
 
 /**
@@ -48,7 +48,18 @@ ClapTrap::ClapTrap( const ClapTrap &rhs ) : _name(rhs._name),\
 	_attackDamage(rhs._attackDamage)
 {
 	std::cout << "ClapTrap Copy Constructor called: "\
-		<< _name <<  std::flush << std::endl;
+		<< this->_name << std::flush << std::endl;
+}
+
+/**
+ * @brief Destroy the Clap Trap:: Clap Trap object
+ * 
+ * Destructor.
+ */
+ClapTrap::~ClapTrap( void )
+{
+	std::cout << "ClapTrap Destructor called: "\
+		<< this->_name << std::flush << std::endl;
 }
 
 /**
@@ -65,19 +76,8 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &rhs )
 	this->_energyPoints = rhs._energyPoints;
 	this->_attackDamage = rhs._attackDamage;
 	std::cout << "ClapTrap Copy Assignment Operator called: "\
-		<< _name << std::flush << std::endl;
+		<< this->_name << std::flush << std::endl;
 	return (*this);
-}
-
-/**
- * @brief Destroy the Clap Trap:: Clap Trap object
- * 
- * Destructor.
- */
-ClapTrap::~ClapTrap( void )
-{
-	std::cout << "ClapTrap Destructor called: "\
-		<< _name << std::flush << std::endl;
 }
 
 void	ClapTrap::attack( const std::string &target )
@@ -108,7 +108,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 	{
 		this->_hitPoints = 0;
 		std::cout << PURPLE "ClapTrap " << this->_name\
-			<< " died!" END << std::endl;
+			<< " died!" END << std::flush << std::endl;
 	}
 	else
 		this->_hitPoints -= amount;
