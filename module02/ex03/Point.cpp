@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:48:42 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/13 17:50:31 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/22 01:40:38 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Point::Point( const float x, const float y) : _x(x), _y(y)
 	// std::cout << "2 param constructor called" << std::flush << std::endl;
 }
 
-Point::Point( const Point &rhs ) : _x(rhs._x.getRawBits()), _y(rhs._y.getRawBits())
+Point::Point( const Point &rhs ) : _x(rhs._x), _y(rhs._y)
 {
 	// std::cout << "Copy constructor called" << std::flush << std::endl;
 }
@@ -37,6 +37,8 @@ Point	&Point::operator=( const Point &rhs )
 	// std::cout << "Copy assignment operator called" << std::flush << std::endl;
 	if (this != &rhs)
 	{
+		// const_cast< Fixed& > (this->_x) = rhs.getPointX();
+		// const_cast< Fixed& > (this->_y) = rhs.getPointY();
 		(Fixed)this->_x = rhs.getPointX();
 		(Fixed)this->_y = rhs.getPointY();
 	}

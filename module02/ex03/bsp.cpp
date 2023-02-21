@@ -6,18 +6,84 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:48:59 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/13 18:09:30 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/22 01:56:15 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-// static Fixed	abs(Fixed num)
-// {
-// 	if (num < 0)
-// 		return (num = num * -1);
-// 	return (num);
-// }
+static Fixed	abs(Fixed num)
+{
+	if (num < 0)
+		return (num * -1);// We don't have *= operator :').
+	return (num);
+}
+
+static Fixed	area( Point const a, Point const b, Point const c)
+{
+	return (abs(((a.getPointX() * (b.getPointY() - c.getPointY()))
+		+ (b.getPointX() * (c.getPointY() - a.getPointY()))
+		+ (c.getPointX() * (a.getPointY() - b.getPointY()))) / 2));
+}
+
+/**
+ * @brief 
+ * 
+Input: A = (0, 0), B = (4, 3), C = (4, 0), P(3, 1)
+Output: Inside
+Explanation:
+              B(4,3)
+                / \
+               /   \
+              /     \
+             /   P   \      P'
+            /         \
+     A(0,0) ----------- C(4,0)
+
+Input: A = (0, 0), B = (4, 3), C = (4, 0), P(3, 1)
+Output: Outside
+Explanation:
+              B(4,3)
+                / \
+               /   \
+              /     \
+             /       \      P
+            /         \
+     A(0,0) ----------- C(4,0)
+
+Solution: 
+Let the coordinates of three corners be (x1, y1), (x2, y2) and (x3, y3). And coordinates of the given point P be (x, y)
+
+Calculate area of the given triangle, i.e., area of the triangle ABC in the above diagram.
+Area A = [ x1(y2 – y3) + x2(y3 – y1) + x3(y1-y2) ] / 2
+Calculate area of the triangle PAB. We can use the same formula for this. Let this area be A1.
+Calculate area of the triangle PBC. Let this area be A2.
+Calculate area of the triangle PAC. Let this area be A3.
+If P lies inside the triangle, then A1 + A2 + A3 must be equal to A.
+ * 
+ * @param a 
+ * @param b 
+ * @param c 
+ * @param point 
+ * @return true If point inside.
+ * @return false If point outside.
+ */
+bool	bspArea( Point const a, Point const b, Point const c, Point const point )
+{
+	Fixed	abcArea = area(a, b, c);
+	Fixed	pabArea = area(point, a, b);
+	Fixed	pbcArea = area(point, b, c);
+	Fixed	pcaArea = area(point, c, a);
+
+	std::cout << "pointX: " << point.getPointX() << std::endl;
+	std::cout << "pointY: " << point.getPointY() << std::endl;
+	std::cout << "abc: " << abcArea << std::endl;
+	std::cout << "pab: " << pabArea << std::endl;
+	std::cout << "pbc: " << pbcArea << std::endl;
+	std::cout << "pca: " << pcaArea << std::endl;
+
+	return ((pabArea + pbcArea + pcaArea) == abcArea);
+}
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point )
 {
@@ -36,7 +102,7 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point )
 	std::cout << "bx: " << bx << std::flush << std::endl;
 	std::cout << "by: " << by << std::flush << std::endl;
 	std::cout << "cx: " << cx << std::flush << std::endl;
-	std::cout << "cx: " << cx << std::flush << std::endl;
+	std::cout << "cy: " << cy << std::flush << std::endl;
 	std::cout << "x: " << x << std::flush << std::endl;
 	std::cout << "y: " << y << std::flush << std::endl;
 	std::cout << "d: " << d << std::flush << std::endl;
@@ -52,41 +118,3 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point )
 		return (false);
 	return (true);
 }
-/*
-double bx = Bx-Ax,
-by = By-Ay,
-cx = Cx-Ax,
-cy = Cy-Ay,
-x = Px-Ax,
-y = Py-Ay;
-
-d = bx * cy - cx * by;
-double WA = (x * (by-cy) + y*(cx-bx) + bx * cy - cx * by) / d;
-double WB = (x * cy - y* cx) / d;
-double WC = (y * bx - x * by) / d;
-*/
-
-/* -> Different type.
-
-static Fixed   abs(Fixed x) {
-    if (x < 0)
-        return x * -1;
-    return x;
-}
-
-static Fixed   area( Point const a, Point const b, Point const c ) {
-    return ( ( ( a.getX() * ( b.getY() - c.getY() ) ) +
-             ( b.getX() * ( c.getY() - a.getY() ) ) +
-             ( c.getX() * ( a.getY() - b.getY() ) ) ) / 2 );
-}
-
-bool bsp( Point const a, Point const b, Point const c, Point const point) {
-    Fixed   abcArea = abs(area( a, b, c ));
-    Fixed   pabArea = abs(area( point, a, b ));
-    Fixed   pbcArea = abs(area( point, b, c ));
-    Fixed   pcaArea = abs(area( point, c, a ));
-
-    return  ( abcArea == pabArea + pbcArea + pcaArea );
-}
-
-*/

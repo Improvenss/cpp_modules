@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:48:28 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/21 23:55:50 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/22 00:46:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class Point
 		Fixed	getPointY( void ) const;
 };
 
+bool	bspArea( Point const a, Point const b, Point const c, Point const point );
 bool	bsp( Point const a, Point const b, Point const c, Point const point );
 
 // std::ostream	&operator<<( std::ostream &lhs, Point const &rhs );
