@@ -6,16 +6,16 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:32:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/17 20:58:36 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/21 17:41:08 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-#include <iostream>
-#include <cmath>// just roundf() allowed.
-#include <fstream>
+# include <iostream>
+# include <cmath>// just roundf() allowed.
+# include <fstream>
 
 class	Fixed
 {

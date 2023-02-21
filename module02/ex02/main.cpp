@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:44:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/06 16:49:55 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/21 18:10:26 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,38 @@ int	main()
 	Fixed		a;
 	Fixed const	b(Fixed(5.05f) * Fixed(2));
 
-	{
-		// Fixed		c;
-		// Fixed		cSmall;
+	// {
+	// 	Fixed	c(10);
+	// 	Fixed	cSmall(5);
 
-		// c = 10;
-		// cSmall = 5;
-		// std::cout << "b: " << a << std::endl;
-		// std::cout << "cSmall: " << cSmall << std::endl;
-		// 	std::cout << "cSmall + a: " << cSmall + c << std::endl;
-		// std::cout << "cSmall - a: " << cSmall - c << std::endl;
-		// std::cout << "cSmall * a: " << cSmall * c << std::endl;
-		// std::cout << "cSmall / a: " << cSmall / c << std::endl;
-	}
+	// 	std::cout << "[1] -> " << (10 > 5) << std::flush << std::endl;
+	// 	std::cout << "[2] -> " << (10 < 5) << std::flush << std::endl;
+	// 	std::cout << "[3] -> " << (10 >= 5) << std::flush << std::endl;
+	// 	std::cout << "[4] -> " << (10 <= 5) << std::flush << std::endl;
+	// 	std::cout << "[5] -> " << (10 == 5) << std::flush << std::endl;
+	// 	std::cout << "[6] -> " << (10 != 5) << std::flush << std::endl;
+	// }
+	// {
+	// 	Fixed		c(10);
+	// 	Fixed		cSmall(5);
+
+	// 	std::cout << "c: " << c << std::endl;
+	// 	std::cout << "cSmall: " << cSmall << std::endl;
+	// 	std::cout << "cSmall + c: " << cSmall + c << std::endl;
+	// 	std::cout << "cSmall - c: " << cSmall - c << std::endl;
+	// 	std::cout << "cSmall * c: " << cSmall * c << std::endl;
+	// 	std::cout << "cSmall / c: " << cSmall / c << std::endl;
+	// }
+	// {
+	// 	// Fixed		c(10);
+	// 	Fixed		cSmall(5);
+
+	// 	// std::cout << "c: " << c << std::endl;
+	// 	std::cout << "cSmall: " << cSmall << std::endl;
+	// 	std::cout << "cSmall--: " << cSmall-- << std::endl;
+	// 	std::cout << "cSmall: " << cSmall << std::endl;
+	// 	std::cout << "--cSmall: " << --cSmall << std::endl;
+	// }
 
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;

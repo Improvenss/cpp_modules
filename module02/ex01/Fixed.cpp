@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:33:02 by gsever            #+#    #+#             */
-/*   Updated: 2023/01/17 22:48:09 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/21 17:39:23 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ Fixed::Fixed( void ) : _fixPoint(0)
 	// this->_fixPoint = 0;
 }
 
+// Fixed::Fixed( const int numberInt ) : _fixPoint(numberInt)
 Fixed::Fixed( const int numberInt ) : _fixPoint(numberInt << _fractBits)
 {
 	std::cout << "Int constructor called" << std::flush << std::endl;
 	// this->_fixPoint = numberInt;
 }
 
-Fixed::Fixed( const float numberFloat) : _fixPoint(std::roundf(numberFloat * (1 << _fractBits)))
+Fixed::Fixed( const float numberFloat) : _fixPoint(std::roundf(\
+	numberFloat * (1 << _fractBits)))
 {
 	std::cout << "Float constructor called" << std::flush << std::endl;
 	// this->_fixPoint = numberFloat;
