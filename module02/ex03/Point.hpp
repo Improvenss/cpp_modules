@@ -6,14 +6,25 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:48:28 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/13 16:37:10 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:55:50 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef POINT_HPP
 # define POINT_HPP
 
-#include "Fixed.hpp"
+# include "Fixed.hpp"
+
+# define BLACK		"\033[0;30m"
+# define RED		"\033[0;31m"
+# define GREEN		"\033[0;32m"
+# define YELLOW		"\033[0;33m"
+# define BLUE		"\033[0;34m"
+# define PURPLE		"\033[0;35m"
+# define CYAN		"\033[0;36m"
+# define WHITE		"\033[0;37m"
+# define END		"\033[m"
+# define RESET		"\033[0m"
 
 class Point
 {
@@ -26,7 +37,6 @@ class Point
 		Point( const float x, const float y);
 		Point( const Point &rhs );
 		~Point( void );
-
 		Point &operator=( const Point &rhs );
 
 		Fixed	getPointX( void ) const;
@@ -37,4 +47,4 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point );
 
 // std::ostream	&operator<<( std::ostream &lhs, Point const &rhs );
 
-#endif
+#endif // POINT_HPP

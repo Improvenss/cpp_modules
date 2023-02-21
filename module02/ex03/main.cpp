@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:44:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/13 18:10:56 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/21 23:41:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ int	main()
 	Point	p(3.75, 1.0);// 3.75 inside, 3.76 outside
 
 	if (bsp(a, b, c, p) == true)
-		std::cout << "The Point \"INSIDE\" the triangle" << std::flush << std::endl;
+		std::cout << GREEN "The Point \"INSIDE\" the triangle" END\
+			<< std::flush << std::endl;
 	else
-		std::cout << "The Point \"OUTSIDE\" the triangle" << std::flush << std::endl;
+		std::cout << RED "The Point \"OUTSIDE\" the triangle" END\
+			<< std::flush << std::endl;
 	return (0);
 }
