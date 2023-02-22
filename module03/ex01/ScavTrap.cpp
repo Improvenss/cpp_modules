@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:58:42 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/20 21:22:35 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/22 14:58:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ScavTrap::takeDamage( unsigned int amount )
 {
 	if (this->isGuardOn == true)
 		std::cout << "ScavTrap " << this->_name\
-			<< " can't be attack because it's in guard gate mode!"\
+			<< " can't be attacked because it's in guard gate mode!"\
 			<< std::flush << std::endl;
 	else
 		ClapTrap::takeDamage(amount);

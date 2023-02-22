@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:34:58 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/20 19:02:03 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/22 14:46:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
  * 
  * Parameters	Public/Private/Protected Access Modifier
  * 
- * -Public-	Accessible from anywhere.
+ * -Public-		Accessible from anywhere.
  * -Private-	Accessible for only one class.
  * -Protected-	Accessible for any particularly given class along with its
  *  derived class or child classes. (Inheritance)
