@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 15:15:16 by gsever            #+#    #+#              #
-#    Updated: 2023/02/14 22:58:16 by gsever           ###   ########.fr        #
+#    Updated: 2023/02/22 17:53:08 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= ScavTrap
 
 #	Flags for compile
 CC			= c++
-FLAGS		= -Wall -Werror -Wextra -std=c++98
+FLAGS		= -Wall -Werror -Wextra -std=c++98 -Wshadow
 
 #	All process use for compiling.
 UNAME		:= $(shell uname -s)
