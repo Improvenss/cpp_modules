@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:44:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/22 13:40:19 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/22 13:51:44 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
  * @brief 
  * 
  * @link https://umitsen.wordpress.com/2013/04/07/nokta-ucgenin-icinde-mi-degil-mi-test-etme/
+ * @link https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
  * @link https://www.math10.com/en/geometry/geogebra/geogebra.html
  * 
  * @return int 

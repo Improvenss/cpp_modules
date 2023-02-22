@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:48:59 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/22 13:45:32 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/22 13:51:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ If P lies inside the triangle, then A1 + A2 + A3 must be equal to A.
  * @param b 
  * @param c 
  * @param point 
+ * @link https://www.geeksforgeeks.org/check-whether-a-given-point-lies-inside-a-triangle-or-not/
  * @return true If point inside.
  * @return false If point outside.
  */
