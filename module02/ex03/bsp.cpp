@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:48:59 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/22 13:44:20 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/22 13:45:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ bool	bspArea( Point const a, Point const b, Point const c, Point const point )
 	std::cout << "pab: " << pabArea << std::endl;
 	std::cout << "pbc: " << pbcArea << std::endl;
 	std::cout << "pca: " << pcaArea << std::endl;
-
 
 	return ((pabArea + pbcArea + pcaArea) == abcArea);
 }
