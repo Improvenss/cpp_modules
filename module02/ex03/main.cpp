@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 16:44:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/22 01:55:21 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/22 13:40:19 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ int	main()
 	Point	a;// (0, 0)
 	Point	b(3.0, 4.0);// (3, 4)
 	Point	c(4.0, 0.0);// (4, 0);
-	Point	p(3.75, 1.0);// 3.75 inside
+	Point	p(3.75, 1.0);// 3.75 inside/edge
 	// Point	p(3.76, 1.0);// 3.76 outside
+	// Point	p(0.0, 0.0);// (0, 0) a vertex.
+	// Point	p(3.0, 4.0);// (3, 4) b vertex.
+	// Point	p(4.0, 0.0);// (3, 4) c vertex.
+	// Point	p(1.94, 2.58);//  intersect.
 
 	std::cout << "--------- First Style (Location) --------"\
 		<< std::flush << std::endl;
