@@ -6,12 +6,12 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 15:15:16 by gsever            #+#    #+#              #
-#    Updated: 2023/01/04 15:29:07 by gsever           ###   ########.fr        #
+#    Updated: 2023/02/23 12:11:29 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!!!!!!!!! NOTE: < here > you need change with your customize. !!!!!!!
-NAME		= FixedPointNumber
+NAME		= bsp
 
 #	Flags for compile
 CC			= c++

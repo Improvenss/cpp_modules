@@ -6,13 +6,15 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:58:04 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/21 00:03:26 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/23 13:10:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int	main()
 {
@@ -38,8 +40,20 @@ int	main()
 	std::cout << GREEN "****************************************" END\
 		<< std::flush << std::endl;
 
-	// std::cout << RED "*********** Wrong Animal Area ***********" END\
-		// << std::flush << std::endl;
-	// std::cout << RED "****************************************" END\
-	// 	<< std::flush << std::endl;
+	std::cout << RED "*********** Wrong Animal Area ***********" END\
+		<< std::flush << std::endl;
+	const WrongAnimal	*wrong = new WrongAnimal();
+	const WrongAnimal	*wrongcat = new WrongCat();
+	std::cout << "-------- Wrong Animals Created! ------"\
+		<< std::flush << std::endl << std::endl;
+	std::cout << "WrongAnimal's Type: " << wrong->getType() << " " << std::flush << std::endl;
+	wrong->makeSound();
+	std::cout << "WrongCat's Type: " << wrongcat->getType() << " " << std::flush << std::endl;
+	wrongcat->makeSound();
+	std::cout << "\n-------- Wrong Animals Destroying! ------"\
+		<< std::flush << std::endl;
+	delete	wrong;
+	delete	wrongcat;
+	std::cout << RED "****************************************" END\
+		<< std::flush << std::endl;
 }
