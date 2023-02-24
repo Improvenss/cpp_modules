@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:53:50 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/23 17:43:39 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/24 20:43:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define CAT_HPP
 
 // # include <iostream>
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 // # include "Colors.hpp"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 	private:
 		Brain	*_brain;

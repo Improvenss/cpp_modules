@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:57:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/24 16:01:18 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/24 20:48:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @link https://www.geeksforgeeks.org/if-memory-allocation-using-new-is-failed-in-c-then-how-it-should-be-handled/
  * ------------------------------------------
  */
-Cat::Cat( void ) : Animal("Cat")
+Cat::Cat( void ) : AAnimal("Cat")
 {
 	std::cout << "Cat Default Constructor called: " << this->type\
 		<< std::flush << std::endl;
@@ -37,13 +37,13 @@ Cat::Cat( void ) : Animal("Cat")
 	}
 }
 
-// Cat::Cat( std::string name ) : Animal("Cat")
+// Cat::Cat( std::string name ) : AAnimal("Cat")
 // {
 // 	std::cout << "Cat Name Constructor called: " << this->type\
 // 		<< std::flush << std::endl;
 // }
 
-// Cat::Cat( const Cat &rhs ) : Animal(rhs.type)
+// Cat::Cat( const Cat &rhs ) : AAnimal(rhs.type)
 // {
 // 	std::cout << "Cat Copy Constructor called: " << this->type\
 // 		<< std::flush << std::endl;

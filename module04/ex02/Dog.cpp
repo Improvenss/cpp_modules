@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:57:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/24 16:01:40 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/24 20:48:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @link https://www.geeksforgeeks.org/if-memory-allocation-using-new-is-failed-in-c-then-how-it-should-be-handled/
  * ------------------------------------------
  */
-Dog::Dog( void ) : Animal("Dog")
+Dog::Dog( void ) : AAnimal("Dog")
 {
 	std::cout << "Dog Default Constructor called: " << this->type\
 		<< std::flush << std::endl;
@@ -37,13 +37,13 @@ Dog::Dog( void ) : Animal("Dog")
 	}
 }
 
-// Dog::Dog( std::string name ) : Animal("Dog")
+// Dog::Dog( std::string name ) : AAnimal("Dog")
 // {
 // 	std::cout << "Dog Name Constructor called: " << this->type\
 // 		<< std::flush << std::endl;
 // }
 
-// Dog::Dog( const Dog &rhs ) : Animal(rhs.type)
+// Dog::Dog( const Dog &rhs ) : AAnimal(rhs.type)
 // {
 // 	std::cout << "Dog Copy Constructor called: " << this->type\
 // 		<< std::flush << std::endl;
