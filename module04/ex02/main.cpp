@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:58:04 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/24 20:48:50 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/25 14:46:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,77 +28,78 @@
 
 static void	JustSelfTestForAllocationLoop( void )
 {
-	const AAnimal	*_animals[3] = { new AAnimal(), new Dog(), new Cat() };
-	for (int a = 0; a < 3; a++)
+	// const AAnimal	*_animals[3] = { new AAnimal(), new Dog(), new Cat() };
+	const AAnimal	*_animals[2] = { new Dog(), new Cat() };
+	for (int a = 0; a < 2; a++)
 	{
 		std::cout << B_RED "------------------------" END << std::flush\
 			<< std::endl << std::endl;
 		std::cout << B_GREEN "Leaks Before: " << std::flush;
-		system("leaks AAnimalBrain | grep 'leaked'");
+		system("leaks AAnimalBrain | grep 'leaked bytes'");
 		std::cout << END << std::flush;
 		delete _animals[a];
 		std::cout << B_GREEN "Leaks After: " << std::flush;
-		system("leaks AAnimalBrain | grep 'leaked'");
+		system("leaks AAnimalBrain | grep 'leaked bytes'");
 		std::cout << END << std::flush;
 	}
 }
 
 static void	JustSelfTestForAllocation( void )
 {
-	std::cout << YELLOW "*********** Default AAnimal Test Area ***********" END\
-		<< std::flush << std::endl;
-	const AAnimal	*a1 = new AAnimal();
-	std::cout << "~~~~~~~~~~~~~ AAnimal Allocated Created! ~~~~~~~~~~~~~~~" << std::endl;
-	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
-	std::cout << END << std::flush;
-	delete a1;
-	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
-	std::cout << END << std::flush;
-	std::cout << B_RED "-------- AAnimals Allocated Destroyed! ------\n" END\
-		<< std::flush << std::endl;
+	// std::cout << YELLOW "*********** Default AAnimal Test Area ***********" END\
+	// 	<< std::flush << std::endl;
+	// const AAnimal	*a1 = new AAnimal();
+	// std::cout << "~~~~~~~~~~~~~ AAnimal Allocated Created! ~~~~~~~~~~~~~~~" << std::endl;
+	// std::cout << B_GREEN "Leaks: " << std::flush;
+	// system("leaks AAnimalBrain | grep 'leaked bytes'");
+	// std::cout << END << std::flush;
+	// delete a1;
+	// std::cout << B_GREEN "Leaks: " << std::flush;
+	// system("leaks AAnimalBrain | grep 'leaked bytes'");
+	// std::cout << END << std::flush;
+	// std::cout << B_RED "-------- AAnimals Allocated Destroyed! ------\n" END\
+	// 	<< std::flush << std::endl;
 	const AAnimal	*d1 = new Dog();
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << "~~~~~~~~~~~~~ Dog Allocated Created! ~~~~~~~~~~~~~~~" << std::endl;
 	delete d1;
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << B_RED "-------- Dog Allocated Destroyed! ------\n" END\
 		<< std::flush << std::endl;
 	const AAnimal	*c1 = new Cat();
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << "~~~~~~~~~~~~~ Cat Allocated Created! ~~~~~~~~~~~~~~~" << std::endl;
 	delete c1;
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << B_RED "-------- Cat Allocated Destroyed! ------\n" END\
 		<< std::flush << std::endl;
 	const Dog		*doge = new Dog();
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << "~~~~~~~~~~~~~ doge Allocated Created! ~~~~~~~~~~~~~~~" << std::endl;
 	delete doge;
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << B_RED "-------- Doge Allocated Destroyed! ------\n" END\
 		<< std::flush << std::endl;
 	const Cat		*catge = new Cat();
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << "~~~~~~~~~~~~~ catge Allocated Created! ~~~~~~~~~~~~~~~" << std::endl;
 	delete catge;
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << B_RED "-------- catge Allocated Destroyed! ------\n" END\
 		<< std::flush << std::endl << std::endl;
@@ -114,14 +115,14 @@ static void	JustSelfTestForAllocation( void )
 	const Cat		*cat1 = NULL;
 	const Brain		*brain1 = NULL;
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	delete animal1;
 	delete dog1;
 	delete cat1;
 	delete brain1;
 	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << END "Creating but not allocated memory area finished sir!."\
 		<< std::flush << std::endl;
@@ -219,7 +220,7 @@ int	main()
 	delete i;
 	// std::cout << GREEN "Leaks: ";
 	std::cout << B_GREEN "Leaks: " << std::flush;// Eger buraya std::flush yazmazsam "Leaks: " 'i terminalde calistirdigimiz leaks'ten sonra yazdiyor ve bir isime yaramiyor... :)
-	system("leaks AAnimalBrain | grep 'leaked'");
+	system("leaks AAnimalBrain | grep 'leaked bytes'");
 	std::cout << END << std::flush;
 	std::cout << GREEN "************************************************" END\
 		<< std::flush << std::endl;
