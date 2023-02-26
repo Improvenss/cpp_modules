@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:32:08 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/17 21:45:18 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/26 15:51:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ int	main()
 
 	std::cout << "-------- Players Created! ------" << std::flush << std::endl << std::endl;
 	// s1 = s2;
-	// // {
+	// {
+	// 	std::cout << "************** Scope Area *************" << std::flush << std::endl;
 	// 	ClapTrap	*a = new ScavTrap();
 	// 	ClapTrap	*b;
 	// 	b = a;
 	// 	delete	(b);
+	// 	std::cout << "************** Scope Area Finished *************" << std::flush << std::endl;
 	// }
 	s1.attack("s2");
 	s2.takeDamage(s1.getDamage());
@@ -42,6 +44,6 @@ int	main()
 	s1.ClapTrap::attack("s2");
 	s2.takeDamage(s1.getDamage());
 	std::cout << std::endl;
-	std::cout << "\n-------- Players Destroying! ------" << std::flush << std::endl;
+	std::cout << "-------- Players Destroying! ------" << std::flush << std::endl;
 	return (0);
 }
