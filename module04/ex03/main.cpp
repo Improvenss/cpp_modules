@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:56:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/27 14:07:53 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/27 17:25:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,21 @@
 // #include "Cure.hpp"
 
 /**
- * @brief 
+ * @brief Learning 
  * 
- * Abstract Class(Soyutlama) vs Interface(Arayuz)
+	a) Abstract Classes()
+		These are base classes where you have to derive from them and
+		 then implement the pure virtual functions.
+	b) Pure Abstract Classes( Interfaces )
+		These are 'empty' classes where all functions are pure virtual and
+		 hence you have to derive and then implement all of the functions.
+		Pure virtual functions are actually functions which have no
+		 implementation in base class and have to be implemented in derived class.
+ * @link https://stackoverflow.com/questions/12854778/abstract-class-vs-interface-in-c#:~:text=An%20%22interface%22%20embodies%20the%20concept,specify%20the%20contract%20in%20isolation.
+ * @link https://duygubulut.wordpress.com/tag/pure-virtual/
  * 
+ * @note #include <bits/stdc++.h> library have all standard c++ libraries's libraries. :')
+ * @link https://gcc.gnu.org/onlinedocs/gcc-4.8.0/libstdc++/api/a01541_source.html
  * @return int 
  */
 int	main()
