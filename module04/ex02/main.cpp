@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:58:04 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/25 14:46:35 by gsever           ###   ########.fr       */
+/*   Updated: 2023/02/27 13:10:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static void	JustSelfTestForAllocation( void )
 	// std::cout << END << std::flush;
 	// std::cout << B_RED "-------- AAnimals Allocated Destroyed! ------\n" END\
 	// 	<< std::flush << std::endl;
+
 	const AAnimal	*d1 = new Dog();
 	std::cout << B_GREEN "Leaks: " << std::flush;
 	system("leaks AAnimalBrain | grep 'leaked bytes'");
@@ -70,6 +71,7 @@ static void	JustSelfTestForAllocation( void )
 	std::cout << END << std::flush;
 	std::cout << B_RED "-------- Dog Allocated Destroyed! ------\n" END\
 		<< std::flush << std::endl;
+
 	const AAnimal	*c1 = new Cat();
 	std::cout << B_GREEN "Leaks: " << std::flush;
 	system("leaks AAnimalBrain | grep 'leaked bytes'");
@@ -81,6 +83,7 @@ static void	JustSelfTestForAllocation( void )
 	std::cout << END << std::flush;
 	std::cout << B_RED "-------- Cat Allocated Destroyed! ------\n" END\
 		<< std::flush << std::endl;
+
 	const Dog		*doge = new Dog();
 	std::cout << B_GREEN "Leaks: " << std::flush;
 	system("leaks AAnimalBrain | grep 'leaked bytes'");
@@ -92,6 +95,7 @@ static void	JustSelfTestForAllocation( void )
 	std::cout << END << std::flush;
 	std::cout << B_RED "-------- Doge Allocated Destroyed! ------\n" END\
 		<< std::flush << std::endl;
+
 	const Cat		*catge = new Cat();
 	std::cout << B_GREEN "Leaks: " << std::flush;
 	system("leaks AAnimalBrain | grep 'leaked bytes'");
