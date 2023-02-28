@@ -1,0 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Polymorphism.txt                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/28 22:21:41 by gsever            #+#    #+#              #
+#    Updated: 2023/02/28 22:22:14 by gsever           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+	Polymorphism is the ability of an object to take on many forms.
+
+	In C++, polymorphism is achieved through two mechanisms:
+	 'function overloading' and 'virtual functions'.
