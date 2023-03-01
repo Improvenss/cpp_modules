@@ -6,14 +6,14 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:57:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/28 15:35:56 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/01 12:57:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
  * @file AMateria.cpp
  * @author Görkem SEVER (gsever)
- * @brief A material class's func()s.
+ * @brief A(Abstract Class) material class's func()s.
  * @version 0.1
  * @date 2023-02-28
  * 
