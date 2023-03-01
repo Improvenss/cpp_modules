@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:56:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/01 18:01:17 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/01 18:08:18 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@
  * @note Interface created first in Java, in C++ we are using
  *  this style while Abstract Class.
  * @link https://en.wikipedia.org/wiki/Interface_(Java)
+ * 
+ * @link https://stackoverflow.com/questions/318064/how-do-you-declare-an-interface-in-c
  * @return int 
  */
 int	main()
