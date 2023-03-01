@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:56:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/01 18:08:18 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/02 00:40:23 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,3 +83,44 @@ int	main()
 
 	// return 0;
 }
+
+/**
+ * @brief 
+ * 
+ * 
+Materias beton sınıfları Ice and Cure'u uygulayın. Türlerini ayarlamak için adlarını küçük harflerle kullanın (Ice için "ice", Cure için "cure"). Elbette, üye işlevleri clone() aynı türden yeni bir örnek döndürür (yani, bir Ice Materia'yı klonlarsanız, yeni bir Ice Materia alırsınız).
+use(ICacter&) üye işlevi şunu gösterecektir: • Buz: "* <ad>'a bir buz oku fırlatır *"
+• Tedavi: "* <isim>'in yaralarını iyileştirir *"
+<ad>, parametre olarak iletilen Karakterin adıdır. Açıyı yazdırma
+parantezler (< ve >).
+Aşağıdaki arabirimi uygulayacak olan somut karakter sınıfını yazın:
+
+
+Bir Materia'yı diğerine atarken, yazı tipini kopyalamak
+algı.
+
+Karakter 4 yuvalık bir envantere sahiptir, bu da en fazla 4 Materia anlamına gelir. Envanter yapım aşamasında boştur. Materiaları buldukları ilk boş yuvaya yerleştirirler. Bu şu anlama gelir: 0. yuvadan 3. yuvaya. Dolu bir envantere bir Materia eklemeye veya var olmayan bir Materia'yı kullanmaya/çıkarmaya çalışırlarsa, hiçbir şey yapmayın (ancak yine de hatalar yasaktır). unequip() üye işlevi Materia'yı SİLMEMELİDİR!
+
+Karakterinizin yerde bıraktığı Materia'ları istediğiniz gibi kullanın.
+unequip() veya başka bir şeyi çağırmadan önce adresleri kaydedin, ancak
+bellek sızıntılarından kaçınmanız gerektiğini unutmayın.
+
+use(int, ICharacter&) üye işlevinin yuva[idx]'te Materia'yı kullanması ve hedef parametreyi AMeria::use işlevine iletmesi gerekir.
+
+Karakterinizin envanteri her türde oyunu destekleyebilecektir.
+Materyal.
+
+
+Karakterinizin adını parametre olarak alan bir oluşturucusu olmalıdır. Bir Karakterin herhangi bir kopyası (kopya oluşturucu veya kopya atama işleci kullanılarak) derin olmalıdır. Kopyalama sırasında, bir Karakterin Materyalleri envantere yenileri eklenmeden önce silinmelidir. Elbette, bir Karakter yok edildiğinde Materyaller silinmelidir.
+Aşağıdaki arabirimi uygulayacak somut sınıf MateriaSource'u yazın:
+
+• LearnMateria(AMateria*)
+Geçirilen Materia'yı parametre olarak kopyalar ve daha sonra klonlanabilmesi için bellekte saklar. Karakter gibi, MateriaSource da en fazla 4 Materia bilebilir. Benzersiz olmaları gerekmez.
+• createMateria(std::string const &)
+Yeni bir Materia döndürür. Sonuncusu, türü parametre olarak iletilen olana eşit olan MateriaSource tarafından daha önce öğrenilen Materia'nın bir kopyasıdır. Tür bilinmiyorsa 0 döndürür.
+
+Özetle, MateriaSource'unuz gerektiğinde bunları oluşturmak için Materias "şablonlarını" öğrenebilmelidir. Ardından, yalnızca türünü tanımlayan bir dizi kullanarak yeni bir Materia oluşturabileceksiniz.
+
+Her zamanki gibi, yukarıda verilenlerden daha fazla test uygulayın ve teslim edin.
+ * 
+ */
