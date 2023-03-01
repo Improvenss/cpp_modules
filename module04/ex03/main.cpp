@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:56:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/01 17:29:01 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/01 18:01:17 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 // #include "MateriaSource.hpp"
 // #include "Ice.hpp"
 // #include "Cure.hpp"
+#include "AMateria.hpp"
+
 
 /**
  * @brief Learning 

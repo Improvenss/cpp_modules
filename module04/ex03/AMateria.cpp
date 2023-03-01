@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:57:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/01 12:57:11 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/01 17:38:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ AMateria	*AMateria::clone( void ) const
 	return ((AMateria*)this);
 }
 
-void	AMateria::use( ICharacter &target )
+void	AMateria::use( ICharacter  &target )
 {
 	std::cout << "AMateria " << this->type << " used on "\
 		<< target.getName() << std::flush << std::endl;
