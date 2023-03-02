@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:57:54 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/01 17:41:42 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/02 16:12:56 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ICharacter.hpp"
 # include <iostream>
 
-// class ICharacter;
+class ICharacter;
 
 /**
  * @brief Abstract Class

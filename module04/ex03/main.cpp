@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:56:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/02 00:40:23 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/02 16:08:44 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
  * @copyright Copyright (c) 2023
  * 
  */
-// #include "Character.hpp"
+#include "Character.hpp"
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
-// #include "MateriaSource.hpp"
-// #include "Ice.hpp"
-// #include "Cure.hpp"
+#include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 #include "AMateria.hpp"
 
 
@@ -60,28 +60,28 @@
  */
 int	main()
 {
-	// IMateriaSource	*src = new MateriaSource();
-	// src->learnMateria(new Ice());
-	// src->learnMateria(new Cure());
+	IMateriaSource	*src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-	// ICharacter	*me = new Character("me");
+	ICharacter	*me = new Character("me");
 
-	// AMateria	*tmp;
-	// tmp = src->createMateria("ice");
-	// me->equip(tmp);
-	// tmp = src->createMateria("cure");
-	// me->equip(tmp);
+	AMateria	*tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
 
-	// ICharacter	*bob = new Character("bob");
+	ICharacter	*bob = new Character("bob");
 
-	// me->use(0, *bob);
-	// me->use(1, *bob);
+	me->use(0, *bob);
+	me->use(1, *bob);
 
-	// delete bob;
-	// delete me;
-	// delete src;
+	delete bob;
+	delete me;
+	delete src;
 
-	// return 0;
+	return 0;
 }
 
 /**
