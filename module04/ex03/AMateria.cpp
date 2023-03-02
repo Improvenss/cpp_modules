@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:57:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/02 11:52:18 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/02 16:14:47 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,26 @@
 
 AMateria::AMateria( void ) : type("Default")
 {
-	std::cout << "AMateria Default Constructor called: " << this->type\
-		<< std::flush << std::endl;
+	// std::cout << "AMateria Default Constructor called: " << this->type\
+	// 	<< std::flush << std::endl;
 }
 
 AMateria::AMateria( std::string const &type ) : type(type)
 {
-	std::cout << "AMateria Type Constructor called: " << this->type\
-		<< std::flush << std::endl;
+	// std::cout << "AMateria Type Constructor called: " << this->type\
+	// 	<< std::flush << std::endl;
 }
 
 AMateria::AMateria( AMateria const &rhs ) : type(rhs.type)
 {
-	std::cout << "AMateria Copy Constructor called: " << this->type\
-		<< std::flush << std::endl;
+	// std::cout << "AMateria Copy Constructor called: " << this->type\
+	// 	<< std::flush << std::endl;
 }
 
 AMateria::~AMateria( void )
 {
-	std::cout << "AMateria Destructor called: " << this->type\
-		<< std::flush << std::endl;
+	// std::cout << "AMateria Destructor called: " << this->type\
+	// 	<< std::flush << std::endl;
 }
 
 std::string const	&AMateria::getType( void ) const
