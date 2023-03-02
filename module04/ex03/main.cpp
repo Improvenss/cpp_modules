@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:56:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/02 16:27:01 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/02 17:24:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,35 +57,36 @@
  * @link https://en.wikipedia.org/wiki/Interface_(Java)
  * 
  * @link https://stackoverflow.com/questions/318064/how-do-you-declare-an-interface-in-c
+ * 
  * @return int 
  */
 int	main()
 {
-	IMateriaSource	*src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	IMateriaSource	*src = new MateriaSource();// Created Materia book.
+	src->learnMateria(new Ice());// Learned Ice formula.
+	src->learnMateria(new Cure());// Learned Cure formula.
 
-	ICharacter	*me = new Character("me");
+	ICharacter	*me = new Character("me");// Create myself in game.
 
 	AMateria	*tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	tmp = src->createMateria("ice");// Create "ice" Materia from Materia book while Ice formula.
+	me->equip(tmp);// Equip created "ice" Materia to my [0],1,2,3 -> 0. spell/pocket.
+	tmp = src->createMateria("cure");// Create "cure" Materia from Materia book while Cure formula.
+	me->equip(tmp);// Equip created "cure" Materia to my 0,[1],2,3 -> 1. spell/pocket.
 
-	ICharacter	*bob = new Character("bob");
+	ICharacter	*bob = new Character("bob");// Create a enemy. It's name is bob.
 
-	me->use(0, *bob);
-	me->use(1, *bob);
+	me->use(0, *bob);// Use 0. index's spell to bob.
+	me->use(1, *bob);// Use 1. index's spell to bob.
 
 	// std::cout << B_GREEN "Leaks After: " << std::flush;
 	// system("leaks InterfaceRecap | grep 'leaked bytes'");
 	// std::cout << END << std::flush;
-	delete bob;
-	delete me;
-	delete src;
+	delete bob;// Delete enemy.
+	delete me;// Delete myself.
+	delete src;// Delete Materia book.
 
-	return 0;
+	return (0);
 }
 
 /**
