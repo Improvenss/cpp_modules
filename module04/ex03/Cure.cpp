@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:06:09 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/02 16:18:17 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/02 16:30:53 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Cure::Cure( void ) : AMateria("cure")
 {
-	// std::cout << "Cure Default Constrcutor called!"\
+	// std::cout << "Cure Default Constructor called!"\
 	// 	<< std::flush << std::endl;
 }
 
 Cure::Cure( Cure const &rhs ) : AMateria("cure")
 {
 	*this = rhs;
-	// std::cout << "Cure Copy Constrcutor called!"\
+	// std::cout << "Cure Copy Constructor called!"\
 	// 	<< std::flush << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 15:10:49 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/02 16:18:27 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/02 16:30:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Ice::Ice( void ) : AMateria("ice")
 {
-	// std::cout << "Ice Default Constrcutor called!"\
+	// std::cout << "Ice Default Constructor called!"\
 	// 	<< std::flush << std::endl;
 }
 
 Ice::Ice( Ice const &rhs ) : AMateria("ice")
 {
 	*this = rhs;
-	// std::cout << "Ice Copy Constrcutor called!"\
+	// std::cout << "Ice Copy Constructor called!"\
 	// 	<< std::flush << std::endl;
 }
 

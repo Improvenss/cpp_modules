@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:56:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/02 16:08:44 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/02 16:27:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@
  * @copyright Copyright (c) 2023
  * 
  */
-#include "Character.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
-#include "AMateria.hpp"
+# include "Character.hpp"
+# include "ICharacter.hpp"
+# include "IMateriaSource.hpp"
+# include "MateriaSource.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
+# include "AMateria.hpp"
+# include "Colors.hpp"
 
 
 /**
@@ -77,6 +78,9 @@ int	main()
 	me->use(0, *bob);
 	me->use(1, *bob);
 
+	// std::cout << B_GREEN "Leaks After: " << std::flush;
+	// system("leaks InterfaceRecap | grep 'leaked bytes'");
+	// std::cout << END << std::flush;
 	delete bob;
 	delete me;
 	delete src;
@@ -85,7 +89,7 @@ int	main()
 }
 
 /**
- * @brief 
+ * @brief PDF to Turkish language.
  * 
  * 
 Materias beton sınıfları Ice and Cure'u uygulayın. Türlerini ayarlamak için adlarını küçük harflerle kullanın (Ice için "ice", Cure için "cure"). Elbette, üye işlevleri clone() aynı türden yeni bir örnek döndürür (yani, bir Ice Materia'yı klonlarsanız, yeni bir Ice Materia alırsınız).
