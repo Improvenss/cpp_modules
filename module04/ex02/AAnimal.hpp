@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal copy.hpp                                   :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:53:50 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/27 13:32:49 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/03 15:37:24 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "Brain.hpp"
 
 /**
- * @brief 
+ * @brief Abstract Class
  * 
  * 		Virtual destructor:
 	A virtual destructor is used to free up the memory space allocated by 
@@ -37,6 +37,8 @@
  * @fn makeSound(); There ( = 0 ) meaning; You can't create this class anywhere,
  *  you can just inheritance this class.
  * @note Just = 0, not 1 or -253 etc.
+ * @note We are created a 'Abstract Class' therefore we need to add 'A' prefix
+ *  to .cpp file's name.
  */
 class AAnimal
 {
