@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:58:04 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/25 14:46:47 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/03 15:25:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,61 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+#define ANIMAL_COUNT 6
+
+static void	JustSelfTestForAllocationLoopHalf( void )
+{
+	Animal	*_animals[ANIMAL_COUNT];
+	for (int i = 0; i < ANIMAL_COUNT; i++)
+	{
+		std::cout << B_RED "HalfTEST[" << i << "] ~~~~~~~~~~~~~~" END\
+			<< std::flush << std::endl;
+		std::cout << B_GREEN "Leaks Before: " << std::flush;
+		system("leaks AnimalBrain | grep 'leaked bytes'");
+		std::cout << END << std::flush;
+		if (i % 2 == 0)
+			_animals[i] = new Dog();
+		else
+			_animals[i] = new Cat();
+		std::cout << B_GREEN "Leaks After: " << std::flush;
+		system("leaks AnimalBrain | grep 'leaked bytes'");
+		std::cout << END << std::flush << std::endl;
+	}
+
+	_animals[0]->getBrain().setIdea(0, "Foo");
+	_animals[0]->getBrain().setIdea(1, "Bar");
+	_animals[1]->getBrain().setIdea(0, "LHS");
+	_animals[1]->getBrain().setIdea(1, "RHS");
+
+	std::cout << "_animals[0]: " << _animals[0]->getType() << ": "\
+		<< _animals[0]->getBrain().getIdea(0) << std::flush << std::endl;
+	std::cout << "_animals[0]: " << _animals[0]->getType() << ": "\
+		<< _animals[0]->getBrain().getIdea(1) << std::flush << std::endl;
+	std::cout << "_animals[1]: " << _animals[1]->getType() << ": "\
+		<< _animals[1]->getBrain().getIdea(0) << std::flush << std::endl;
+	std::cout << "_animals[1]: " << _animals[1]->getType() << ": "\
+		<< _animals[1]->getBrain().getIdea(1)\
+		<< std::flush << std::endl << std::endl;
+
+	for (int i = 0; i < ANIMAL_COUNT; i++)
+	{
+		std::cout << B_RED "HalfTEST[" << i << "] ~~Destructor~~" END\
+			<< std::flush << std::endl;
+		std::cout << B_GREEN "Leaks Before: " << std::flush;
+		system("leaks AnimalBrain | grep 'leaked bytes'");
+		std::cout << END << std::flush;
+		delete _animals[i];
+		std::cout << B_GREEN "Leaks After: " << std::flush;
+		system("leaks AnimalBrain | grep 'leaked bytes'");
+		std::cout << END << std::flush << std::endl;
+	}
+}
+
 static void	JustSelfTestForAllocationLoop( void )
 {
-	const Animal	*_animals[3] = { new Animal(), new Dog(), new Cat() };
-	for (int a = 0; a < 3; a++)
+	// const Animal	*_animals[3] = { new Animal(), new Dog(), new Cat() };
+	const Animal	*_animals[2] = { new Dog(), new Cat() };
+	for (int a = 0; a < 2; a++)
 	{
 		std::cout << B_RED "------------------------" END << std::flush\
 			<< std::endl << std::endl;
@@ -37,17 +88,17 @@ static void	JustSelfTestForAllocation( void )
 {
 	std::cout << YELLOW "*********** Default Animal Test Area ***********" END\
 		<< std::flush << std::endl;
-	const Animal	*a1 = new Animal();
-	std::cout << "~~~~~~~~~~~~~ Animal Allocated Created! ~~~~~~~~~~~~~~~" << std::endl;
-	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AnimalBrain | grep 'leaked bytes'");
-	std::cout << END << std::flush;
-	delete a1;
-	std::cout << B_GREEN "Leaks: " << std::flush;
-	system("leaks AnimalBrain | grep 'leaked bytes'");
-	std::cout << END << std::flush;
-	std::cout << B_RED "-------- Animals Allocated Destroyed! ------\n" END\
-		<< std::flush << std::endl;
+	// const Animal	*a1 = new Animal();
+	// std::cout << "~~~~~~~~~~~~~ Animal Allocated Created! ~~~~~~~~~~~~~~~" << std::endl;
+	// std::cout << B_GREEN "Leaks: " << std::flush;
+	// system("leaks AnimalBrain | grep 'leaked bytes'");
+	// std::cout << END << std::flush;
+	// delete a1;
+	// std::cout << B_GREEN "Leaks: " << std::flush;
+	// system("leaks AnimalBrain | grep 'leaked bytes'");
+	// std::cout << END << std::flush;
+	// std::cout << B_RED "-------- Animals Allocated Destroyed! ------\n" END\
+	// 	<< std::flush << std::endl;
 	const Animal	*d1 = new Dog();
 	std::cout << B_GREEN "Leaks: " << std::flush;
 	system("leaks AnimalBrain | grep 'leaked bytes'");
@@ -219,7 +270,12 @@ int	main()
 	JustSelfTestForAllocation();
 
 // This area for test all class with loop.
-	std::cout << "[[[[[[[[[Loop Started!]]]]]]]]]]]" << std::flush << std::endl;
+	std::cout << std::endl << B_RED "[[[[[[[[[ Loop Started! ]]]]]]]]]]]" END\
+		<< std::flush << std::endl;
 	JustSelfTestForAllocationLoop();
+// This area inside one loop both animals creating for N times.
+	std::cout << std::endl << B_RED "[[[[[[[[[ Half Loop Started! ]]]]]]]]]]]" END\
+		<< std::flush << std::endl;
+	JustSelfTestForAllocationLoopHalf();
 	return (0);
 }

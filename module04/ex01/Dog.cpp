@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 22:57:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/24 16:01:40 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/03 15:26:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,9 @@ void	Dog::makeSound( void ) const
 {
 	std::cout << "Hav Hav Hav: " << this->type\
 		<< std::flush << std::endl;
+}
+
+Brain	&Dog::getBrain( void ) const
+{
+	return (*this->_brain);
 }
