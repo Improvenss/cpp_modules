@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:56:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/02 17:24:25 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/03 16:26:46 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,21 @@ int	main()
 	me->use(0, *bob);// Use 0. index's spell to bob.
 	me->use(1, *bob);// Use 1. index's spell to bob.
 
-	// std::cout << B_GREEN "Leaks After: " << std::flush;
-	// system("leaks InterfaceRecap | grep 'leaked bytes'");
-	// std::cout << END << std::flush;
+/////////////////////////////
+	// me->unequip(0);
+	// me->unequip(1);
+	// me->use(0, *bob);// Use 0. index's spell to bob.
+	// me->use(1, *bob);// Use 1. index's spell to bob.
+
+	// bob->equip(src->createMateria("ice"));
+	// bob->equip(src->createMateria("cure"));
+	// bob->use(0, *me);
+	// bob->use(1, *me);
+/////////////////////////////
+
+	std::cout << B_GREEN "Leaks After: " << std::flush;
+	system("leaks InterfaceRecap | grep 'leaked bytes'");
+	std::cout << END << std::flush;
 	delete bob;// Delete enemy.
 	delete me;// Delete myself.
 	delete src;// Delete Materia book.

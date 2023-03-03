@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 22:30:37 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/02 16:31:12 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/03 16:24:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,38 +60,41 @@ void	Character::equip( AMateria *m)
 	for (int i = 0; i < 4; i++)
 		if (this->_inventory[i] == NULL)
 		{
+			// std::cout << GREEN "Character " << this->_name\
+			// 	<< " equipped with " << m->getType() << END\
+			// 	<< std::flush << std::endl;
 			this->_inventory[i] = m;
-			// std::cout << "Character " << this->_name << " equipped with "\
-			// 	<< m->getType() << std::flush << std::endl;
 			return ;
 		}
-	// std::cout << "Character " << this->_name << " can't equip "\
-	// 	<< m->getType() << std::flush << std::endl;
+	// std::cout << GREEN "Character " << this->_name\
+		// << " can't equip " END << std::flush << std::endl;
 }
 
 void	Character::unequip( int idx )
 {
 	if (this->_inventory[idx])
 	{
-		delete this->_inventory[idx];
-		this->_inventory[idx] = NULL;
-		// std::cout << "Character " << this->_name << " unequipped!"\
+		// delete this->_inventory[idx];
+		// std::cout << RED "Character " << this->_name << " unequipped "\
+		// 	<< this->_inventory[idx]->getType()<< " material." END\
 		// 	<< std::flush << std::endl;
+		this->_inventory[idx] = NULL;
 	}
 	// else
-	// 	std::cout << "Character " << this->_name << " can't unequip!"\
-	// 		<< std::flush << std::endl;
+		// std::cout << RED "Character " << this->_name << " can't unequip " END\
+		// 	<< std::flush << std::endl;
 }
 
 void	Character::use( int idx, ICharacter &target )
 {
 	if (this->_inventory[idx])
 	{
+		// std::cout << YELLOW "Character " << this->_name << " uses "\
+		// 	<< this->_inventory[idx]->getType() << END\
+		// 	<< std::flush << std::endl;
 		this->_inventory[idx]->use(target);
-		// std::cout << "Character " << this->_name << " uses "\
-		// 	<< this->_inventory[idx]->getType() << std::flush << std::endl;
 	}
 	// else
-	// 	std::cout << "Character " << this->_name << " can't use "\
+	// 	std::cout << YELLOW "Character " << this->_name << " can't use " END\
 	// 		<< std::flush << std::endl;
 }
