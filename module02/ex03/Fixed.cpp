@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:33:02 by gsever            #+#    #+#             */
-/*   Updated: 2023/02/21 23:29:43 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/06 18:15:45 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ Fixed	Fixed::operator--( void )// Pre-decrement -> --Left
 Fixed	Fixed::operator--( int )// Post-decrement -> Right--
 {
 	Fixed	tmp(*this);
-	tmp._fixPoint = this->_fixPoint++;
+	tmp._fixPoint = this->_fixPoint--;
 	return (tmp);
 	// return (Fixed(this->_fixPoint--));
 }
