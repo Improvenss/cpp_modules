@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:38:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 18:09:36 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 20:42:26 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ class Form
 		Form( const Form &rhs );
 		~Form( void );
 
-		// Form				&operator=( const Form &rhs );
+		Form				&operator=( const Form &rhs );
 
 		const std::string	getName( void ) const;
 		bool				getSigned( void ) const;
-		int			getGradeToSign( void ) const;
-		int			getGradeToExecute( void ) const;
+		int					getGradeToSign( void ) const;
+		int					getGradeToExecute( void ) const;
 
 		void				beSigned( const Bureaucrat &rhs );
 

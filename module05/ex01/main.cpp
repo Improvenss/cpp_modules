@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:26:55 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 18:52:01 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 20:42:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	main()
 		Form		f3("Form3", 73, 73);
 		Form		f4(f2);
 
+		f4 = f3;
 		std::cout << "-------- Bureaucrats and Forms Created! ------"\
 			<< std::flush << std::endl << std::endl;
 

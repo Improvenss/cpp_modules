@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:56:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 18:19:02 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 20:39:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,59 +52,24 @@ Form::~Form( void )
 		<< std::flush << std::endl;
 }
 
-// /**
-//  * @brief 
-//  * 
-//  * @link https://coding-examples.com/c/overloaded-assignment-operator-in-c/
-//  * @param rhs 
-//  * @return Form& -> Copied class.
-//  */
-// Form	&Form::operator=( const Form &rhs )
-// {
-// 	std::cout << "Form Copy Assignment Operator Overload called: "\
-// 		<< this->_name << std::flush << std::endl;
-// 	if (this != &rhs)// We are checking if 2 class are same class. a1 = a1 etc.
-// 	{
-// 		// *this = rhs;
-// 		this->_signed = rhs.getSigned();
-// 	}
-// 	return (*this);
-// }
-
-/*_____________INCREMENT/DECREMENT OPERATORS_____________*/
-/*
-	increment/decrement -> (artis/azalma)
-	[pre-increment/pre-decrement] -> (ön artis/ön azalma)left(sol)
-	[post-increment/post-decrement] -> (artis sonrasi/azalma sonrasi)right(sag)
-*/
-// Form	Form::operator++( void )// Pre-increment -> ++Left
-// {
-// 	this->_gradeToSign++;
-// 	return (*this);
-// }
-
-// Form	Form::operator++( int )// Post-increment -> Right++
-// {
-// 	Form	tmp(*this);
-// 	tmp._gradeToSign = this->_gradeToSign++;
-// 	return (tmp);
-// 	// return (Form(this->_gradeToSign++));
-// }
-
-// Form	Form::operator--( void )// Pre-decrement -> --Left
-// {
-// 	this->_gradeToSign--;
-// 	return (*this);
-// }
-
-// Form	Form::operator--( int )// Post-decrement -> Right--
-// {
-// 	Form	tmp(*this);
-// 	tmp._gradeToSign = this->_gradeToSign--;
-// 	return (tmp);
-// 	// return (Form(this->_gradeToSign--));
-// }
-/*_______________________________________________________*/
+/**
+ * @brief 
+ * 
+ * @link https://coding-examples.com/c/overloaded-assignment-operator-in-c/
+ * @param rhs 
+ * @return Form& -> Copied class.
+ */
+Form	&Form::operator=( const Form &rhs )
+{
+	std::cout << "Form Copy Assignment Operator Overload called: "\
+		<< this->_name << std::flush << std::endl;
+	if (this != &rhs)// We are checking if 2 class are same class. a1 = a1 etc.
+	{
+		// *this = rhs;
+		this->_signed = rhs.getSigned();
+	}
+	return (*this);
+}
 
 const std::string	Form::getName( void ) const
 {

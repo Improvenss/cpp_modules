@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:38:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 18:09:36 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 20:38:58 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ class Form
 		Form( const std::string name, const int gradeToSign,
 			const int gradeToExecute );
 		Form( const Form &rhs );
-		~Form( void );
+		virtual				~Form( void );
 
-		// Form				&operator=( const Form &rhs );
+		Form				&operator=( const Form &rhs );
 
 		const std::string	getName( void ) const;
 		bool				getSigned( void ) const;
