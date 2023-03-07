@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:07:23 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 17:53:32 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 23:32:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ class Bureaucrat
 		void				decrementGrade( void );
 		void				incrementGrade( void );
 		void				signForm( Form &form );
+		void				executeForm( const Form &form ) const;
 
 	/*__________________ EXCEPTION CLASSES __________________*/
 	class GradeTooHighException : public std::exception

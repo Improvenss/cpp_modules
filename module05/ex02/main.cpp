@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:26:55 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 18:52:01 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 00:23:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 #include "Colors.hpp"
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 #define ON true
 #define OFF false
@@ -49,21 +52,15 @@ int	main()
 			<< std::flush << std::endl;
 	if (OFF)
 	{
-		Bureaucrat	b1;// Default grade 150.
-		Bureaucrat	b2("Gorkem", 73);
-		Bureaucrat	b3("Ahmet", 1);
-		Form		f1;
-		Form		f2("Form2");
-		Form		f3("Form3", 73, 73);
-		Form		f4(f2);
+		Bureaucrat				b1;// Default grade 150.
+		Bureaucrat				b2("Gorkem", 73);
+		Bureaucrat				b3("Ahmet", 1);
+		ShrubberyCreationForm	f1("Shrubbery");
+		// RobotomyRequestForm		f2("Robotomy");
+		// PresidentialPardonForm	f3("Presidential");
 
 		std::cout << "-------- Bureaucrats and Forms Created! ------"\
 			<< std::flush << std::endl << std::endl;
-
-		std::cout << "f1: " << f1 << std::flush << std::endl;
-		std::cout << "f2: " << f2 << std::flush << std::endl;
-		std::cout << "f3: " << f3 << std::flush << std::endl;
-		std::cout << "f4: " << f4 << std::flush << std::endl;
 
 		std::cout << "-------- Bureaucrats and Forms Destroying! ------"\
 			<< std::flush << std::endl;
@@ -73,10 +70,11 @@ int	main()
 
 	try
 	{
-		Bureaucrat	b2("Gorkem", 73);
-		Bureaucrat	b3("BOSS", 1);
-		Form		f1;
-		Form		f2("Hire", 1, 1);
+		Bureaucrat				b2("Gorkem", 73);
+		Bureaucrat				b3("BOSS", 1);
+		ShrubberyCreationForm	f1("Shrubbery");
+		RobotomyRequestForm		f2("Robotomy");
+		PresidentialPardonForm	f3("Presidential");
 
 		std::cout << "-------- Bureaucrats and Froms Created! ------"\
 			<< std::flush << std::endl << std::endl;
@@ -84,15 +82,25 @@ int	main()
 		std::cout << "b2: " << b2 << std::flush << std::endl;
 		std::cout << "b3: " << b3 << std::flush << std::endl << std::endl;
 
-		std::cout << "f1: " << f1 << std::flush << std::endl;
+		std::cout << "--------------- Form 1 ( Shrubbery ) ---------------"\
+			<< std::flush << std::endl;
 		b2.signForm(f1);
-
-		std::cout << "f2: " << f2 << std::flush << std::endl;
+		b2.executeForm(f1);
+		std::cout << "--------------- Form 2 ( Robotomy ) ---------------"\
+			<< std::flush << std::endl;
 		b2.signForm(f2);
+		b2.executeForm(f2);
 		b3.signForm(f2);
-		b2.signForm(f2);
-		b3.signForm(f2);
-
+		b3.executeForm(f2);
+		b3.executeForm(f2);
+		b3.executeForm(f2);
+		b3.executeForm(f2);
+		std::cout << "--------------- Form 3 ( Presidential ) ---------------"\
+			<< std::flush << std::endl;
+		b2.signForm(f3);
+		b2.executeForm(f3);
+		b3.signForm(f3);
+		b3.executeForm(f3);
 		std::cout << std::endl\
 			<< "-------- Bureaucrats and Forms Destroying! ------"\
 			<< std::flush << std::endl;

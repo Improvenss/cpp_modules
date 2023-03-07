@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:07:08 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 18:54:27 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 00:17:20 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,41 +67,6 @@ Bureaucrat	&Bureaucrat::operator=( const Bureaucrat &rhs )
 	return (*this);
 }
 
-/*_____________INCREMENT/DECREMENT OPERATORS_____________*/
-/*
-	increment/decrement -> (artis/azalma)
-	[pre-increment/pre-decrement] -> (ön artis/ön azalma)left(sol)
-	[post-increment/post-decrement] -> (artis sonrasi/azalma sonrasi)right(sag)
-*/
-// Bureaucrat	Bureaucrat::operator++( void )// Pre-increment -> ++Left
-// {
-// 	this->_grade++;
-// 	return (*this);
-// }
-
-// Bureaucrat	Bureaucrat::operator++( int )// Post-increment -> Right++
-// {
-// 	Bureaucrat	tmp(*this);
-// 	tmp._grade = this->_grade++;
-// 	return (tmp);
-// 	// return (Bureaucrat(this->_grade++));
-// }
-
-// Bureaucrat	Bureaucrat::operator--( void )// Pre-decrement -> --Left
-// {
-// 	this->_grade--;
-// 	return (*this);
-// }
-
-// Bureaucrat	Bureaucrat::operator--( int )// Post-decrement -> Right--
-// {
-// 	Bureaucrat	tmp(*this);
-// 	tmp._grade = this->_grade--;
-// 	return (tmp);
-// 	// return (Bureaucrat(this->_grade--));
-// }
-/*_______________________________________________________*/
-
 const std::string	Bureaucrat::getName( void ) const
 {
 	return (this->_name);
@@ -146,11 +111,27 @@ void	Bureaucrat::signForm( Form &form )
 		// std::cout << GREEN << *this << " signed " << form.getName()\
 		// 	<< END << std::flush << std::endl;
 		std::cout << GREEN << this->getName() << " signed "\
-			<< form.getName() << std::flush << std::endl;
+			<< form.getName() << END << std::flush << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << YELLOW << this->getName() << " couldn't sign "\
+			<< form.getName() << " beause " << e.what() << '\n' << END;
+	}
+	
+}
+
+void	Bureaucrat::executeForm( const Form &form ) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << GREEN << this->getName() << " executed "\
+			<< form.getName() << END << std::flush << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << YELLOW << this->getName() << " couldn't executed "\
 			<< form.getName() << " beause " << e.what() << '\n' << END;
 	}
 	

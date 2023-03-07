@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:56:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 20:38:53 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 22:48:58 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,11 @@ const char	*Form::GradeTooLowException::what() const throw()
 const char	*Form::FormAlreadySigned::what() const throw()
 {
 	return (YELLOW "Form already SIGNED!" END);
+}
+
+const char	*Form::FormNotSigned::what() const throw()
+{
+	return (YELLOW "Form 'NOT' SIGNED!" END);
 }
 
 /**
