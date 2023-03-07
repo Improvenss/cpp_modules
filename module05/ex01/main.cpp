@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:26:55 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 01:23:16 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:39:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
  */
 #include "Colors.hpp"
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 #define ON true
 #define OFF false
@@ -35,6 +36,8 @@
  * 
  * @note Exceptions meaning.
  * @link https://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
+ * @note Why Exceptions can't be std::string? -> Because std::string throw()ing too a exception.
+ * @link https://stackoverflow.com/questions/63795948/why-does-exceptionwhat-not-return-a-stdstring
  * 
  * @note Better pointers/references.
  * @link https://www.bilgigunlugum.net/prog/cprog/2c_isaretci
@@ -49,22 +52,20 @@ int	main()
 		Bureaucrat	b1;// Default grade 150.
 		Bureaucrat	b2("Gorkem", 73);
 		Bureaucrat	b3("Ahmet", 1);
+		Form		f1;
+		Form		f2("Form2");
+		Form		f3("Form3", 73, 73);
+		Form		f4(f2);
 
-		std::cout << "-------- Bureaucrats Created! ------"\
+		std::cout << "-------- Bureaucrats and Forms Created! ------"\
 			<< std::flush << std::endl << std::endl;
 
-		std::cout << "b1: " << b1 << std::flush << std::endl;
-		std::cout << "b2: " << b2 << std::flush << std::endl;
-		std::cout << "b3: " << b3 << std::flush << std::endl << std::endl;
+		std::cout << "f1: " << f1 << std::flush << std::endl;
+		std::cout << "f2: " << f2 << std::flush << std::endl;
+		std::cout << "f3: " << f3 << std::flush << std::endl;
+		std::cout << "f4: " << f4 << std::flush << std::endl;
 
-		// b1.decrementGrade();
-		std::cout << RED "b1: Decremented sir." END << std::flush << std::endl;
-		b2.incrementGrade();
-		std::cout << GREEN "b2: Incremented sir." END << std::flush << std::endl;
-		b3.incrementGrade();
-		std::cout << GREEN "b3: Incremented sir." END << std::flush << std::endl;
-
-		std::cout << "-------- Bureaucrats Destroying! ------"\
+		std::cout << "-------- Bureaucrats and Forms Destroying! ------"\
 			<< std::flush << std::endl;
 	}
 	std::cout << GREEN "*****************************************" END\
@@ -72,32 +73,30 @@ int	main()
 
 	try
 	{
-		Bureaucrat	b1;// Default grade 150.
 		Bureaucrat	b2("Gorkem", 73);
-		Bureaucrat	b3("Ahmet", 1);
+		Bureaucrat	b3("BOSS", 1);
+		Form		f1;
+		Form		f2("Hire", 1, 1);
 
-		std::cout << "-------- Bureaucrats Created! ------"\
+		std::cout << "-------- Bureaucrats and Froms Created! ------"\
 			<< std::flush << std::endl << std::endl;
 
-		std::cout << "b1: " << b1 << std::flush << std::endl;
 		std::cout << "b2: " << b2 << std::flush << std::endl;
 		std::cout << "b3: " << b3 << std::flush << std::endl << std::endl;
 
-		// b1.decrementGrade();
-		std::cout << RED "b1: Decremented sir." END << std::flush << std::endl;
-		b2.incrementGrade();
-		std::cout << GREEN "b2: Incremented sir." END << std::flush << std::endl;
-		b3.incrementGrade();
-		std::cout << GREEN "b3: Incremented sir." END << std::flush << std::endl;
+		std::cout << "f1: " << f1 << std::flush << std::endl;
+		b2.signForm(f1);
 
-		std::cout << "-------- Bureaucrats Destroying! ------"\
+		std::cout << "f2: " << f2 << std::flush << std::endl;
+		b2.signForm(f2);
+		b3.signForm(f2);
+		b2.signForm(f2);
+		b3.signForm(f2);
+
+		std::cout << "-------- Bureaucrats and Forms Destroying! ------"\
 			<< std::flush << std::endl;
 	}
-	catch(const Bureaucrat::GradeTooHighException& e)
-	{
-		std::cerr << RED << e.what() << '\n' << END;
-	}
-	catch(const Bureaucrat::GradeTooLowException& e)
+	catch(const std::exception &e)
 	{
 		std::cerr << RED << e.what() << '\n' << END;
 	}

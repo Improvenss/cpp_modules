@@ -6,14 +6,18 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:07:23 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/06 22:58:14 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:53:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-#include <iostream>
+# include <iostream>
+# include "Colors.hpp"
+# include "Form.hpp"
+
+class Form;
 
 /**
  * @brief Exception Class
@@ -44,8 +48,9 @@ class Bureaucrat
 
 		const std::string	getName( void ) const;
 		int					getGrade( void ) const;
-		void				incrementGrade( void );
 		void				decrementGrade( void );
+		void				incrementGrade( void );
+		void				signForm( Form &form );
 
 	/*__________________ EXCEPTION CLASSES __________________*/
 	class GradeTooHighException : public std::exception
@@ -63,6 +68,6 @@ class Bureaucrat
 	/*_______________________________________________________*/
 };
 
-std::ostream		&operator<<( std::ostream &lhs, const Bureaucrat &rhs );
+std::ostream		&operator<<( std::ostream &os, const Bureaucrat &rhs );
 
 #endif // BUREAUCRAT_HPP

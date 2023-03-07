@@ -6,37 +6,41 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:56:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 01:27:28 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:19:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form( void ) : _name("Default"), _grade(150)
+Form::Form( void ) : _name("Default"), _signed(false),
+	_gradeToSign(100), _gradeToExecute(100)
 {
 	std::cout << "Form Default Constructor called: " << this->_name\
 		<< std::flush << std::endl;
 }
 
-Form::Form( const std::string name ) : _name(name), _grade(150)
+Form::Form( const std::string name ) : _name(name), _signed(false),
+	_gradeToSign(100), _gradeToExecute(100)
 {
 	std::cout << "Form Name Constructor called: " << this->_name\
 		<< std::flush << std::endl;
 }
 
-Form::Form( const std::string name, const int grade )
-	: _name(name), _grade(grade)
+Form::Form( const std::string name, const int gradeToSign,\
+		const int gradeToExecute ) : _name(name), _signed(false),
+	_gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	std::cout << "Form Name and Int Constructor called: " << this->_name\
 		<< std::flush << std::endl;
-	if (grade < 1)
+	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw (Form::GradeTooHighException());
-	else if (grade > 150)
+	else if (gradeToSign > 150 || gradeToExecute > 150)
 		throw (Form::GradeTooLowException());
 }
 
-Form::Form( const Form &rhs) : _name(rhs.getName()),
-	_grade(rhs.getGrade())
+Form::Form( const Form &rhs) : _name(rhs.getName()), _signed(rhs.getSigned()),
+	_gradeToSign(rhs.getGradeToSign()),
+	_gradeToExecute(rhs.getGradeToExecute())
 {
 	std::cout << "Form Copy Constructor called: " << this->_name\
 		<< std::flush << std::endl;
@@ -48,24 +52,24 @@ Form::~Form( void )
 		<< std::flush << std::endl;
 }
 
-/**
- * @brief 
- * 
- * @link https://coding-examples.com/c/overloaded-assignment-operator-in-c/
- * @param rhs 
- * @return Form& -> Copied class.
- */
-Form	&Form::operator=( const Form &rhs )
-{
-	std::cout << "Form Copy Assignment Operator Overload called: "\
-		<< this->_name << std::flush << std::endl;
-	if (this != &rhs)// We are checking if 2 class are same class. a1 = a1 etc.
-	{
-		// *this = rhs;
-		this->_grade = rhs.getGrade();
-	}
-	return (*this);
-}
+// /**
+//  * @brief 
+//  * 
+//  * @link https://coding-examples.com/c/overloaded-assignment-operator-in-c/
+//  * @param rhs 
+//  * @return Form& -> Copied class.
+//  */
+// Form	&Form::operator=( const Form &rhs )
+// {
+// 	std::cout << "Form Copy Assignment Operator Overload called: "\
+// 		<< this->_name << std::flush << std::endl;
+// 	if (this != &rhs)// We are checking if 2 class are same class. a1 = a1 etc.
+// 	{
+// 		// *this = rhs;
+// 		this->_signed = rhs.getSigned();
+// 	}
+// 	return (*this);
+// }
 
 /*_____________INCREMENT/DECREMENT OPERATORS_____________*/
 /*
@@ -75,30 +79,30 @@ Form	&Form::operator=( const Form &rhs )
 */
 // Form	Form::operator++( void )// Pre-increment -> ++Left
 // {
-// 	this->_grade++;
+// 	this->_gradeToSign++;
 // 	return (*this);
 // }
 
 // Form	Form::operator++( int )// Post-increment -> Right++
 // {
 // 	Form	tmp(*this);
-// 	tmp._grade = this->_grade++;
+// 	tmp._gradeToSign = this->_gradeToSign++;
 // 	return (tmp);
-// 	// return (Form(this->_grade++));
+// 	// return (Form(this->_gradeToSign++));
 // }
 
 // Form	Form::operator--( void )// Pre-decrement -> --Left
 // {
-// 	this->_grade--;
+// 	this->_gradeToSign--;
 // 	return (*this);
 // }
 
 // Form	Form::operator--( int )// Post-decrement -> Right--
 // {
 // 	Form	tmp(*this);
-// 	tmp._grade = this->_grade--;
+// 	tmp._gradeToSign = this->_gradeToSign--;
 // 	return (tmp);
-// 	// return (Form(this->_grade--));
+// 	// return (Form(this->_gradeToSign--));
 // }
 /*_______________________________________________________*/
 
@@ -107,45 +111,43 @@ const std::string	Form::getName( void ) const
 	return (this->_name);
 }
 
-int	Form::getGrade( void ) const
+bool	Form::getSigned( void ) const
 {
-	return (this->_grade);
+	return (this->_signed);
 }
 
-/**
- * @brief Top grade(like leaderboard) is 1,
- *  worst grade is 150.
- * 
- * We are downing grade( + ).
- */
-void	Form::decrementGrade( void )
+int	Form::getGradeToSign( void ) const
 {
-	if (this->_grade + 1 > 150)
+	return (this->_gradeToSign);
+}
+
+int	Form::getGradeToExecute( void ) const
+{
+	return (this->_gradeToExecute);
+}
+
+void	Form::beSigned( const Bureaucrat &rhs )
+{
+	if (rhs.getGrade() > this->getGradeToSign())
 		throw (Form::GradeTooLowException());
-	this->_grade++;
-}
-
-/**
- * @brief Top grade(like leaderboard) is 1,
- *  worst grade is 150.
- * 
- * We are raise grade( - ).
- */
-void	Form::incrementGrade( void )
-{
-	if (this->_grade - 1 < 1)
-		throw (Form::GradeTooHighException());
-	this->_grade--;
+	if (this->_signed == true)
+		throw (Form::FormAlreadySigned());
+	this->_signed = true;
 }
 
 const char	*Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade too 'HIGH'.");
+	return ("Form: Grade too 'HIGH'.");
 }
 
 const char	*Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade too 'LOW'.");
+	return ("Form: Grade too 'LOW'.");
+}
+
+const char	*Form::FormAlreadySigned::what() const throw()
+{
+	return (YELLOW "Form already SIGNED!" END);
 }
 
 /**
@@ -158,6 +160,12 @@ const char	*Form::GradeTooLowException::what() const throw()
  */
 std::ostream	&operator<<( std::ostream &os, const Form &rhs )
 {
-	os << rhs.getName() << ", Form grade " << rhs.getGrade();
+	os << B_CYAN "____________ Form Information _______________"\
+		<< std::flush << std::endl;
+	os << "Name: " << rhs.getName() << std::flush << std::endl;
+	os << "Is Signed?: " << rhs.getSigned() << std::flush << std::endl;
+	os << "Grade To Sign: " << rhs.getGradeToSign() << std::flush << std::endl;
+	os << "Grade To Execute: " << rhs.getGradeToExecute() << END\
+		<< std::flush << std::endl;
 	return (os);
 }

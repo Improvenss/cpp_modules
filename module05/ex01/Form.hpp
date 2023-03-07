@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:38:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 01:22:56 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:09:36 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define FORM_HPP
 
 # include "Bureaucrat.hpp"
+# include "Colors.hpp"
+
+class Bureaucrat;
 
 /**
  * @brief 
@@ -32,16 +35,19 @@ class Form
 	public:
 		Form( void );
 		Form( const std::string name );
-		Form( const std::string name, const int grade );
+		Form( const std::string name, const int gradeToSign,
+			const int gradeToExecute );
 		Form( const Form &rhs );
 		~Form( void );
 
-		Form				&operator=( const Form &rhs );
+		// Form				&operator=( const Form &rhs );
 
 		const std::string	getName( void ) const;
-		int					getGrade( void ) const;
-		void				incrementGrade( void );
-		void				decrementGrade( void );
+		bool				getSigned( void ) const;
+		int			getGradeToSign( void ) const;
+		int			getGradeToExecute( void ) const;
+
+		void				beSigned( const Bureaucrat &rhs );
 
 	/*__________________ EXCEPTION CLASSES __________________*/
 	class GradeTooHighException : public std::exception
@@ -56,16 +62,15 @@ class Form
 			// virtual const char*	what() const throw() { return ("Grade too 'LOW'."); }
 			virtual const char*	what() const throw();
 	};
+	class FormAlreadySigned : public std::exception
+	{
+		public:
+			// virtual const char*	what() const throw() { return ("Form already SIGNED!")}
+			virtual const char*	what() const throw();
+	};
 	/*_______________________________________________________*/
 };
 
-Form::Form(/* args */)
-{
-}
-
-Form::~Form()
-{
-}
-
+std::ostream		&operator<<( std::ostream &os, const Form &rhs );
 
 #endif // FORM_HPP
