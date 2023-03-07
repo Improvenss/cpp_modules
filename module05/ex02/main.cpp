@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:26:55 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 18:39:54 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:52:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ int	main()
 		b2.signForm(f2);
 		b3.signForm(f2);
 
-		std::cout << "-------- Bureaucrats and Forms Destroying! ------"\
+		std::cout << std::endl\
+			<< "-------- Bureaucrats and Forms Destroying! ------"\
 			<< std::flush << std::endl;
 	}
 	catch(const std::exception &e)
