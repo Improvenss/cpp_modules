@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 00:39:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/08 01:11:54 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 01:31:32 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,19 @@ Form	*Intern::makeForm( std::string name, std::string target )
 				return (forms[i]);
 			}
 		}
-		throw ("Intern can't create " + name + " form.");
+		throw (Intern::InternCantCreateFrom());
 	}
 	catch (const std::exception &e )
 	{
-		std::cerr << YELLOW << e.what() << std::flush << std::endl;
+		std::cerr << YELLOW << e.what() << END << std::flush << std::endl;
 		return (nullptr);
 	}
 	// std::cout << "Intern can't create " << name << " form."\
 	// 	<< std::flush << std::endl;
 	// return (nullptr);
+}
+
+const char	*Intern::InternCantCreateFrom::what() const throw()
+{
+	return ("Intern can't create form.");
 }

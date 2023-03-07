@@ -121,6 +121,8 @@ int	main()
 		std::cout << std::flush << std::endl;
 		i1.makeForm(FORM_PRESIDENTIAL, "internPresidential");
 		std::cout << std::flush << std::endl;
+		i1.makeForm("nonexistentForm", "nonexistBRUH");
+		std::cout << std::flush << std::endl;
 		std::cout << std::endl\
 			<< "-------- Bureaucrats and Forms Destroying! ------"\
 			<< std::flush << std::endl;

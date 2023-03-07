@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 00:31:35 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/08 01:07:04 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 01:29:42 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ class Intern
 		~Intern( void );
 
 		Form	*makeForm( std::string name, std::string target );
+
+	/*__________________ EXCEPTION CLASSES __________________*/
+		class InternCantCreateFrom : public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+	/*_______________________________________________________*/
 };
 
 #endif // INTERN_HPP

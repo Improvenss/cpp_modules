@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 22:38:20 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 23:01:28 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 01:30:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,30 +53,30 @@ class Form
 		virtual void		execute( const Bureaucrat &executor ) const = 0;
 
 	/*__________________ EXCEPTION CLASSES __________________*/
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			// virtual const char*	what() const throw() { return ("Grade too 'HIGH'."); }
-			virtual const char*	what() const throw();
-	};
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			// virtual const char*	what() const throw() { return ("Grade too 'LOW'."); }
-			virtual const char*	what() const throw();
-	};
-	class FormAlreadySigned : public std::exception
-	{
-		public:
-			// virtual const char*	what() const throw() { return ("Form already SIGNED!")}
-			virtual const char*	what() const throw();
-	};
-	class FormNotSigned : public std::exception
-	{
-		public:
-			// virtual const char*	what() const throw() { return ("Form 'NOT' SIGNED!")}
-			virtual const char*	what() const throw();
-	};
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				// virtual const char*	what() const throw() { return ("Grade too 'HIGH'."); }
+				virtual const char*	what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				// virtual const char*	what() const throw() { return ("Grade too 'LOW'."); }
+				virtual const char*	what() const throw();
+		};
+		class FormAlreadySigned : public std::exception
+		{
+			public:
+				// virtual const char*	what() const throw() { return ("Form already SIGNED!")}
+				virtual const char*	what() const throw();
+		};
+		class FormNotSigned : public std::exception
+		{
+			public:
+				// virtual const char*	what() const throw() { return ("Form 'NOT' SIGNED!")}
+				virtual const char*	what() const throw();
+		};
 	/*_______________________________________________________*/
 };
 

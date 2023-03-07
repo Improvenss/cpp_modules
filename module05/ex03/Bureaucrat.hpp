@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:07:23 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/07 23:32:39 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 01:30:10 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,18 @@ class Bureaucrat
 		void				executeForm( const Form &form ) const;
 
 	/*__________________ EXCEPTION CLASSES __________________*/
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			// virtual const char*	what() const throw() { return ("Grade too 'HIGH'."); }
-			virtual const char*	what() const throw();
-	};
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			// virtual const char*	what() const throw() { return ("Grade too 'LOW'."); }
-			virtual const char*	what() const throw();
-	};
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				// virtual const char*	what() const throw() { return ("Grade too 'HIGH'."); }
+				virtual const char*	what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				// virtual const char*	what() const throw() { return ("Grade too 'LOW'."); }
+				virtual const char*	what() const throw();
+		};
 	/*_______________________________________________________*/
 };
 
