@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:07:23 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/06 18:54:00 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 17:27:10 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ class Bureaucrat
 	/*_______________________________________________________*/
 };
 
-std::ostream		&operator<<( std::ostream &lhs, const Bureaucrat &rhs );
+std::ostream		&operator<<( std::ostream &os, const Bureaucrat &rhs );
 
 #endif // BUREAUCRAT_HPP
