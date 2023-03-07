@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:07:08 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/06 19:04:45 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:54:43 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,12 +140,12 @@ void	Bureaucrat::incrementGrade( void )
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade too 'HIGH'.");
+	return ("Bureaucrat: Grade too 'HIGH'.");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade too 'LOW'.");
+	return ("Bureaucrat: Grade too 'LOW'.");
 }
 
 /**
