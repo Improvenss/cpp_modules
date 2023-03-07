@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:26:55 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/08 00:23:32 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 00:29:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,37 +111,3 @@ int	main()
 	}
 	return (0);
 }
-
-/**
- * @brief en to tr PDF
- * 
-İstisna sınıflarının şu şekilde tasarlanması gerekmediğini lütfen unutmayın:
-Ortodoks Kanonik Formu. Ama diğer tüm sınıflar yapmak zorunda.
-
-Ofisler, koridorlar, formlar ve bekleme kuyruklarından oluşan yapay bir kabus tasarlayalım. Kulağa eğlenceli mi geliyor? HAYIR? Çok kötü.
-İlk olarak, bu geniş bürokratik makinedeki en küçük dişli ile başlayın: Bürokrat. Bir Bürokrat şunlara sahip olmalıdır:
-• Sabit bir ad.
-• Ve 1 (mümkün olan en yüksek not) ile 150 (mümkün olan en düşük not) arasında değişen bir not
-seviye).
-Geçersiz bir not kullanarak bir Bürokratı örneklendirmeye yönelik herhangi bir girişim bir istisna oluşturmalıdır:
-ya bir Bureaucrat::GradeTooHighException ya da bir Bureaucrat::GradeTooLowException.
-
-
-Bu özniteliklerin her ikisi için de alıcılar sağlayacaksınız: getName() ve getGrade(). Bürokrat notunu artırmak veya azaltmak için iki üye işlevi de uygulayın. Derece aralığın dışındaysa, her ikisi de oluşturucuyla aynı istisnaları atar.
-
-Hatırlamak. 1. sınıf en yüksek ve 150 en düşük olduğu için,
-3. dereceyi artırmak bürokrata 2. not vermelidir.
-
-----------------------
-Artık bürokratlarınız olduğuna göre, onlara yapacak bir şeyler verelim. Bir yığın form doldurmaktan daha iyi bir aktivite olabilir mi?
-
-Ardından bir Form sınıfı oluşturalım. Şunlara sahiptir:
-• Sabit bir ad.
-• İmzalanıp imzalanmadığını gösteren bir boole (yapım aşamasında değil). • İmzalamak için gereken sabit bir not.
-• Ve bunu gerçekleştirmek için gereken sabit not.
-Tüm bu özellikler özeldir, korunmaz.
-
-Formun notları, Bürokrat için geçerli olan aynı kuralları izler. Bu nedenle, bir form notu sınırların dışındaysa aşağıdaki istisnalar atılır: Form::GradeTooHighException ve Form::GradeTooLowException.
-
-Daha önce olduğu gibi, tüm öznitelikler için alıcılar yazın ve tüm formun bilgilerini basan ekleme («) operatörünün aşırı yüklenmesi.
- */
