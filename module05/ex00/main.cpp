@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:26:55 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/06 19:10:26 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 14:10:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main()
 		std::cout << "b3: " << b3 << std::flush << std::endl << std::endl;
 
 		// b1.decrementGrade();
-		std::cout << RED "b1: Decremented sir." END << std::flush << std::endl;
+		// std::cout << RED "b1: Decremented sir." END << std::flush << std::endl;
 		b2.incrementGrade();
 		std::cout << GREEN "b2: Incremented sir." END << std::flush << std::endl;
 		b3.incrementGrade();
@@ -84,7 +84,7 @@ int	main()
 		std::cout << "b3: " << b3 << std::flush << std::endl << std::endl;
 
 		// b1.decrementGrade();
-		std::cout << RED "b1: Decremented sir." END << std::flush << std::endl;
+		// std::cout << RED "b1: Decremented sir." END << std::flush << std::endl;
 		b2.incrementGrade();
 		std::cout << GREEN "b2: Incremented sir." END << std::flush << std::endl;
 		b3.incrementGrade();
