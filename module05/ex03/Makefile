@@ -6,12 +6,12 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 15:15:16 by gsever            #+#    #+#              #
-#    Updated: 2023/03/07 01:24:08 by gsever           ###   ########.fr        #
+#    Updated: 2023/03/08 14:29:11 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!!!!!!!!! NOTE: < here > you need change with your customize. !!!!!!!
-NAME		= BureaucratForm
+NAME		= BureaucratIntern
 
 #	Flags for compile
 CC			= c++

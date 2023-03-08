@@ -31,6 +31,13 @@
 #define ON true
 #define OFF false
 
+void	checkLeaks( void )
+{
+	std::cout << B_GREEN "Leaks: " << std::flush;
+	system("leaks BureaucratIntern | grep 'leaked bytes'");
+	std::cout << END << std::flush;
+}
+
 /**
  * @brief 
  * 
@@ -77,6 +84,7 @@ int	main()
 		RobotomyRequestForm		f2("Robotomy");
 		PresidentialPardonForm	f3("Presidential");
 		Intern					i1;
+		Form					*tmpForm;
 
 		std::cout << "-------- Bureaucrats and Froms Created! ------"\
 			<< std::flush << std::endl << std::endl;
@@ -115,13 +123,13 @@ int	main()
 		b3.executeForm(f3);
 		std::cout << "--------------- Form x ( Intern ) ---------------"\
 			<< std::flush << std::endl;
-		i1.makeForm(FORM_SHRUBBERY, "internShrubbery");
+		tmpForm = i1.makeForm(FORM_SHRUBBERY, "internShrubbery");
 		std::cout << std::flush << std::endl;
-		i1.makeForm(FORM_ROBOTOMY, "internRobotomy");
+		tmpForm = i1.makeForm(FORM_ROBOTOMY, "internRobotomy");
 		std::cout << std::flush << std::endl;
-		i1.makeForm(FORM_PRESIDENTIAL, "internPresidential");
+		tmpForm = i1.makeForm(FORM_PRESIDENTIAL, "internPresidential");
 		std::cout << std::flush << std::endl;
-		i1.makeForm("nonexistentForm", "nonexistBRUH");
+		tmpForm = i1.makeForm("nonexistentForm", "nonexistBRUH");
 		std::cout << std::flush << std::endl;
 		std::cout << std::endl\
 			<< "-------- Bureaucrats and Forms Destroying! ------"\
@@ -130,7 +138,9 @@ int	main()
 	catch(const std::exception &e)
 	{
 		std::cerr << RED << e.what() << '\n' << END;
+		checkLeaks();
 	}
+		checkLeaks();
 	return (0);
 }
 

@@ -6,11 +6,18 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 00:39:52 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/08 01:34:48 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 15:09:28 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+
+// static void	checkLeaks( void )
+// {
+// 	std::cout << B_GREEN "Leaks: " << std::flush;
+// 	system("leaks BureaucratIntern | grep 'leaked bytes'");
+// 	std::cout << END << std::flush;
+// }
 
 Intern::Intern( void )
 {
@@ -35,21 +42,33 @@ Form	*Intern::makeForm( std::string name, std::string target )
 {
 	try
 	{
-		std::string	formNames[] = { FORM_SHRUBBERY,
-			FORM_ROBOTOMY, FORM_PRESIDENTIAL };
-		Form		*forms[] = { new ShrubberyCreationForm(target),
-			new RobotomyRequestForm(target),
-			new PresidentialPardonForm(target)};
+		Form	*tmpForm = NULL;
+		// std::string	formNames[] = { FORM_SHRUBBERY,
+		// 	FORM_ROBOTOMY, FORM_PRESIDENTIAL };
+		// Form		*forms[] = { new ShrubberyCreationForm(target),
+		// 	new RobotomyRequestForm(target),
+		// 	new PresidentialPardonForm(target)};
+		_t_formList	forms[] = {
+			{ FORM_SHRUBBERY, new ShrubberyCreationForm(target) },
+			{ FORM_ROBOTOMY, new RobotomyRequestForm(target) },
+			{ FORM_PRESIDENTIAL, new PresidentialPardonForm(target) },
+			{ "", NULL }
+		};
 		for (int i = 0; i < 3; i++)
 		{
-			if (name == formNames[i])
+			if (name == forms[i].name)
 			{
-				std::cout << "Intern creates " << name\
+				std::cout << B_BLUE "Intern creates " << name << END\
 					<< std::flush << std::endl;
-				return (forms[i]);
+				tmpForm = forms[i].type;
+				// return (forms[i].type);
 			}
+			else
+				delete (forms[i].type);
 		}
-		throw (Intern::InternCantCreateFrom());
+		if (tmpForm == NULL)
+			throw (Intern::InternCantCreateFrom());
+		return (tmpForm);
 	}
 	catch (const std::exception &e )
 	{

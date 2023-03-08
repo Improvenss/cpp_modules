@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:26:55 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/08 14:10:41 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 14:21:11 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 
 #define ON true
 #define OFF false
+
+void	checkLeaks( void )
+{
+	std::cout << B_GREEN "Leaks: " << std::flush;
+	system("leaks Bureaucrat | grep 'leaked bytes'");
+	std::cout << END << std::flush;
+}
 
 /**
  * @brief 
@@ -75,6 +82,7 @@ int	main()
 		Bureaucrat	b1;// Default grade 150.
 		Bureaucrat	b2("Gorkem", 73);
 		Bureaucrat	b3("Ahmet", 1);
+		// checkLeaks();
 
 		std::cout << "-------- Bureaucrats Created! ------"\
 			<< std::flush << std::endl << std::endl;
@@ -82,13 +90,17 @@ int	main()
 		std::cout << "b1: " << b1 << std::flush << std::endl;
 		std::cout << "b2: " << b2 << std::flush << std::endl;
 		std::cout << "b3: " << b3 << std::flush << std::endl << std::endl;
+		// checkLeaks();
 
 		// b1.decrementGrade();
 		// std::cout << RED "b1: Decremented sir." END << std::flush << std::endl;
 		b2.incrementGrade();
+		// checkLeaks();
 		std::cout << GREEN "b2: Incremented sir." END << std::flush << std::endl;
 		b3.incrementGrade();
+		// checkLeaks();
 		std::cout << GREEN "b3: Incremented sir." END << std::flush << std::endl;
+		// checkLeaks();
 
 		std::cout << "-------- Bureaucrats Destroying! ------"\
 			<< std::flush << std::endl;
@@ -96,10 +108,13 @@ int	main()
 	catch(const Bureaucrat::GradeTooHighException& e)
 	{
 		std::cerr << RED << e.what() << '\n' << END;
+		// checkLeaks();
 	}
 	catch(const Bureaucrat::GradeTooLowException& e)
 	{
 		std::cerr << RED << e.what() << '\n' << END;
+		// checkLeaks();
 	}
+	// checkLeaks();
 	return (0);
 }

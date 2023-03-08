@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 00:31:35 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/08 01:29:42 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 14:54:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 
 class Intern
 {
+	private:
+		typedef struct	_s_formList
+		{
+			std::string	name;
+			Form		*type;
+		}		_t_formList;
 	public:
 		Intern( void );
 		Intern( const Intern& rhs );

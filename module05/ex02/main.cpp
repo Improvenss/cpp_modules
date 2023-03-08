@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:26:55 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/08 00:29:41 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/08 14:27:48 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@
 
 #define ON true
 #define OFF false
+
+void	checkLeaks( void )
+{
+	std::cout << B_GREEN "Leaks: " << std::flush;
+	system("leaks BureaucratForms | grep 'leaked bytes'");
+	std::cout << END << std::flush;
+}
 
 /**
  * @brief 
