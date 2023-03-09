@@ -6,23 +6,60 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 22:08:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/09 16:30:51 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/09 23:18:23 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file main.cpp
+ * @author Görkem SEVER (gsever)
+ * @brief In this exercise we will learn 'How it's working type casting?'.
+ * @version 0.1
+ * @date 2023-03-09
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "Convert.hpp"
 
+/**
+ * @brief Converting the given argument to all types.
+ * 
+ * @note 1.0 How can i convert (char*) type to (std::string) type.
+ * @link https://www.techiedelight.com/convert-char-to-string-cpp/
+ * 
+ * @note 2.0 What is 'cast'?
+ * @note 2.1 What is 'Type Casting'?
+ * @link https://www.javatpoint.com/type-casting-in-cpp 
+ * @note 2.2 What is difference between static_cast<> and (ctype) casting?
+ * @link https://stackoverflow.com/questions/1609163/what-is-the-difference-between-static-cast-and-c-style-casting
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int	main( int argc, char **argv )
 {
-	if (argc == 2)
+	if (argc != 2)
 	{
-		
-	}
-	else
-	{
-		std::cout << "You must be entered just one arguman!"\
+		std::cout << "You must be enter just one arguman!"\
 			<< std::flush << std::endl;
+		return (EXIT_FAILURE);
 	}
+	try
+	{
+		std::string	input = argv[1];
+		Convert	c(input);
+
+		std::cout << "------------------------" << std::flush << std::endl;
+		std::cout << "Input: " << c.getString() << std::flush << std::endl;
+		std::cout << 
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 
 	return (0);
 }
