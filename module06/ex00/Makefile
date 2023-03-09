@@ -6,12 +6,12 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 15:15:16 by gsever            #+#    #+#              #
-#    Updated: 2023/03/07 01:24:16 by gsever           ###   ########.fr        #
+#    Updated: 2023/03/09 16:30:19 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #!!!!!!!!! NOTE: < here > you need change with your customize. !!!!!!!
-NAME		= Bureaucrat
+NAME		= convert
 
 #	Flags for compile
 CC			= c++
