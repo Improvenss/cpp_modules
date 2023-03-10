@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 22:08:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/09 23:18:23 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/10 13:02:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,16 @@ int	main( int argc, char **argv )
 	}
 	try
 	{
-		std::string	input = argv[1];
-		Convert	c(input);
+		// std::string	input = argv[1];
+		// Convert	c(input, argv[1]);
+		Convert	c(argv[1]);
 
-		std::cout << "------------------------" << std::flush << std::endl;
-		std::cout << "Input: " << c.getString() << std::flush << std::endl;
-		std::cout << 
+		std::cout << "-------- Convert class Created! ----------"\
+			<< std::flush << std::endl << std::endl;
+		c.convertString();
+		std::cout << c << std::flush << std::endl;
+		std::cout << "-------- Convert class Destroying! ----------"\
+			<< std::flush << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -61,7 +65,7 @@ int	main( int argc, char **argv )
 	}
 	
 
-	return (0);
+	return (EXIT_SUCCESS); // 0
 }
 /**
  * @brief After the run must be this output.

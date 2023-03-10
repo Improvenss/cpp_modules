@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:21:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/09 23:26:41 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/10 16:04:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,14 @@
 
 # include <iostream>
 # include <string>
+# include <math.h>
+# include <cctype>
+# include <limits>
 
-// # define 
+# define CHAR	1
+# define INT	2
+# define FLOAT	4
+# define DOUBLE	8
 
 /**
  * @brief Default Class
@@ -31,17 +37,42 @@
 class Convert
 {
 	private:
-		std::string	_str;
+		std::string	_string;
+		char		*_str;
+		char		_c;
+		int			_i;
+		float		_f;
+		double		_d;
+		int			_type;
+		bool		_isPossible;
 	public:
 		Convert( void );
-		Convert( const std::string string );
+		// Convert( const std::string string, char *argv );
+		Convert( char *argv );
 		~Convert( void );
 
 /*-------------- SET GET FUNCTIONS() ----------------------*/
 		void		setString( std::string string );
+		void		setType( void );
 		std::string	getString( void );
+		char		getChar( void );
+		int			getInt( void );
+		float		getFloat( void );
+		double		getDouble( void );
+
+		void		setType( void );
 /*=-------------------------------------------------------=*/
 
+		void		convertString( void );
+		bool		isPossible( void )
+
+		bool		isChar( void );
+		bool		isInt( void );
+		bool		isFloat( void );
+		bool		isDouble( void );
+
 };
+
+std::ostream	&operator<<( std::ostream &os, Convert &rhs );
 
 #endif // CONVERT_HPP
