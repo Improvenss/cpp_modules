@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 22:08:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/10 13:02:13 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/10 16:19:03 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
  * @note 2.0 What is 'cast'?
  * @note 2.1 What is 'Type Casting'?
  * @link https://www.javatpoint.com/type-casting-in-cpp 
+ * @link https://cplusplus.com/doc/oldtutorial/typecasting/
  * @note 2.2 What is difference between static_cast<> and (ctype) casting?
  * @link https://stackoverflow.com/questions/1609163/what-is-the-difference-between-static-cast-and-c-style-casting
  * 
