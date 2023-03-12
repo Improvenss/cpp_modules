@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 22:08:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/10 16:19:03 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/12 20:28:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main( int argc, char **argv )
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << RED << e.what() << '\n' << END;
 	}
 	
 

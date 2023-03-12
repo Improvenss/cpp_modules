@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:21:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/10 16:04:13 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/12 20:25:26 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,17 @@
 # include <math.h>
 # include <cctype>
 # include <limits>
+# include "Colors.hpp"
 
-# define CHAR	1
-# define INT	2
-# define FLOAT	4
-# define DOUBLE	8
+// # define CHAR	1
+// # define INT	2
+// # define FLOAT	4
+// # define DOUBLE	8
+
+enum e_type
+{
+	NONE, CHAR, INT, FLOAT, DOUBLE, LITERALS
+};
 
 /**
  * @brief Default Class
@@ -43,7 +49,7 @@ class Convert
 		int			_i;
 		float		_f;
 		double		_d;
-		int			_type;
+		e_type		_type;
 		bool		_isPossible;
 	public:
 		Convert( void );
@@ -51,9 +57,8 @@ class Convert
 		Convert( char *argv );
 		~Convert( void );
 
-/*-------------- SET GET FUNCTIONS() ----------------------*/
+	/*-------------- SET GET FUNCTIONS() --------------------*/
 		void		setString( std::string string );
-		void		setType( void );
 		std::string	getString( void );
 		char		getChar( void );
 		int			getInt( void );
@@ -61,16 +66,31 @@ class Convert
 		double		getDouble( void );
 
 		void		setType( void );
-/*=-------------------------------------------------------=*/
+		int			getType( void );
+	/*=-----------------------------------------------------=*/
 
 		void		convertString( void );
-		bool		isPossible( void )
+		bool		isPossible( void );
 
 		bool		isChar( void );
 		bool		isInt( void );
 		bool		isFloat( void );
 		bool		isDouble( void );
 
+	/*__________________ EXCEPTION CLASSES __________________*/
+		class NotHaveAnyType : public std::exception
+		{
+			public:
+				// virtual const char*	what() const throw();
+				virtual const char*	what() const throw()
+					{ return ("Input's not have any type!"); }
+		};
+		// class foo : public std::exception
+		// {
+		// 	public:
+		// 		virtual const char*	what() const throw();
+		// };
+	/*_______________________________________________________*/
 };
 
 std::ostream	&operator<<( std::ostream &os, Convert &rhs );
