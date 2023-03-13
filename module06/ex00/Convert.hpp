@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:21:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/12 20:25:26 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/13 17:48:26 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ class Convert
 		Convert( char *argv );
 		~Convert( void );
 
+	/*----------------- MAIN FUNCTION --------------------*/
+		void		convertString( void );
+
 	/*-------------- SET GET FUNCTIONS() --------------------*/
 		void		setString( std::string string );
 		std::string	getString( void );
@@ -69,13 +72,20 @@ class Convert
 		int			getType( void );
 	/*=-----------------------------------------------------=*/
 
-		void		convertString( void );
+	/*------------------ IS FUNCTIONS() ---------------------*/
 		bool		isPossible( void );
-
 		bool		isChar( void );
 		bool		isInt( void );
 		bool		isFloat( void );
 		bool		isDouble( void );
+		bool		isLiterals( void ) const;
+	/*=-----------------------------------------------------=*/
+
+	/*----------------- PRINT FUNCTIONS() -------------------*/
+		void		printChar( void );
+		void		printInt( void );
+		void		printFloat( void );
+	/*=-----------------------------------------------------=*/
 
 	/*__________________ EXCEPTION CLASSES __________________*/
 		class NotHaveAnyType : public std::exception
