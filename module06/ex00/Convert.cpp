@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:27:27 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/13 18:22:24 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/13 22:04:16 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,11 @@ void	Convert::setType( void )
 		this->_type = INT;
 	else if (this->isFloat())
 		this->_type = FLOAT;
-	// else if (this->isDouble())
-	// 	this->_type = DOUBLE;
-	// else if (this->isLiterals())
-	// 	this->_type = LITERALS;
-	std::cout << "the type: " << this->_type << std::flush << std::endl;
+	else if (this->isDouble())
+		this->_type = DOUBLE;
+	else if (this->isLiterals())
+		this->_type = LITERALS;
+	// std::cout << "the type: " << this->_type << std::flush << std::endl;
 }
 
 int	Convert::getType( void ) { return (this->_type); }
@@ -194,6 +194,34 @@ bool	Convert::isFloat( void )
 	found = 0;
 	while (this->_string[i] == '-' || this->_string[i] == '+')
 		i++;
+	for (; i < (int)_string.length() - 1; i++) // here length() - 1 for x.x[f] --> 'f'
+	{
+		if (this->_string[i] == '.')
+			found++;
+		// std::cout << "string[" << i << "]: " << _string[i] << std::flush << std::endl;
+		if ((!std::isdigit(this->_string[i]) && this->_string[i] != '.')
+			|| found > 1)
+		{
+			// std::cout << "false: " << _string[i] << std::flush << std::endl;
+			return (false);
+		}
+	}
+	return (true);
+}
+
+bool	Convert::isDouble( void )
+{
+	int	i;
+	int	found;
+
+	if (this->_string.find('.') == 0 // First index is '.'.
+		|| this->_string.find('.') == std::string::npos // Last index is '.'.
+		|| this->_string.find('.') == this->_string.length() - 1)
+		return (false);
+	i = 0;
+	found = 0;
+	while (this->_string[i] == '-' || this->_string[i] == '+')
+		i++;
 	for (; i < (int)_string.length(); i++)
 	{
 		if (this->_string[i] == '.')
@@ -238,8 +266,9 @@ void	Convert::printChar( void )
 
 void	Convert::printInt( void )
 {
-	if (this->isLiterals() || (!std::isprint(this->_i)
-		&& (this->_i >= 127)))
+	// if (this->isLiterals() || (!std::isprint(this->_i)
+	// 	&& (this->_i >= 127)))
+	if (this->isLiterals())
 		std::cout << "Impossible" << std::flush << std::endl;
 	else
 		std::cout << this->getInt() << std::flush << std::endl;
@@ -247,7 +276,48 @@ void	Convert::printInt( void )
 
 void	Convert::printFloat( void )
 {
-	
+	if (this->_string.compare("nan") == 0
+		|| this->_string.compare("nanf") == 0)
+		std::cout << "nanf" << std::flush;
+	else if (this->_string.compare("+inf") == 0
+		|| this->_string.compare("+inff") == 0)
+		std::cout << "+inff" << std::flush;
+	else if (this->_string.compare("-inf") == 0
+		|| this->_string.compare("-inff") == 0)
+		std::cout << "-inff" << std::flush;
+	else if (!this->_isPossible)
+		std::cout << "Impossible" << std::flush;
+	else
+	{
+		if (this->_f - static_cast<int>(this->_f) == 0)
+			std::cout << this->_f << ".0f" << std::flush;
+		else
+			std::cout << this->getFloat() << "f" << std::flush;
+	}
+	std::cout << std::flush << std::endl;
+}
+
+void	Convert::printDouble( void )
+{
+	if (this->_string.compare("nan") == 0
+		|| this->_string.compare("nanf") == 0)
+		std::cout << "nan" << std::flush;
+	else if (this->_string.compare("+inf") == 0
+		|| this->_string.compare("+inff") == 0)
+		std::cout << "+inf" << std::flush;
+	else if (this->_string.compare("-inf") == 0
+		|| this->_string.compare("-inff") == 0)
+		std::cout << "-inf" << std::flush;
+	else if (!this->_isPossible)
+		std::cout << "Impossible" << std::flush;
+	else
+	{
+		if (this->_d - static_cast<int>(this->_d) == 0)
+			std::cout << this->_d << ".0" << std::flush;
+		else
+			std::cout << this->getDouble() << std::flush;
+	}
+	std::cout << std::flush << std::endl;
 }
 
 // const char	*Convert::NotHaveAnyType::what( void ) const throw()
@@ -263,11 +333,11 @@ void	Convert::printFloat( void )
 std::ostream	&operator<<( std::ostream &os, Convert &rhs )
 {
 	// os << "------------------------" << std::flush << std::endl;
-	os << "Input: " << rhs.getString() << std::flush << std::endl;
+	// os << "Input: " << rhs.getString() << std::flush << std::endl;
 	os << "char: " << std::flush; rhs.printChar();
 	os << "int: " << std::flush; rhs.printInt();
-	// os << "float: " << rhs.getFloat() << std::flush << std::endl;
-	// os << "double: " << rhs.getDouble() << std::flush << std::endl;
+	os << "float: " << std::flush; rhs.printFloat();
+	os << "double: " << std::flush; rhs.printDouble();
 	// os << std::flush << std::endl;
 	return (os);
 }

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:21:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/13 17:48:26 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/13 21:40:37 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ class Convert
 		void		printChar( void );
 		void		printInt( void );
 		void		printFloat( void );
+		void		printDouble( void );
 	/*=-----------------------------------------------------=*/
 
 	/*__________________ EXCEPTION CLASSES __________________*/

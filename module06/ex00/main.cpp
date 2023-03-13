@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 22:08:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/12 20:28:21 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/13 21:48:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	main( int argc, char **argv )
 		// Convert	c(input, argv[1]);
 		Convert	c(argv[1]);
 
-		std::cout << "-------- Convert class Created! ----------"\
-			<< std::flush << std::endl << std::endl;
+		// std::cout << "-------- Convert class Created! ----------"\
+		// 	<< std::flush << std::endl << std::endl;
 		c.convertString();
 		std::cout << c << std::flush << std::endl;
-		std::cout << "-------- Convert class Destroying! ----------"\
-			<< std::flush << std::endl;
+		// std::cout << "-------- Convert class Destroying! ----------"\
+		// 	<< std::flush << std::endl;
 	}
 	catch(const std::exception& e)
 	{
