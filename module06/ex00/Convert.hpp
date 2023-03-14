@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:21:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/14 16:26:40 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/14 16:52:22 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ enum e_type
 };
 
 /**
- * @brief Default Class
+ * @brief Static Class
  * 
  * @note CTYPE: (C-Style); C language's 'Type Cast' can't check compiler_time.
  *  It's checking run_time herewith in program can fail in runtime.
@@ -84,49 +84,49 @@ It is defined at namespace scope and does not allow inheritance.
 class Convert
 {
 	private:
-		std::string	_string;
-		char		*_str;
-		char		_c;
-		int			_i;
-		float		_f;
-		double		_d;
-		e_type		_type;
-		bool		_isPossible;
+		static std::string	_string;
+		static char			*_str;
+		static char			_c;
+		static int			_i;
+		static float		_f;
+		static double		_d;
+		static e_type		_type;
+		static bool			_isPossible;
 	public:
-		Convert( void );
+		// Convert( void );
 		// Convert( const std::string string, char *argv );
-		Convert( char *argv );
-		~Convert( void );
+		// Convert( char *argv );
+		// ~Convert( void );
 
 	/*----------------- MAIN FUNCTION --------------------*/
-		void		convertString( void );
+		static void		convertString( void );
 
 	/*-------------- SET GET FUNCTIONS() --------------------*/
-		void		setString( std::string string );
-		std::string	getString( void );
-		char		getChar( void );
-		int			getInt( void );
-		float		getFloat( void );
-		double		getDouble( void );
+		static void			setString( std::string string );
+		static std::string	getString( void );
+		static char			getChar( void );
+		static int			getInt( void );
+		static float		getFloat( void );
+		static double		getDouble( void );
 
-		void		setType( void );
-		int			getType( void );
+		static void			setType( void );
+		static int			getType( void );
 	/*=-----------------------------------------------------=*/
 
 	/*------------------ IS FUNCTIONS() ---------------------*/
-		bool		isPossible( void );
-		bool		isChar( void );
-		bool		isInt( void );
-		bool		isFloat( void );
-		bool		isDouble( void );
-		bool		isLiterals( void ) const;
+		static bool			isPossible( void );
+		static bool			isChar( void );
+		static bool			isInt( void );
+		static bool			isFloat( void );
+		static bool			isDouble( void );
+		static bool			isLiterals( void );
 	/*=-----------------------------------------------------=*/
 
 	/*----------------- PRINT FUNCTIONS() -------------------*/
-		void		printChar( void );
-		void		printInt( void );
-		void		printFloat( void );
-		void		printDouble( void );
+		static void			printChar( void );
+		static void			printInt( void );
+		static void			printFloat( void );
+		static void			printDouble( void );
 	/*=-----------------------------------------------------=*/
 
 	/*__________________ EXCEPTION CLASSES __________________*/
