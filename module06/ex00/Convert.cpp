@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:27:27 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/13 22:04:16 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/14 14:08:34 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,18 @@ Convert::~Convert( void )
  * @brief Main convert func().
  * 
  * Convert steps starting here.
+ * 
+ * @note static_cast operator:
+ * @link https://www.ibm.com/docs/bg/zos/2.2.0?topic=expressions-static-cast-operator-c-only
+ * 
+ * @note reinterpret_cast operator:
+ * @link https://www.ibm.com/docs/bg/zos/2.2.0?topic=expressions-reinterpret-cast-operator-c-only
+ * 
+ * @note const_cast operator:
+ * @link https://www.ibm.com/docs/bg/zos/2.2.0?topic=expressions-const-cast-operator-c-only
+ * 
+ * @note dynamic_cast operator:
+ * @link https://www.ibm.com/docs/bg/zos/2.2.0?topic=expressions-dynamic-cast-operator-c-only
  */
 void	Convert::convertString( void )
 {
