@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Convert.hpp                                        :+:      :+:    :+:   */
+/*   ScalarConvert.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:21:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/14 16:52:22 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/16 17:43:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONVERT_HPP
-# define CONVERT_HPP
+#ifndef SCALARCONVERT_HPP
+# define SCALARCONVERT_HPP
 
 # include <iostream>
 # include <string>
@@ -81,9 +81,9 @@ namespace MyNamespace {
 In this example, MyStaticClass has only static members and cannot be instantiated.
 It is defined at namespace scope and does not allow inheritance.
  */
-class Convert
+class ScalarConvert
 {
-	private:
+	private: // static members.
 		static std::string	_string;
 		static char			*_str;
 		static char			_c;
@@ -93,15 +93,16 @@ class Convert
 		static e_type		_type;
 		static bool			_isPossible;
 	public:
-		// Convert( void );
-		// Convert( const std::string string, char *argv );
-		// Convert( char *argv );
-		// ~Convert( void );
+		// ScalarConvert( void );
+		// ScalarConvert( const std::string string, char *argv );
+		// ScalarConvert( char *argv );
+		// ~ScalarConvert( void );
 
 	/*----------------- MAIN FUNCTION --------------------*/
-		static void		convertString( void );
+		static void		ScalarConvertString( char **argv );
 
 	/*-------------- SET GET FUNCTIONS() --------------------*/
+		// static void			setInit( void );
 		static void			setString( std::string string );
 		static std::string	getString( void );
 		static char			getChar( void );
@@ -127,6 +128,7 @@ class Convert
 		static void			printInt( void );
 		static void			printFloat( void );
 		static void			printDouble( void );
+		static void			stdOutConverted( void );
 	/*=-----------------------------------------------------=*/
 
 	/*__________________ EXCEPTION CLASSES __________________*/
@@ -145,6 +147,6 @@ class Convert
 	/*_______________________________________________________*/
 };
 
-std::ostream	&operator<<( std::ostream &os, Convert &rhs );
+// std::ostream	&operator<<( std::ostream &os, ScalarConvert &rhs );
 
-#endif // CONVERT_HPP
+#endif // SCALARCONVERT_HPP

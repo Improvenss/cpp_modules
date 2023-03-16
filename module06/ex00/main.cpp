@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 22:08:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/14 17:41:48 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/16 18:17:45 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
  * @file main.cpp
  * @author Görkem SEVER (gsever)
  * @brief In this exercise we will learn 'How it's working type casting?'.
+ * @link https://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used
  * @version 0.1
  * @date 2023-03-09
  * 
  * @copyright Copyright (c) 2023
  * 
  */
-#include "Convert.hpp"
+#include "ScalarConvert.hpp"
 
 /**
  * @brief Converting the given argument to all types.
@@ -50,16 +51,17 @@ int	main( int argc, char **argv )
 	try
 	{
 		// std::string	input = argv[1];
-		// Convert	c(input, argv[1]);
-		// Convert	c(argv[1]);
-		Convert	c;
+		// ScalarConvert	c(input, argv[1]);
+		// ScalarConvert	c(argv[1]);
+		// ScalarConvert	c;
 
-		// std::cout << "-------- Convert class Created! ----------"\
+		// std::cout << "-------- ScalarConvert class Created! ----------"\
 		// 	<< std::flush << std::endl << std::endl;
-		c.setString(argv[1]);
-		c.Convert::convertString();
-		std::cout << c << std::flush << std::endl;
-		// std::cout << "-------- Convert class Destroying! ----------"\
+		// c.setString(argv[1]);
+		// c.ScalarConvert::convertString();
+		ScalarConvert::ScalarConvertString(argv);
+		// std::cout << c << std::flush << std::endl;
+		// std::cout << "-------- ScalarConvert class Destroying! ----------"\
 		// 	<< std::flush << std::endl;
 	}
 	catch(const std::exception& e)

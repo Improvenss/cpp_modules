@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Convert.cpp                                        :+:      :+:    :+:   */
+/*   ScalarConvert.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:27:27 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/14 16:53:33 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/16 18:27:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Convert.hpp"
+#include "ScalarConvert.hpp"
+#include <iostream>
 
-// Convert::Convert( void )
+// ScalarConvert::ScalarConvert( void )
 // {
-// 	// std::cout << "Convert Default Constructor called."\
+// 	// std::cout << "ScalarConvert Default Constructor called."\
 // 	// 	<< std::flush << std::endl;
 // 	_c = '\0';
 // 	_i = 0;
@@ -24,9 +25,9 @@
 // 	_isPossible = true;
 // }
 
-// Convert::Convert( char *argv ) : _string(argv), _str(argv)
+// ScalarConvert::ScalarConvert( char *argv ) : _string(argv), _str(argv)
 // {
-// 	// std::cout << "Convert String and Str Constructor called: " << _string\
+// 	// std::cout << "ScalarConvert String and Str Constructor called: " << _string\
 // 	// 	<< std::flush << std::endl;
 // 	_c = '\0';
 // 	_i = 0;
@@ -36,37 +37,63 @@
 // 	_isPossible = true;
 // }
 
-// Convert::~Convert( void )
+// ScalarConvert::~ScalarConvert( void )
 // {
-// 	// std::cout << "Convert Destructor called."\
+// 	// std::cout << "ScalarConvert Destructor called."\
 // 	// 	<< std::flush << std::endl;
 // }
+
+/**
+ * @brief 
+ * 
+ * @note How can i initialize these static members?
+ * @link https://www.tutorialspoint.com/cplusplus/cpp_static_members.htm
+ */
+std::string	ScalarConvert::_string = "";
+char		*ScalarConvert::_str = NULL;
+char		ScalarConvert::_c = '\0';
+int			ScalarConvert::_i = 0;
+float		ScalarConvert::_f = 0.0f;
+double		ScalarConvert::_d = 0.0;
+e_type		ScalarConvert::_type = NONE;
+bool		ScalarConvert::_isPossible = true;
+
 
 /*-------------------- MAIN FUNCTION --------------------*/
 /**
- * @brief Main convert func().
+ * @brief Main ScalarConvert func().
  * 
- * Convert steps starting here.
+ * ScalarConvert steps starting here.
  * 
  * @note static_cast operator:
+ * @link https://en.cppreference.com/w/cpp/language/static_cast
  * @link https://www.ibm.com/docs/bg/zos/2.2.0?topic=expressions-static-cast-operator-c-only
  * 
- * @note reinterpret_cast operator:
- * @link https://www.ibm.com/docs/bg/zos/2.2.0?topic=expressions-reinterpret-cast-operator-c-only
- * 
  * @note const_cast operator:
+ * @link https://en.cppreference.com/w/cpp/language/const_cast
  * @link https://www.ibm.com/docs/bg/zos/2.2.0?topic=expressions-const-cast-operator-c-only
  * 
  * @note dynamic_cast operator:
+ * @link https://en.cppreference.com/w/cpp/language/dynamic_cast
  * @link https://www.ibm.com/docs/bg/zos/2.2.0?topic=expressions-dynamic-cast-operator-c-only
+ * 
+ * @note reinterpret_cast operator:
+ * @link https://en.cppreference.com/w/cpp/language/reinterpret_cast
+ * @link https://www.ibm.com/docs/bg/zos/2.2.0?topic=expressions-reinterpret-cast-operator-c-only
+ * 
+ * @note -ERRORS-
+ * @link https://www.reddit.com/r/learnprogramming/comments/5dckv2/c_undefined_symbols_for_architecture_x86_64/
  */
-void	Convert::convertString( void )
+void	ScalarConvert::ScalarConvertString( char **argv )
 {
+	// setInit();
+	setString(argv[1]);
 	setType();
 	if (getType() == 0) // If input not have a type. --> e_type -> NONE
-		throw (Convert::NotHaveAnyType()); // print: RED Input's not have a type! END
+		throw (ScalarConvert::NotHaveAnyType()); // print: RED Input's not have a type! END
 	if (!isPossible())
 		return ;
+	// std::cout << "LINE: " << __LINE__ << std::flush << std::endl;
 	switch (_type)
 	{
 		case CHAR:
@@ -74,6 +101,10 @@ void	Convert::convertString( void )
 			_i = static_cast<int>(_c);
 			_f = static_cast<float>(_c);
 			_d = static_cast<double>(_c);
+			// ScalarConvert::_c = _string[0];
+			// ScalarConvert::_i = static_cast<int>(_c);
+			// ScalarConvert::_f = static_cast<float>(_c);
+			// ScalarConvert::_d = static_cast<double>(_c);
 			break;
 		case INT:
 			_i = std::stoi(_string);
@@ -94,47 +125,60 @@ void	Convert::convertString( void )
 		default:
 			break;
 	}
+	stdOutConverted();
 }
 
 /*-------------- SET GET FUNCTIONS() --------------------*/
-void	Convert::setString( std::string string ) { _string = string; }
+// void	ScalarConvert::setInit( void )
+// {
+// 	ScalarConvert::_string = "";
+// 	ScalarConvert::_str = NULL;
+// 	ScalarConvert::_c = '\0';
+// 	ScalarConvert::_i = 0;
+// 	ScalarConvert::_f = 0.0f;
+// 	ScalarConvert::_d = 0.0;
+// 	ScalarConvert::_type = NONE;
+// 	ScalarConvert::_isPossible = true;
+// }
 
-std::string	Convert::getString( void ) { return (_str); }
+void	ScalarConvert::setString( std::string string ) { _string = string; }
 
-char	Convert::getChar( void ) { return (_c); }
+std::string	ScalarConvert::getString( void ) { return (_str); }
 
-int	Convert::getInt( void ) { return (_i); }
+char	ScalarConvert::getChar( void ) { return (_c); }
 
-float	Convert::getFloat( void ) { return (_f); }
+int	ScalarConvert::getInt( void ) { return (_i); }
 
-double	Convert::getDouble( void ) { return (_d); }
+float	ScalarConvert::getFloat( void ) { return (_f); }
 
-void	Convert::setType( void )
+double	ScalarConvert::getDouble( void ) { return (_d); }
+
+void	ScalarConvert::setType( void )
 {
 	if (isChar())
-		_type = CHAR;
+		_type = CHAR; // 1
 	else if (isInt())
-		_type = INT;
+		_type = INT; // 2
 	else if (isFloat())
-		_type = FLOAT;
+		_type = FLOAT; // 3
 	else if (isDouble())
-		_type = DOUBLE;
+		_type = DOUBLE; // 4
 	else if (isLiterals())
-		_type = LITERALS;
-	// std::cout << "the type: " << _type << std::flush << std::endl;
+		_type = LITERALS; // 5
+	std::cout << "the type: " << _type << std::flush << std::endl;
 }
 
-int	Convert::getType( void ) { return (_type); }
+int	ScalarConvert::getType( void ) { return (_type); }
 /*=-----------------------------------------------------=*/
 
 /*------------------ IS FUNCTIONS() ---------------------*/
 /**
- * @brief Input can convertable?
+ * @brief Input can ScalarConvertable?
  * 
  * @return true 
  * @return false 
  */
-bool	Convert::isPossible( void )
+bool	ScalarConvert::isPossible( void )
 {
 	try
 	{
@@ -152,13 +196,13 @@ bool	Convert::isPossible( void )
 	return (true);
 }
 
-bool	Convert::isChar( void )
+bool	ScalarConvert::isChar( void )
 {
 	return (_string.length() == 1 && std::isalpha(_string[0])\
 		&& std::isprint(_string[0]));
 }
 
-bool	Convert::isInt( void )
+bool	ScalarConvert::isInt( void )
 {
 	// __SIZE_TYPE__	i;
 	// size_t	i;
@@ -192,7 +236,7 @@ bool	Convert::isInt( void )
 	return (true);
 }
 
-bool	Convert::isFloat( void )
+bool	ScalarConvert::isFloat( void )
 {
 	int	i;
 	int	found;
@@ -221,7 +265,7 @@ bool	Convert::isFloat( void )
 	return (true);
 }
 
-bool	Convert::isDouble( void )
+bool	ScalarConvert::isDouble( void )
 {
 	int	i;
 	int	found;
@@ -249,14 +293,16 @@ bool	Convert::isDouble( void )
 	return (true);
 }
 
-bool	Convert::isLiterals( void )
+bool	ScalarConvert::isLiterals( void )
 {
 	if (!_isPossible
 		|| (_string.compare("nan") == 0)
 		|| (_string.compare("nanf") == 0)
 		|| (_string.compare("+inff") == 0) // Float
+		|| (_string.compare("inff") == 0) // Float
 		|| (_string.compare("-inff") == 0) // Float
 		|| (_string.compare("+inf") == 0) // Double
+		|| (_string.compare("inf") == 0) // Double
 		|| (_string.compare("-inf") == 0)) // Double
 		return (true);
 	return (false);
@@ -265,7 +311,7 @@ bool	Convert::isLiterals( void )
 
 
 
-void	Convert::printChar( void )
+void	ScalarConvert::printChar( void )
 {
 	if (isLiterals() || (!std::isprint( _i)
 		&& (_i >= 127)))
@@ -276,7 +322,7 @@ void	Convert::printChar( void )
 		std::cout << "'" << getChar() << "'" << std::flush << std::endl;
 }
 
-void	Convert::printInt( void )
+void	ScalarConvert::printInt( void )
 {
 	// if (isLiterals() || (!std::isprint(_i)
 	// 	&& (_i >= 127)))
@@ -286,7 +332,7 @@ void	Convert::printInt( void )
 		std::cout << getInt() << std::flush << std::endl;
 }
 
-void	Convert::printFloat( void )
+void	ScalarConvert::printFloat( void )
 {
 	if (_string.compare("nan") == 0
 		|| _string.compare("nanf") == 0)
@@ -309,7 +355,7 @@ void	Convert::printFloat( void )
 	std::cout << std::flush << std::endl;
 }
 
-void	Convert::printDouble( void )
+void	ScalarConvert::printDouble( void )
 {
 	if (_string.compare("nan") == 0
 		|| _string.compare("nanf") == 0)
@@ -332,24 +378,35 @@ void	Convert::printDouble( void )
 	std::cout << std::flush << std::endl;
 }
 
-// const char	*Convert::NotHaveAnyType::what( void ) const throw()
+// const char	*ScalarConvert::NotHaveAnyType::what( void ) const throw()
 // {
 // 	return ("Input's not have any type!");
 // }
 
-// const char	*Convert::foo::what( void ) const throw()
+// const char	*ScalarConvert::foo::what( void ) const throw()
 // {
 // 	return ("bar");
 // }
 
-std::ostream	&operator<<( std::ostream &os, Convert &rhs )
+void	ScalarConvert::stdOutConverted( void )
 {
-	// os << "------------------------" << std::flush << std::endl;
-	// os << "Input: " << rhs.getString() << std::flush << std::endl;
-	os << "char: " << std::flush; rhs.printChar();
-	os << "int: " << std::flush; rhs.printInt();
-	os << "float: " << std::flush; rhs.printFloat();
-	os << "double: " << std::flush; rhs.printDouble();
-	// os << std::flush << std::endl;
-	return (os);
+	// std::cout << "------------------------" << std::flush << std::endl;
+	// std::cout << "Input: " << rhs.getString() << std::flush << std::endl;
+	std::cout << "char: " << std::flush; ScalarConvert::printChar();
+	std::cout << "int: " << std::flush; ScalarConvert::printInt();
+	std::cout << "float: " << std::flush; ScalarConvert::printFloat();
+	std::cout << "double: " << std::flush; ScalarConvert::printDouble();
+	// std::cout << std::flush << std::endl;
 }
+
+// std::ostream	&operator<<( std::ostream &os, ScalarConvert &rhs )
+// {
+// 	// os << "------------------------" << std::flush << std::endl;
+// 	// os << "Input: " << rhs.getString() << std::flush << std::endl;
+// 	os << "char: " << std::flush; rhs.printChar();
+// 	os << "int: " << std::flush; rhs.printInt();
+// 	os << "float: " << std::flush; rhs.printFloat();
+// 	os << "double: " << std::flush; rhs.printDouble();
+// 	// os << std::flush << std::endl;
+// 	return (os);
+// }
