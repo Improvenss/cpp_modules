@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 20:01:57 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/19 22:00:28 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/19 22:27:21 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,21 @@ int	main()
 	templateArrayTest(arrayString, "String");
 	// checkLeaks();
 	// templateArrayTest(arrayStr, "Str");
+
+	try
+	{
+		std::cout << "Accessing element's a valid index: " << arrayInt[5]\
+			<< std::flush << std::endl;
+		std::cout << "Accessing element's an invalid index: " << arrayInt[234]\
+			<< std::flush << std::endl;
+		std::cout << "Accessing element's a valid index: " << arrayInt[6]\
+			<< std::flush << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	// for (unsigned int i = 0; i < arrayInt.getSize(); i++)
 	// 	arrayInt[i] = i;
 	// std::cout << "arrayInt(7): " << arrayInt << std::flush << std::endl;
