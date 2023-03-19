@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:21:07 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/16 17:43:04 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/19 12:57:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ class ScalarConvert
 		// ScalarConvert( char *argv );
 		// ~ScalarConvert( void );
 
-	/*----------------- MAIN FUNCTION --------------------*/
-		static void		ScalarConvertString( char **argv );
+	/*----------------- MAIN FUNCTION -----------------------*/
+		static void			ScalarConvertString( char **argv );
 
 	/*-------------- SET GET FUNCTIONS() --------------------*/
 		// static void			setInit( void );

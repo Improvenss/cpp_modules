@@ -6,41 +6,17 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:53:29 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/14 14:02:52 by gsever           ###   ########.fr       */
+/*   Updated: 2023/03/19 14:03:40 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Colors.hpp"
+#include "Serializer.hpp"
 
-struct Data
+static void	checkLeaks( void )
 {
-	std::string	studentName;
-	int			studentAge;
-};
-
-/**
- * @brief Data* to uintptr_t
- * 
- * It takes a pointer and converts it to the unsigned integer type uintptr_t.
- * @param ptr 
- * @return uintptr_t 
- */
-uintptr_t	seralize( Data *ptr )
-{
-
-}
-
-/**
- * @brief uintptr_t to Data*
- * 
- * It takes an unsigned integer parameter and converts it to a pointer to Data.
- * @param raw 
- * @return Data 
- */
-Data	*deserialize( uintptr_t raw )
-{
-
+	std::cout << B_GREEN "Leaks: " << std::flush;
+	system("leaks Serialization | grep 'leaked bytes'");
+	std::cout << END << std::flush;
 }
 
 /**
@@ -50,7 +26,35 @@ Data	*deserialize( uintptr_t raw )
  */
 int	main()
 {
+	// Serializer	serializ; // We can't create because this 'Serializer' class are static class.
+	Data		*data = new Data;
+	uintptr_t	raw;
+	Data		*ptr;
 
+	data->studentName = "Gorkem";
+	data->studentAge = 22;
+
+	raw = Serializer::serialize(data);
+	std::cout << "data Seralize: " << raw << std::flush << std::endl;
+	ptr = Serializer::deseralize(raw);
+	std::cout << "data Deseralize: " << ptr\
+		<< std::flush << std::endl << std::endl;
+
+	raw = Serializer::serialize(data);
+	std::cout << "data Seralize: " << raw << std::flush << std::endl;
+	ptr = Serializer::deseralize(raw);
+	std::cout << "data Deseralize: " << ptr\
+		<< std::flush << std::endl << std::endl;
+
+	std::cout << "Deserialized Name: " << ptr->studentName\
+		<< std::flush << std::endl;
+	std::cout << "Deserialized Age: " << ptr->studentAge\
+		<< std::flush << std::endl;
+	// checkLeaks();
+	delete data;
+	// delete ptr;
+	checkLeaks();
+	return (0);
 }
 
 /**
