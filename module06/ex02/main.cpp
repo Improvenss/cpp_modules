@@ -6,10 +6,11 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 14:10:38 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/19 16:37:57 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/04 12:24:04 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Colors.hpp"
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -97,6 +98,13 @@ void	identify( Base &p )
 	}
 }
 
+static void	checkLeaks( void )
+{
+	std::cout << B_GREEN "Leaks: " << std::flush;
+	system("leaks typeinfo | grep 'leaked bytes'");
+	std::cout << END << std::flush;
+}
+
 int	main()
 {
 	Base	*b1 = generate();
@@ -104,6 +112,7 @@ int	main()
 	Base	*b3 = generate();
 	Base	*b4 = generate();
 
+	// checkLeaks();
 	std::cout << "------------ Classes Created! -----------"\
 		<< std::flush << std::endl << std::endl;
 	std::cout << "b1* = " << std::flush; identify(b1);
@@ -114,6 +123,7 @@ int	main()
 	std::cout << "b2& = " << std::flush; identify(*b2);
 	std::cout << std::flush << std::endl;
 
+	// checkLeaks();
 	std::cout << "b3* = " << std::flush; identify(b3);
 	std::cout << "b3& = " << std::flush; identify(*b3);
 	std::cout << std::flush << std::endl;
@@ -124,9 +134,11 @@ int	main()
 	std::cout << "------------ Classes Destroying! -----------"\
 		<< std::flush << std::endl;
 
+	checkLeaks();
 	delete b1;
 	delete b2;
 	delete b3;
 	delete b4;
+	checkLeaks();
 	return (0);
 }
