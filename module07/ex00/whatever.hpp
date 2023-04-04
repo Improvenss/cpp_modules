@@ -6,15 +6,15 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:56:50 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/19 17:58:24 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/04 14:13:05 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WHATEVER_HPP
 # define WHATEVER_HPP
 
-#include <iostream>
-#include "Colors.hpp"
+# include <iostream>
+# include "Colors.hpp"
 
 template<typename T>
 void	swap( T &lhs, T &rhs )
