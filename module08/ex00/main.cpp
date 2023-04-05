@@ -49,8 +49,8 @@ int	main( int argc, char **argv )
 		std::cout << "Sample: ./easyfind 5" << std::flush << std::endl;
 		return (EXIT_FAILURE);
 	}
-	int	arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1000, 235923, 11111, 99999, 88};
-	// int	arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1000, 235923, 11111, 99999, 88, 6666666, 177};
+	// int	arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1000, 235923, 11111, 99999, 88};
+	int	arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1000, 235923, 11111, 99999, 88, 6666666, 177, 23234};
 	// @note Biggering array with half half.
 
 	printArray(arr);
