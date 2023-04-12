@@ -3,9 +3,14 @@
 #include <chrono>
 #include <thread>
 #include <curl/curl.h>
+// #include <jsoncpp/json/json.h>
 #include <json/json.h>
+// #include <json/ ... >
+// #include "/opt/homebrew/Cellar/jsoncpp/1.9.5/include/json/json.h"
 
 using namespace std;
+
+//  c++ BTCValues.cpp -lcurl && ./a.out
 
 #define MY_API_KEY "65bc3511-b1df-432d-8634-43afbf7b90ff"
 

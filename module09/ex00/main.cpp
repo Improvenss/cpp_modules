@@ -6,10 +6,21 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:46:54 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/03 19:12:06 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/11 19:28:00 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file main.cpp
+ * @author Görkem SEVER (gsever)
+ * @link https://pro.coinmarketcap.com/account
+ * @brief 
+ * @version 0.1
+ * @date 2023-04-07
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "BitcoinExchange.hpp"
 
 /**
@@ -26,22 +37,33 @@
  * @link https://www.quora.com/Where-can-I-find-a-CSV-file-of-Bitcoin-price-data-by-date
  * @link https://www.quora.com/Where-can-I-get-historical-raw-data-on-Bitcoin-price-and-volume-across-different-exchanges
  * 
+ * @note File Handling
+ * @link https://www.edureka.co/blog/file-handling-in-cpp/#OpeningaFile
+ * 
+ * @todo OK: Check input.txt file.
+ * @todo in_process: Check data.csv file.
+ * @todo in_process: Check input.txt file's inside parameters.
+ * @todo 
  * 
  */
 int	main( int argc, char **argv )
 {
 	try
 	{
-		(void)argv;
 		if (argc != 2)
 			throw (std::invalid_argument("You must be enter just one arguman!"));
-		if (argv)
+		// std::cout << "argv[1]: " << argv[1] << std::flush << std::endl;
+
+		// BitcoinExchange	*btcExchange = new BitcoinExchange(argv[1]); // Main class for all calculating.
+		BitcoinExchange	btcExchange(argv[1]);
+		// btcExchange->runBTCExchange(); // You must print here.
+		btcExchange.runBTCExchange(); // You must print here.
+		// delete (btcExchange);
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "btc: " << e.what() << '\n';
 	}
-	
 }
 
 /**
