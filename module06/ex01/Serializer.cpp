@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 12:56:10 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/19 14:04:02 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/04 12:17:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 /**
  * @brief Data* to uintptr_t
  * 
- * It takes a pointer and converts it to the unsigned integer type uintptr_t.
+ * It takes a pointer and converts it to the unsigned long type uintptr_t.
  * @param ptr 
  * @return uintptr_t 
  */
@@ -41,7 +41,7 @@ uintptr_t	Serializer::serialize( Data *ptr )
 /**
  * @brief uintptr_t to data*
  * 
- * it takes an unsigned integer parameter and converts it to a pointer to data.
+ * it takes an unsigned long parameter and converts it to a pointer to data.
  * @param raw 
  * @return data 
  */

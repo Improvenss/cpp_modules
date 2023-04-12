@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 18:22:38 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/24 15:03:23 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/04 14:22:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	templateIterTest( T type, size_t count )
 		<< std::flush << std::endl;
 	std::cout << GREEN "Type ID: [" << typeid(T).name() << "]" END\
 		<< std::flush << std::endl;
-	std::cout << "arrType[5] Before: " << std::flush << std::endl;
+	std::cout << "arrType[" << count << "] Before: " << std::flush << std::endl;
 	iter(type, count, printIter);
 	iter(type, count, setIter);
-	std::cout << "arrType[5] After: " << std::flush << std::endl;
+	std::cout << "arrType[" << count << "] After: " << std::flush << std::endl;
 	iter(type, count, printIter);
 	std::cout << B_BLUE "--------------------------------------------" END\
 		<< std::flush << std::endl << std::endl;
@@ -71,9 +71,9 @@ void	exampleAsdf( asdf foo, asdf bar )
  */
 int	main( void )
 {
-	int		arrInt[] = { 1, 2, 3, 4, 5 };
-	char	arrChar[] = { 'a', 'b', 'c', 'd', 'e' };
-	double	arrDouble[] = { 1.1, 2.2, 3.3, 4.4, 5.5 };
+	int			arrInt[] = { 1, 2, 3, 4, 5 };
+	char		arrChar[] = { 'a', 'b', 'c', 'd', 'e' };
+	double		arrDouble[] = { 1.1, 2.2, 3.3, 4.4, 5.5 };
 	std::string	arrString[] = { "Gorkem", "Sever", "Ahmet", "Karaca", ""};
 
 	exampleAsdf<int>(42, 43); // We can use this func<template>() with 2+ same type template parameter.

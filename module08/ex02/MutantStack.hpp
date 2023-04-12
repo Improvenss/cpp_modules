@@ -38,6 +38,10 @@
  * 
  * @note std::stack -> meaning;
  * @link https://en.cppreference.com/w/cpp/container/stack
+ * @note std::stack::top() -> Returning the list's top element.
+ * @link https://cplusplus.com/reference/stack/stack/top/
+ * @note std::stack::pop() -> Removing the list's top element.
+ * @link https://cplusplus.com/reference/stack/stack/pop/
  * 
  * @tparam T 
  * @tparam Container 

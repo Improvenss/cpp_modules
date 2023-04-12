@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:42:55 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/21 14:19:18 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/05 14:15:37 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,15 @@ void	Span::addNumber( int n )
 	this->_list.push_back(n);
 }
 
+/**
+ * @brief 
+ * 
+ * @note std::list's insert();
+ * @link https://cplusplus.com/reference/list/list/insert/
+ * 
+ * @param itBegin 
+ * @param itEnd 
+ */
 void	Span::addNumber( std::list<int>::const_iterator itBegin,
 	std::list<int>::const_iterator itEnd )
 {
@@ -71,7 +80,7 @@ unsigned int	Span::shortestSpan( void ) const
 			if (it == it2)
 				continue ;
 			if (std::abs(*it2 - *it) < static_cast<int>(min))
-				min = std::abs(*it2 - *it);
+				min = std::abs(*it2 - *it); // abs -> Absolute Value = Mutlak Deger
 		}
 	return (min);
 }

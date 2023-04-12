@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 22:08:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/03/16 18:17:45 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/04 11:51:38 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ int	main( int argc, char **argv )
 	{
 		std::cerr << RED << e.what() << '\n' << END;
 	}
-	
-
 	return (EXIT_SUCCESS); // 0
 }
 /**
