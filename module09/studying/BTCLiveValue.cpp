@@ -32,5 +32,6 @@ int main() {
     }
     curl_global_cleanup();
     cout << readBuffer << endl;
+    std::cout << "asdf" << std::flush << std::endl << std::endl;
     return 0;
 }
