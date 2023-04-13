@@ -131,6 +131,7 @@ int	main()
 		std::cout << std::flush << std::endl;
 		tmpForm = i1.makeForm("nonexistentForm", "nonexistBRUH");
 		std::cout << std::flush << std::endl;
+		delete (tmpForm);
 		std::cout << std::endl\
 			<< "-------- Bureaucrats and Forms Destroying! ------"\
 			<< std::flush << std::endl;
