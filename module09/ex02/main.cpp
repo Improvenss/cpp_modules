@@ -6,12 +6,23 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:43:48 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/16 15:55:25 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/22 18:06:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+/**
+ * @brief 
+ * 
+ * @note "Function prototypes started but need merge-insert algorithm
+ *  working merging recursivly. After < 32 a array size, go to insert sorting.
+ *  After the sorting steps need merging..."
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int	main( int argc, char **argv )
 {
 	try

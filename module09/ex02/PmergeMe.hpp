@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:44:27 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/22 17:35:07 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/22 22:42:57 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,18 @@ class PmergeMe
 		void	timeTestFunction( void );
 /* -------------------------------------------------------------------------- */
 /* _________________________ IF FUNCTIONS ___________________________________ */
+
+		template<typename T>
+		int		ifArrayIsSorted( std::string string, T &container );
 /* -------------------------------------------------------------------------- */
 /* _________________________ SORTING FUNCTIONS ______________________________ */
 
 		template<typename T>
-		void	sortAlgorithmMergeInsert( T &container );
+		void	sortAlgorithmMergeInsert( T &container,
+			typename T::iterator begin, typename T::iterator end );
 		template<typename T>
 		void	sortAlgorithmInsertSort( T &container,
-			typename T::iterator &begin, typename T::iterator &end );
+			typename T::iterator begin, typename T::iterator end );
 		template<typename T>
 		void	sortAlgorithmMergeSort( T &container,
 			typename T::iterator begin, typename T::iterator end );
