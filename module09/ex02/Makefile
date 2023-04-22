@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 15:15:16 by gsever            #+#    #+#              #
-#    Updated: 2023/04/15 20:44:09 by gsever           ###   ########.fr        #
+#    Updated: 2023/04/22 17:59:03 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= PmergeMe
 
 #	Flags for compile
 CC			= c++
-FLAGS		= -Wall -Werror -Wextra -std=c++98 -Wshadow
+FLAGS		= -Wall -Werror -Wextra -std=c++98 -Wshadow -O3
 
 #	All process use for compiling.
 UNAME		:= $(shell uname -s)

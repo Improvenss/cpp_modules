@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:44:27 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/19 23:42:40 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/22 17:35:07 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,18 @@ class PmergeMe
 /* _________________________ SORTING FUNCTIONS ______________________________ */
 
 		template<typename T>
-		void	sortMergeInsertAlgorithm( T &container );
+		void	sortAlgorithmMergeInsert( T &container );
+		template<typename T>
+		void	sortAlgorithmInsertSort( T &container,
+			typename T::iterator &begin, typename T::iterator &end );
+		template<typename T>
+		void	sortAlgorithmMergeSort( T &container,
+			typename T::iterator begin, typename T::iterator end );
+		template<typename T>
+		void	sortAlgorithmMerge( T &container,
+			typename T::iterator begin,
+			typename T::iterator mid,
+			typename T::iterator end );
 /* -------------------------------------------------------------------------- */
 /* _________________________ PRINT FUCTIONS _________________________________ */
 

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/19 23:43:55 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/22 18:00:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ void	PmergeMe::executePmergeSort( void )
 	// this->printArrayAll("std::list<int>: ", this->_arrayList);
 	// this->printArrayAll("std::deque<int>: ", this->_arrayDeque);
 	this->calcTimeWithClockFunc(TIME_START);
-	this->sortMergeInsertAlgorithm(this->_arrayList);
+	this->sortAlgorithmMergeInsert(this->_arrayList);
+	this->calcTimeWithClockFunc(TIME_END);
+
+	this->calcTimeWithClockFunc(TIME_START);
+	this->sortAlgorithmMergeInsert(this->_arrayDeque);
 	this->calcTimeWithClockFunc(TIME_END);
 
 }
@@ -157,12 +161,78 @@ This can result in a more efficient sorting algorithm because insertion
  * 
  * @tparam T 
  * @param container 
+ * 
+ * @fn T::begin(): 
  */
 template<typename T>
-void	PmergeMe::sortMergeInsertAlgorithm( T &container )
+void	PmergeMe::sortAlgorithmMergeInsert( T &container )
 {
-	// if ()
+	typename T::iterator	begin = container.begin();
+	typename T::iterator	end = container.end();
+	typename T::iterator	mid = container.begin();
+
+	if (begin == end)
+		return;
+
+	typename T::difference_type	dist = std::distance(begin, end);
+	// typename T::iterator	mid = 
+	std::advance(mid, dist / 2); // Setting iterator's middle.
+
+	// std::cout << "end -> " << end << std::flush << std::endl;
+	if (dist <= INSERTION_THRESHOLD)
+	{
+		// this->calcTimeWithClockFunc(TIME_START);
+		this->sortAlgorithmInsertSort(container, begin, end);
+		// this->calcTimeWithClockFunc(TIME_END);
+	}
+	else
+	{
+		this->sortAlgorithmMergeSort(container, begin, mid);
+		this->sortAlgorithmMergeSort(container, mid, end);
+		this->sortAlgorithmMerge(container, begin, mid, end);
+	}
+}
+
+template<typename T>
+void	PmergeMe::sortAlgorithmInsertSort( T &container,
+	typename T::iterator &begin, typename T::iterator &end )
+{
+	std::cout << "Insert func() runned." << std::flush << std::endl;
 	(void)container;
+	// typedef typename T::value_type	num;
+	// typedef typename T::iterator	j;
+	for (typename T::iterator	i = begin; i != end; i++)
+	{
+		typename T::value_type	num = *i;
+		typename T::iterator	j = i;
+		while (j != begin && *(j) - 1 > num)
+		{
+			*j = *(j) - 1;
+			j--;
+		}
+		*j = num;
+	}
+}
+
+template<typename T>
+void	PmergeMe::sortAlgorithmMergeSort( T &container,
+	typename T::iterator begin, typename T::iterator end )
+{
+	std::cout << "MergeSort func() runned." << std::flush << std::endl;
+	(void)container;
+	(void)begin;
+	(void)end;
+}
+
+template<typename T>
+void	PmergeMe::sortAlgorithmMerge( T &container, typename T::iterator begin,
+	typename T::iterator mid, typename T::iterator end )
+{
+	std::cout << "Merge func() runned." << std::flush << std::endl;
+	(void)container;
+	(void)begin;
+	(void)mid;
+	(void)end;
 }
 /* -------------------------------------------------------------------------- */
 /* _________________________ PRINT FUCTIONS _________________________________ */
