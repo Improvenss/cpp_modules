@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/24 10:13:06 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/24 11:17:15 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,27 +222,25 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 	// std::cout << "Insert func() runned." << std::flush << std::endl;
 	typedef typename T::iterator	createIt;
 	typedef typename T::value_type	createType; // Creating type what type is this.
-	(void)container;
 
+	// ./PmergeMe 94 5 23 2 4 8
+	(void)container;
 	(void)begin;
 	(void)end;
 	// for (createIt it = begin; it != end; it++)
 	for (createIt it1 = ++container.begin(); it1 != container.end(); it1++)
 	{
-		// createType	tmpNum = *it1;
 		createType	tmpNum = *it1;
 		createIt	it2 = it1;
+		std::cout << "*it1: " << *it1 << std::flush << std::endl;
 		std::cout << "---------" << std::flush << std::endl;
-		// while (it2 != container.begin() && *(--it2) > tmpNum)
 		while (it2 != container.begin() && *(--it2) > tmpNum)
 		{
-			std::cout << "*it1: " << *it1 << std::flush << std::endl;
-			std::cout << "*it2: " << *it2 << std::flush << std::endl;
+			std::cout << "girdik" << std::flush << std::endl;
 			createIt	itPrev = it2;
 			createIt	itNext = itPrev;
 			++itNext;
 			*itNext = *itPrev;
-			// std::swap(it1)
 		}
 		createIt	itNext = it2;
 		++itNext;
