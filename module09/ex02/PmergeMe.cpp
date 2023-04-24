@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/22 23:02:58 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/24 10:13:06 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	PmergeMe::executePmergeSort( void )
 	// this->printArrayAll("std::deque<int>: ", this->_arrayDeque);
 	this->calcTimeWithClockFunc(TIME_START);
 	this->sortAlgorithmMergeInsert(this->_arrayList,\
-		this->_arrayList.begin(), (--(this->_arrayList.end())));
+		this->_arrayList.begin(), this->_arrayList.end());
 	this->calcTimeWithClockFunc(TIME_END);
 
 	this->calcTimeWithClockFunc(TIME_START);
 	this->sortAlgorithmMergeInsert(this->_arrayDeque,\
-		this->_arrayDeque.begin(), --(this->_arrayDeque.end()));
+		this->_arrayDeque.begin(), this->_arrayDeque.end());
 	this->calcTimeWithClockFunc(TIME_END);
 
 	this->printArrayAll("list: ", this->_arrayList);
@@ -197,8 +197,8 @@ void	PmergeMe::sortAlgorithmMergeInsert( T &container,
 
 	// std::cout << "begin -> " << *begin << std::flush << std::endl;
 	// std::cout << "mid   -> " << *mid << std::flush << std::endl;
-	std::cout << "end   -> " << *end << std::flush << std::endl;
-	std::cout << "end 2 -> " << *(--(container.end())) << std::flush << std::endl;
+	// std::cout << "end   -> " << *end << std::flush << std::endl;
+	// std::cout << "end 2 -> " << *(--(container.end())) << std::flush << std::endl;
 	if (dist <= INSERTION_THRESHOLD)
 	{
 		// this->calcTimeWithClockFunc(TIME_START);
@@ -220,14 +220,33 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 	typename T::iterator begin, typename T::iterator end )
 {
 	// std::cout << "Insert func() runned." << std::flush << std::endl;
-	typedef typename T::iterator createIt;
+	typedef typename T::iterator	createIt;
+	typedef typename T::value_type	createType; // Creating type what type is this.
 	(void)container;
 
-	int i = 0;
-	for (createIt it = begin++; it != end; it++)
+	(void)begin;
+	(void)end;
+	// for (createIt it = begin; it != end; it++)
+	for (createIt it1 = ++container.begin(); it1 != container.end(); it1++)
 	{
-		std::cout << "array[" << i << "]: " << *it << std::flush << std::endl;
-		i++;
+		// createType	tmpNum = *it1;
+		createType	tmpNum = *it1;
+		createIt	it2 = it1;
+		std::cout << "---------" << std::flush << std::endl;
+		// while (it2 != container.begin() && *(--it2) > tmpNum)
+		while (it2 != container.begin() && *(--it2) > tmpNum)
+		{
+			std::cout << "*it1: " << *it1 << std::flush << std::endl;
+			std::cout << "*it2: " << *it2 << std::flush << std::endl;
+			createIt	itPrev = it2;
+			createIt	itNext = itPrev;
+			++itNext;
+			*itNext = *itPrev;
+			// std::swap(it1)
+		}
+		createIt	itNext = it2;
+		++itNext;
+		*itNext = tmpNum;
 	}
 	this->printArrayAll("inside aq -> ", this->_arrayList);
 }
