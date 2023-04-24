@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/24 11:17:15 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/24 22:53:38 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,8 @@ void	PmergeMe::sortAlgorithmMergeInsert( T &container,
 	if (dist <= INSERTION_THRESHOLD)
 	{
 		// this->calcTimeWithClockFunc(TIME_START);
-		this->sortAlgorithmInsertSort(container, begin, end);
+		// this->sortAlgorithmInsertSort(container, begin, end);
+		this->nasilaq(container);
 		// this->calcTimeWithClockFunc(TIME_END);
 	}
 	else
@@ -224,6 +225,7 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 	typedef typename T::value_type	createType; // Creating type what type is this.
 
 	// ./PmergeMe 94 5 23 2 4 8
+	// ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 	(void)container;
 	(void)begin;
 	(void)end;
@@ -247,6 +249,25 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 		*itNext = tmpNum;
 	}
 	this->printArrayAll("inside aq -> ", this->_arrayList);
+}
+
+template<typename T>
+void PmergeMe::nasilaq( T &arr )
+{
+    // std::deque<int>::iterator it1, it2;
+	typename T::iterator	it1, it2;
+    for (it1 = ++arr.begin(); it1 != arr.end(); ++it1)
+    {
+        // int temp = *it1;
+        typename T::value_type	temp = *it1;
+        it2 = it1;
+        while (it2 != arr.begin() && *(std::prev(it2)) > temp)
+        {
+            *it2 = *(std::prev(it2));
+            std::advance(it2, -1);
+        }
+        *it2 = temp;
+    }
 }
 
 template<typename T>
