@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/24 22:53:38 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/26 01:32:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,8 +202,9 @@ void	PmergeMe::sortAlgorithmMergeInsert( T &container,
 	if (dist <= INSERTION_THRESHOLD)
 	{
 		// this->calcTimeWithClockFunc(TIME_START);
-		// this->sortAlgorithmInsertSort(container, begin, end);
-		this->nasilaq(container);
+		this->sortAlgorithmInsertSort(container, begin, end);
+		// this->nasilaq(container);
+		this->deneme(container);
 		// this->calcTimeWithClockFunc(TIME_END);
 	}
 	else
@@ -220,7 +221,7 @@ template<typename T>
 void	PmergeMe::sortAlgorithmInsertSort( T &container,
 	typename T::iterator begin, typename T::iterator end )
 {
-	// std::cout << "Insert func() runned." << std::flush << std::endl;
+	std::cout << "Insert func() runned." << std::flush << std::endl;
 	typedef typename T::iterator	createIt;
 	typedef typename T::value_type	createType; // Creating type what type is this.
 
@@ -234,11 +235,13 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 	{
 		createType	tmpNum = *it1;
 		createIt	it2 = it1;
-		std::cout << "*it1: " << *it1 << std::flush << std::endl;
-		std::cout << "---------" << std::flush << std::endl;
+		// std::cout << "*it1 once: " << *it1 << std::flush << std::endl;
+		// std::prev(it1);
+		// std::cout << "*it1 sonra: " << *it1 << std::flush << std::endl;
+		// std::cout << "---------" << std::flush << std::endl;
 		while (it2 != container.begin() && *(--it2) > tmpNum)
 		{
-			std::cout << "girdik" << std::flush << std::endl;
+			// std::cout << "girdik" << std::flush << std::endl;
 			createIt	itPrev = it2;
 			createIt	itNext = itPrev;
 			++itNext;
@@ -248,12 +251,33 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 		++itNext;
 		*itNext = tmpNum;
 	}
-	this->printArrayAll("inside aq -> ", this->_arrayList);
+	// this->printArrayAll("inside aq -> ", this->_arrayList);
+}
+
+template<typename T>
+void PmergeMe::deneme( T &arr )
+{
+	std::cout << "deneme running..." << std::flush << std::endl;
+    // std::deque<int>::iterator it1, it2;
+	typename T::iterator	it1, it2;
+    for (it1 = ++arr.begin(); it1 != arr.end(); ++it1)
+    {
+        // int temp = *it1;
+        typename T::value_type	temp = *it1;
+        it2 = it1;
+        while (it2 != arr.begin() && *(--it2) > temp)
+        {
+            *it2 = *(it2);
+            std::advance(it2, -1);
+        }
+        *it2 = temp;
+    }
 }
 
 template<typename T>
 void PmergeMe::nasilaq( T &arr )
 {
+	std::cout << "nasilaq running..." << std::flush << std::endl;
     // std::deque<int>::iterator it1, it2;
 	typename T::iterator	it1, it2;
     for (it1 = ++arr.begin(); it1 != arr.end(); ++it1)
