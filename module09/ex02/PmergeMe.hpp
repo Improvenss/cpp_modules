@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:44:27 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/25 18:12:17 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/26 15:58:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ class PmergeMe
 /* _________________________ SET/GET FUNCTIONS ______________________________ */
 
 		int		setArgsToArray( int argc, char **argv );
+		template<typename T>
+		T		getPrev(T it,
+			typename std::iterator_traits<T>::difference_type n = 1);
 /* -------------------------------------------------------------------------- */
 /* _________________________ TIME FUNCTIONS _________________________________ */
 
@@ -108,6 +111,11 @@ class PmergeMe
 		void	printTimeDifference( std::string string );
 /* -------------------------------------------------------------------------- */
 /* _________________________ EXCEPTIONS _____________________________________ */
+		class ExceptionArrayNotSorted : public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
 /* -------------------------------------------------------------------------- */
 };
 

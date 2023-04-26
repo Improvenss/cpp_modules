@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/26 01:32:54 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/26 16:03:17 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ void	PmergeMe::executePmergeSort( void )
 	this->printArrayAll("list: ", this->_arrayList);
 	this->printArrayAll("deque: ", this->_arrayDeque);
 
+	this->ifArrayIsSorted("list: ", this->_arrayList);
+	this->ifArrayIsSorted("deque: ", this->_arrayDeque);
+
 	
 }
 /* -------------------------------------------------------------------------- */
@@ -76,6 +79,13 @@ int	PmergeMe::setArgsToArray( int argc, char **argv )
 		// this->_arrayVector.push_back(number);
 	}
 	return (EXIT_SUCCESS); // 0
+}
+
+template<typename T>
+T	PmergeMe::getPrev(T it, typename std::iterator_traits<T>::difference_type n)
+{
+	std::advance(it, -n);
+	return (it);
 }
 /* -------------------------------------------------------------------------- */
 /* _________________________ TIME FUNCTIONS _________________________________ */
@@ -160,10 +170,16 @@ int	PmergeMe::ifArrayIsSorted( std::string string, T &container )
 	(void)string;
 	(void)container;
 
-	for (createIt it = container.begin(); it != container.end(); it++)
+	for (createIt it = ++container.begin(); it != container.end(); it++)
 	{
-		// if ()
+		if (*(this->getPrev(it)) < *it)
+			continue;
+		else
+			throw (PmergeMe::ExceptionArrayNotSorted());
 	}
+	std::cout << B_GREEN << string << " is sorted. -> 'SUCCES'." END\
+		<< std::flush << std::endl;
+	return (EXIT_SUCCESS);
 }
 /* -------------------------------------------------------------------------- */
 /* _________________________ SORTING FUNCTIONS ______________________________ */
@@ -202,7 +218,7 @@ void	PmergeMe::sortAlgorithmMergeInsert( T &container,
 	if (dist <= INSERTION_THRESHOLD)
 	{
 		// this->calcTimeWithClockFunc(TIME_START);
-		this->sortAlgorithmInsertSort(container, begin, end);
+		// this->sortAlgorithmInsertSort(container, begin, end);
 		// this->nasilaq(container);
 		this->deneme(container);
 		// this->calcTimeWithClockFunc(TIME_END);
@@ -257,7 +273,7 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 template<typename T>
 void PmergeMe::deneme( T &arr )
 {
-	std::cout << "deneme running..." << std::flush << std::endl;
+	// std::cout << "deneme running..." << std::flush << std::endl;
     // std::deque<int>::iterator it1, it2;
 	typename T::iterator	it1, it2;
     for (it1 = ++arr.begin(); it1 != arr.end(); ++it1)
@@ -265,9 +281,9 @@ void PmergeMe::deneme( T &arr )
         // int temp = *it1;
         typename T::value_type	temp = *it1;
         it2 = it1;
-        while (it2 != arr.begin() && *(--it2) > temp)
+        while (it2 != arr.begin() && *(this->getPrev(it2)) > temp)
         {
-            *it2 = *(it2);
+            *it2 = *(this->getPrev(it2));
             std::advance(it2, -1);
         }
         *it2 = temp;
@@ -371,4 +387,9 @@ void	PmergeMe::printTimeDifference( std::string string )
 }
 /* -------------------------------------------------------------------------- */
 /* _________________________ EXCEPTIONS _____________________________________ */
+
+const char	*PmergeMe::ExceptionArrayNotSorted::what() const throw()
+{
+	return ("Array is not sorted!");
+}
 /* -------------------------------------------------------------------------- */
