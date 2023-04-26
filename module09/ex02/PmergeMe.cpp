@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/26 17:17:01 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/26 17:38:41 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,28 @@ void	PmergeMe::executePmergeSort( void )
 {
 	// You must be add sort func()'s here.
 	// PmergeMe::timeTestFunction();
-	// this->printArrayAll("Before List: ", this->_arrayList);
-	// this->printArrayAll("Before Deque: ", this->_arrayDeque);
 	// this->printArrayAll("std::list<int>: ", this->_arrayList);
 	// this->printArrayAll("std::deque<int>: ", this->_arrayDeque);
+
+	this->printArrayAll("Before List: ", this->_arrayList);
 	this->calcTimeWithClockFunc(TIME_START);
 	this->sortAlgorithmMergeInsert(this->_arrayList,\
 		this->_arrayList.begin(), this->_arrayList.end());
+	this->printArrayAll("After List: ", this->_arrayList);
 	this->calcTimeWithClockFunc(TIME_END);
+	// Time to process a range of 3000 elements with std::[..] : 62.14389 us
+	this->printTimeDifference("std::list<int> ", this->_arrayList);
 
+	this->printArrayAll("Before Deque: ", this->_arrayDeque);
 	this->calcTimeWithClockFunc(TIME_START);
 	this->sortAlgorithmMergeInsert(this->_arrayDeque,\
 		this->_arrayDeque.begin(), this->_arrayDeque.end());
+	this->printArrayAll("After Deque: ", this->_arrayDeque);
 	this->calcTimeWithClockFunc(TIME_END);
+	this->printTimeDifference("std::deque<int> ", this->_arrayDeque);
 
-	// this->printArrayAll("list: ", this->_arrayList);
-	// this->printArrayAll("deque: ", this->_arrayDeque);
-
-	this->ifArrayIsSorted("list: ", this->_arrayList);
-	this->ifArrayIsSorted("deque: ", this->_arrayDeque);
+	this->ifArrayIsSorted("List: ", this->_arrayList);
+	this->ifArrayIsSorted("Deque: ", this->_arrayDeque);
 }
 /* -------------------------------------------------------------------------- */
 /* _________________________ SET/GET FUNCTIONS ______________________________ */
@@ -123,7 +126,7 @@ void	PmergeMe::calcTimeWithClockFunc( int status )
 	{
 		this->_timeDifference = static_cast<double>(\
 			std::clock() - this->_timeClock) / CLOCKS_PER_SEC * 1000;
-		this->printTimeDifference("std::clock(): ");
+		// this->printTimeDifference("std::clock(): ");
 	}
 }
 
@@ -171,7 +174,7 @@ int	PmergeMe::ifArrayIsSorted( std::string string, T &container )
 
 	for (createIt it = ++container.begin(); it != container.end(); it++)
 	{
-		if (*(this->getPrev(it)) < *it)
+		if (*(this->getPrev(it)) <= *it)
 			continue;
 		else
 			throw (PmergeMe::ExceptionArrayNotSorted());
@@ -385,6 +388,20 @@ void	PmergeMe::printArrayAll( std::string message, const T &container )
 void	PmergeMe::printTimeDifference( std::string string )
 {
 	std::cout << string << this->_timeDifference << std::flush << std::endl;
+}
+
+/**
+ * @brief Your string after this->_timeDifference value printing.
+ * 
+ * @param string Your message.
+ */
+template<typename T>
+void	PmergeMe::printTimeDifference( std::string string, T &container )
+{
+	// Time to process a range of 3000 elements with std::[..] : 62.14389 us
+	std::cout << "Time to process a range of " << container.size()\
+		<< " elements with " << string << ": " << this->_timeDifference\
+		<< " us" << std::flush << std::endl;
 }
 /* -------------------------------------------------------------------------- */
 /* _________________________ EXCEPTIONS _____________________________________ */

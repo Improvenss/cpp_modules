@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:44:27 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/26 17:12:14 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/26 17:29:54 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ class PmergeMe
 		template<typename T>
 		void	printArrayAll( std::string message, const T &container );
 		void	printTimeDifference( std::string string );
+		template<typename T>
+		void	printTimeDifference( std::string string, T &container );
 /* -------------------------------------------------------------------------- */
 /* _________________________ EXCEPTIONS _____________________________________ */
 		class ExceptionArrayNotSorted : public std::exception
