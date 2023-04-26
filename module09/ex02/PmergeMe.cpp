@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/26 17:38:41 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/26 17:45:53 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,14 @@ int	PmergeMe::setArgsToArray( int argc, char **argv )
 	return (EXIT_SUCCESS); // 0
 }
 
+/**
+ * @brief Getting previous iterator.
+ * 
+ * @link https://en.cppreference.com/w/cpp/iterator/prev
+ * 
+ * @tparam T 
+ * @return T: Previous iterator.
+ */
 template<typename T>
 T	PmergeMe::getPrev(T it,\
 	typename std::iterator_traits<T>::difference_type n)
