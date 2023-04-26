@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/26 16:41:03 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/26 17:17:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ void	PmergeMe::executePmergeSort( void )
 
 	this->ifArrayIsSorted("list: ", this->_arrayList);
 	this->ifArrayIsSorted("deque: ", this->_arrayDeque);
-
-	
 }
 /* -------------------------------------------------------------------------- */
 /* _________________________ SET/GET FUNCTIONS ______________________________ */
@@ -82,7 +80,8 @@ int	PmergeMe::setArgsToArray( int argc, char **argv )
 }
 
 template<typename T>
-T	PmergeMe::getPrev(T it, typename std::iterator_traits<T>::difference_type n)
+T	PmergeMe::getPrev(T it,\
+	typename std::iterator_traits<T>::difference_type n)
 {
 	std::advance(it, -n);
 	return (it);
@@ -252,13 +251,8 @@ void	PmergeMe::deneme( T &container,
 	{
 		createType	tmpNum = *it1;
 		createIt	it2 = it1;
-		// std::cout << "*it1 once: " << *it1 << std::flush << std::endl;
-		// std::prev(it1);
-		// std::cout << "*it1 sonra: " << *it1 << std::flush << std::endl;
-		// std::cout << "---------" << std::flush << std::endl;
 		while (it2 != container.begin() && *(--it2) > tmpNum)
 		{
-			// std::cout << "girdik" << std::flush << std::endl;
 			createIt	itPrev = it2;
 			createIt	itNext = itPrev;
 			++itNext;
@@ -272,7 +266,7 @@ void	PmergeMe::deneme( T &container,
 }
 
 template<typename T>
-void	PmergeMe::sortAlgorithmInsertSort( T &container,
+void	PmergeMe::sortAlgorithmInsertSort( T &container,\
 	typename T::iterator begin, typename T::iterator end )
 {
 	if (false)
@@ -326,8 +320,10 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 // }
 
 template<typename T>
-void	PmergeMe::sortAlgorithmMerge( T &container, typename T::iterator begin,
-	typename T::iterator mid, typename T::iterator end )
+void	PmergeMe::sortAlgorithmMerge( T &container,\
+	typename T::iterator begin,
+	typename T::iterator mid,
+	typename T::iterator end )
 {
 	T	leftArray;
 	T	rightArray;
