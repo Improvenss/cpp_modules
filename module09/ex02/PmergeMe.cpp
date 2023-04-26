@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/26 16:38:33 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/26 16:41:03 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,7 +268,7 @@ void	PmergeMe::deneme( T &container,
 		++itNext;
 		*itNext = tmpNum;
 	}
-	// this->printArrayAll("inside aq -> ", this->_arrayList);
+	// this->printArrayAll("inside -> ", this->_arrayList);
 }
 
 template<typename T>
@@ -291,10 +291,8 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 	(void)container;
 	typename T::iterator	it1, it2;
 
-	int i = 0;
 	for (it1 = begin; it1 != end; ++it1)
 	{
-		i++;
 		// int temp = *it1;
 		typename T::value_type	temp = *it1;
 		it2 = it1;
@@ -305,7 +303,6 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 		}
 		*it2 = temp;
 	}
-	std::cout << "asdf i -> " << i << std::flush << std::endl;
 }
 
 // template<typename T>
