@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/26 16:03:17 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/26 16:38:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	PmergeMe::executePmergeSort( void )
 {
 	// You must be add sort func()'s here.
 	// PmergeMe::timeTestFunction();
-	this->printArrayAll("Before List: ", this->_arrayList);
-	this->printArrayAll("Before Deque: ", this->_arrayDeque);
+	// this->printArrayAll("Before List: ", this->_arrayList);
+	// this->printArrayAll("Before Deque: ", this->_arrayDeque);
 	// this->printArrayAll("std::list<int>: ", this->_arrayList);
 	// this->printArrayAll("std::deque<int>: ", this->_arrayDeque);
 	this->calcTimeWithClockFunc(TIME_START);
@@ -42,8 +42,8 @@ void	PmergeMe::executePmergeSort( void )
 		this->_arrayDeque.begin(), this->_arrayDeque.end());
 	this->calcTimeWithClockFunc(TIME_END);
 
-	this->printArrayAll("list: ", this->_arrayList);
-	this->printArrayAll("deque: ", this->_arrayDeque);
+	// this->printArrayAll("list: ", this->_arrayList);
+	// this->printArrayAll("deque: ", this->_arrayDeque);
 
 	this->ifArrayIsSorted("list: ", this->_arrayList);
 	this->ifArrayIsSorted("deque: ", this->_arrayDeque);
@@ -218,9 +218,10 @@ void	PmergeMe::sortAlgorithmMergeInsert( T &container,
 	if (dist <= INSERTION_THRESHOLD)
 	{
 		// this->calcTimeWithClockFunc(TIME_START);
-		// this->sortAlgorithmInsertSort(container, begin, end);
+		this->sortAlgorithmInsertSort(container, begin, end);
 		// this->nasilaq(container);
-		this->deneme(container);
+		// this->deneme(container);
+		// this->deneme(container, begin, end);
 		// this->calcTimeWithClockFunc(TIME_END);
 	}
 	else
@@ -234,7 +235,7 @@ void	PmergeMe::sortAlgorithmMergeInsert( T &container,
 }
 
 template<typename T>
-void	PmergeMe::sortAlgorithmInsertSort( T &container,
+void	PmergeMe::deneme( T &container,
 	typename T::iterator begin, typename T::iterator end )
 {
 	std::cout << "Insert func() runned." << std::flush << std::endl;
@@ -271,54 +272,61 @@ void	PmergeMe::sortAlgorithmInsertSort( T &container,
 }
 
 template<typename T>
-void PmergeMe::deneme( T &arr )
-{
-	// std::cout << "deneme running..." << std::flush << std::endl;
-    // std::deque<int>::iterator it1, it2;
-	typename T::iterator	it1, it2;
-    for (it1 = ++arr.begin(); it1 != arr.end(); ++it1)
-    {
-        // int temp = *it1;
-        typename T::value_type	temp = *it1;
-        it2 = it1;
-        while (it2 != arr.begin() && *(this->getPrev(it2)) > temp)
-        {
-            *it2 = *(this->getPrev(it2));
-            std::advance(it2, -1);
-        }
-        *it2 = temp;
-    }
-}
-
-template<typename T>
-void PmergeMe::nasilaq( T &arr )
-{
-	std::cout << "nasilaq running..." << std::flush << std::endl;
-    // std::deque<int>::iterator it1, it2;
-	typename T::iterator	it1, it2;
-    for (it1 = ++arr.begin(); it1 != arr.end(); ++it1)
-    {
-        // int temp = *it1;
-        typename T::value_type	temp = *it1;
-        it2 = it1;
-        while (it2 != arr.begin() && *(std::prev(it2)) > temp)
-        {
-            *it2 = *(std::prev(it2));
-            std::advance(it2, -1);
-        }
-        *it2 = temp;
-    }
-}
-
-template<typename T>
-void	PmergeMe::sortAlgorithmMergeSort( T &container,
+void	PmergeMe::sortAlgorithmInsertSort( T &container,
 	typename T::iterator begin, typename T::iterator end )
 {
-	std::cout << "MergeSort func() runned." << std::flush << std::endl;
+	if (false)
+	{
+		typename T::iterator	itStart = begin;
+		typename T::iterator	itEnd = end;
+		int i = 0;
+		std::cout << "itStart:" << std::flush << std::endl;
+		for (;itStart!= itEnd; itStart++)
+		{
+			std::cout << *itStart << " " << std::flush;
+			i++;
+		}
+		std::cout << std::endl << "i -> " << i << std::flush << std::endl;
+	}
 	(void)container;
-	(void)begin;
-	(void)end;
+	typename T::iterator	it1, it2;
+
+	int i = 0;
+	for (it1 = begin; it1 != end; ++it1)
+	{
+		i++;
+		// int temp = *it1;
+		typename T::value_type	temp = *it1;
+		it2 = it1;
+		while (it2 != begin && *(this->getPrev(it2)) > temp)
+		{
+			*it2 = *(this->getPrev(it2));
+			std::advance(it2, -1);
+		}
+		*it2 = temp;
+	}
+	std::cout << "asdf i -> " << i << std::flush << std::endl;
 }
+
+// template<typename T>
+// void PmergeMe::deneme( T &arr )
+// {
+// 	// std::cout << "deneme running..." << std::flush << std::endl;
+//     // std::deque<int>::iterator it1, it2;
+// 	typename T::iterator	it1, it2;
+//     for (it1 = ++arr.begin(); it1 != arr.end(); ++it1)
+//     {
+//         // int temp = *it1;
+//         typename T::value_type	temp = *it1;
+//         it2 = it1;
+//         while (it2 != arr.begin() && *(this->getPrev(it2)) > temp)
+//         {
+//             *it2 = *(this->getPrev(it2));
+//             std::advance(it2, -1);
+//         }
+//         *it2 = temp;
+//     }
+// }
 
 template<typename T>
 void	PmergeMe::sortAlgorithmMerge( T &container, typename T::iterator begin,
