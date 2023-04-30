@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 21:34:53 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/16 15:47:03 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/30 16:39:29 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define RPN_HPP
 
 # include <iostream>
+# include <sstream>
+// # include <cctype>
 # include <stack>
 
 /**
@@ -50,6 +52,31 @@ class RPN
 		void	printArrayTopIterator( void );
 /* -------------------------------------------------------------------------- */
 /* _________________________ EXCEPTIONS _____________________________________ */
+
+/* exception -> Invalid Argument */
+	class exceptionInvalidArgument : public std::exception
+	{
+		private:
+			std::string	_message;
+		public:
+			exceptionInvalidArgument( void );
+			exceptionInvalidArgument( std::string string );
+			// ~exceptionInvalidArgument();
+			virtual const char	*what() const throw();
+	};
+/* ------------------------- */
+/* exception -> Out Of Range */
+	class exceptionOutOfRange : public std::exception
+	{
+		private:
+			std::string	_message;
+		public:
+			exceptionOutOfRange( void );
+			exceptionOutOfRange( std::string string );
+			// virtual ~exceptionOutOfRange();
+			virtual const char	*what() const throw();
+	};
+/* ------------------------- */
 /* -------------------------------------------------------------------------- */
 };
 

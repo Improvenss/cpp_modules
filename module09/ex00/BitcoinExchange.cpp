@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:15:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/12 21:02:24 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/30 15:06:55 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,17 @@ BitcoinExchange::~BitcoinExchange( void )
  * @note std::istringstream
  * @link https://cplusplus.com/reference/sstream/istringstream/istringstream/
  * 
+ * @note Difference between std::string::begin() and
+ * 							std::string::iterator::begin().
+ * 
+ * The `std::string::begin()` member function was introduced
+ *  with the C++11 standard.
+ * The `std::string::iterator` class was introduced
+ *  with the C++98 standard.
+ * 
+ * Therefore, the `std::string::iterator::begin()` function can also be used
+ *  with the C++98 standard.
+ * 
  */
 void	BitcoinExchange::runBTCExchange( void )
 {
@@ -76,7 +87,9 @@ void	BitcoinExchange::runBTCExchange( void )
 				continue;
 			}
 			dateStr.pop_back(); // Deleting last character ' ' (space).
-			valueStr.erase(valueStr.begin()); // Deleting first character ' ' (space).
+			// valueStr.erase(valueStr.begin()); // Deleting first character ' ' (space).
+			std::string::iterator	itFirst = valueStr.begin();
+			valueStr.erase(itFirst);// Deleting first character ' ' (space).
 			// std::cout << "Str: [" << dateStr << "] [" << valueStr << "]"\
 			// 	<< std::flush << std::endl;
 			if (this->checkFileInputValues(dateStr, valueStr))
@@ -114,7 +127,9 @@ void	BitcoinExchange::setFileData( void )
 			std::stringstream	ss(this->_lineReaded);
 			std::getline(ss, dateStr, this->_fileSeperatorData);
 			std::getline(ss, rateStr);
-			this->_data[dateStr] = std::stof(rateStr);
+			const char	*rateCharArr = rateStr.c_str();
+			// this->_data[dateStr] = std::stof(rateStr); // C++11 NOK
+			this->_data[dateStr] = std::atof(rateCharArr); // C++98 OK
 		}
 		// this->printArray();
 		// BitcoinExchange::printArray();
@@ -152,6 +167,8 @@ void	BitcoinExchange::setFileSeperator( std::fstream &file, char &seperator )
 	}
 	this->_fileInput.seekg(0, this->_fileInput.beg); // Setting last readed location to first location.
 }
+/* -------------------------------------------------------------------------- */
+/* _________________________ IF FUNCTIONS ___________________________________ */
 /* -------------------------------------------------------------------------- */
 /* _________________________ CHECK FUNCTIONS ________________________________ */
 
@@ -210,8 +227,10 @@ bool	BitcoinExchange::checkFileInputValues( std::string dataStr,
 {
 	try
 	{
+		const char	*valueCharArr = valueStr.c_str();
 		(void)dataStr;
-		this->_fileInputValue = std::stof(valueStr);
+		// this->_fileInputValue = std::stof(valueStr); // C++11 NOK
+		this->_fileInputValue = std::atof(valueCharArr); // C++98 OK
 		if (this->_fileInputValue < 0)
 		{
 			std::cerr << "Error: not a positive number."\

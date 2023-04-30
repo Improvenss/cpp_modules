@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 21:34:59 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/15 20:40:50 by gsever           ###   ########.fr       */
+/*   Updated: 2023/04/30 16:38:51 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	RPN::calculateArray( void )
 		else if (!std::isspace(this->_operator)) // Checking if not isspace.
 		{
 			if (this->_stack.size() < 2)
-				throw (std::invalid_argument("Unexpected character."));
+				throw (RPN::exceptionInvalidArgument("Unexpected character."));
 			// std::cout << "stack.top(): " << this->_stack.top() << std::flush << std::endl;
 			int	rhsNumber = this->_stack.top();
 			this->_stack.pop();
@@ -55,13 +55,15 @@ void	RPN::calculateArray( void )
 				this->_stack.push(lhsNumber * rhsNumber);
 				break;
 			default:
-				throw (std::invalid_argument("Invalid operator. You can use [+, -, /, *]."));
+				// throw (std::invalid_argument("Invalid operator. You can use [+, -, /, *].")); // C++11 NOK
+				throw (RPN::exceptionInvalidArgument(
+					"Invalid operator. You can use [+, -, /, *].")); // Self exception :).
 				// std::cerr << "Error" << std::flush << std::endl;
 				// exit(EXIT_FAILURE);
 				break;
 			}
 			if (this->_stack.size() != 1)
-				throw (std::out_of_range("Calculate problem."));
+				throw (RPN::exceptionOutOfRange("Calculate problem."));
 		}
 	}
 	std::cout << this->_stack.top() << std::flush << std::endl;
@@ -73,4 +75,63 @@ void	RPN::calculateArray( void )
 void	printArrayTopIterator( void )
 {
 }
+/* -------------------------------------------------------------------------- */
+/* _________________________ EXCEPTIONS _____________________________________ */
+
+/**
+ * @brief Self detailed exceptions.
+ * 
+ * @link https://stackoverflow.com/questions/29906737/how-to-correctly-implement-my-own-exception-handler-in-c
+ * 
+ * @return const char* 
+ */
+
+/* exception -> Invalid Argument */
+
+RPN::exceptionInvalidArgument::exceptionInvalidArgument( void )
+	: _message("Invalid argument.")
+{
+	// this->_message = "Invalid argument.";
+}
+
+RPN::exceptionInvalidArgument::exceptionInvalidArgument( std::string string )
+	: _message(string)
+{
+	// this->_message = string;
+}
+
+// RPN::exceptionInvalidArgument::~exceptionInvalidArgument( void ) {}
+
+const char	*RPN::exceptionInvalidArgument::what() const throw()
+{
+	// return ("Invalid argument found.");
+	// return ("Invalid operator. You can use [+, -, /, *].");
+	// std::stringstream	ss;
+
+	// ss << this->_message;
+	// return (ss.str().c_str());
+	return (this->_message.c_str());
+}
+/* ------------------------- */
+
+/* exception -> Out Of Range */
+
+RPN::exceptionOutOfRange::exceptionOutOfRange( void )
+	: _message("Out of range.") {}
+
+RPN::exceptionOutOfRange::exceptionOutOfRange( std::string string )
+	: _message(string) {}
+
+// RPN::exceptionOutOfRange::~exceptionOutOfRange( void ) {}
+
+const char	*RPN::exceptionOutOfRange::what() const throw()
+{
+	// return ("Calculate problem.");
+	// std::stringstream	ss;
+
+	// ss << this->_message;
+	// return (ss.str().c_str());
+	return (this->_message.c_str());
+}
+/* ------------------------- */
 /* -------------------------------------------------------------------------- */
