@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 21:34:53 by gsever            #+#    #+#             */
-/*   Updated: 2023/05/01 00:06:04 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/01 16:34:01 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <sstream>
 // # include <cctype>
 # include <stack>
+# include "Colors.hpp"
 
 /**
  * @brief 
@@ -61,7 +62,7 @@ class RPN
 		public:
 			exceptionInvalidArgument( void );
 			exceptionInvalidArgument( std::string string );
-			// ~exceptionInvalidArgument();
+			~exceptionInvalidArgument() throw(); // err; fixed: exception specification of overriding function is more lax than base version
 			virtual const char	*what() const throw();
 	};
 /* ------------------------- */
@@ -73,7 +74,7 @@ class RPN
 		public:
 			exceptionOutOfRange( void );
 			exceptionOutOfRange( std::string string );
-			// virtual ~exceptionOutOfRange();
+			~exceptionOutOfRange() throw(); // err; fixer: exception specification of overriding function is more lax than base version
 			virtual const char	*what() const throw();
 	};
 /* ------------------------- */

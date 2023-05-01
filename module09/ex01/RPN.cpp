@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 21:34:59 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/30 16:38:51 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/01 16:33:25 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ RPN::exceptionInvalidArgument::exceptionInvalidArgument( std::string string )
 	// this->_message = string;
 }
 
-// RPN::exceptionInvalidArgument::~exceptionInvalidArgument( void ) {}
+RPN::exceptionInvalidArgument::~exceptionInvalidArgument( void ) throw() {}
 
 const char	*RPN::exceptionInvalidArgument::what() const throw()
 {
@@ -122,7 +122,7 @@ RPN::exceptionOutOfRange::exceptionOutOfRange( void )
 RPN::exceptionOutOfRange::exceptionOutOfRange( std::string string )
 	: _message(string) {}
 
-// RPN::exceptionOutOfRange::~exceptionOutOfRange( void ) {}
+RPN::exceptionOutOfRange::~exceptionOutOfRange( void ) throw() {}
 
 const char	*RPN::exceptionOutOfRange::what() const throw()
 {

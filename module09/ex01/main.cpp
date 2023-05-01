@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 21:34:46 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/15 20:37:08 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/01 16:34:13 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main( int argc, char **argv )
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "RPN: Error: " << e.what() << std::flush << std::endl;
+		std::cerr << B_RED "RPN: Error: " << e.what() << END\
+			<< std::flush << std::endl;
 	}
 	return (EXIT_SUCCESS);
 }
