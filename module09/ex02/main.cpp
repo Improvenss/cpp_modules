@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:43:48 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/26 15:53:19 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/01 17:24:46 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ int	main( int argc, char **argv )
 Bu kısıtlamalara sahip bir program oluşturmalısınız:
 
 • [OK] Programın adı PmergeMe'dir.
-• [] Programınız 'POZITIF' bir tamsayı dizisini bağımsız değişken olarak
+• [OK] Programınız 'POZITIF' bir tamsayı dizisini bağımsız değişken olarak
  kullanabilmelidir.
-• [] Programınız, 'POZITIF' tamsayı sırasını sıralamak için birleştirme-ekleme
+• [OK] Programınız, 'POZITIF' tamsayı sırasını sıralamak için birleştirme-ekleme
  sıralama algoritması kullanmalıdır.
-• [] Programın yürütülmesi sırasında bir hata oluşursa, standart çıktıda bir hata
+• [OK] Programın yürütülmesi sırasında bir hata oluşursa, standart çıktıda bir hata
  mesajı görüntülenmelidir.
 
 Kodunuzda en az iki farklı kap kullanmalısınız.
@@ -67,14 +67,12 @@ ve böylece genel bir işlev kullanmaktan kaçınmak için.
 
 Burada, standart çıktıda satır satır görüntülemeniz gereken bilgilerle ilgili
  bazı ek yönergeler verilmiştir.
-• İlk satırda açık bir metin ve ardından sıralanmamış 'POZITIF' tamsayı dizisini
+• [OK] İlk satırda açık bir metin ve ardından sıralanmamış 'POZITIF' tamsayı dizisini
  görüntülemeniz gerekir.
-• İkinci satırda, açık bir metni ve ardından sıralanmış 'POZITIF' tamsayı dizisini
- görüntülemeniz gerekir.
-• Üçüncü satırda, 'POZITIF' tamsayı dizisini sıralamak için kullanılan ilk
+• [OK] Üçüncü satırda, 'POZITIF' tamsayı dizisini sıralamak için kullanılan ilk
  kapsayıcıyı belirterek, algoritmanız tarafından kullanılan zamanı gösteren açık
  bir metin göstermelisiniz.
-• Son satırda, 'POZITIF' tamsayı dizisini sıralamak için kullanılan ikinci
+• [OK] Son satırda, 'POZITIF' tamsayı dizisini sıralamak için kullanılan ikinci
  kapsayıcıyı belirterek, algoritmanız tarafından kullanılan zamanı gösteren açık
  bir metin göstermelisiniz.
 

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:44:27 by gsever            #+#    #+#             */
-/*   Updated: 2023/05/01 16:43:01 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/01 21:09:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define TIME_START				0
 # define TIME_END				1
-# define INSERTION_THRESHOLD	32
+# define INSERTION_THRESHOLD	100
 
 /**
  * @brief 
@@ -46,80 +46,97 @@
  */
 class PmergeMe
 {
-	private:
-		std::list<int>	_arrayList;
-		std::deque<int>	_arrayDeque;
-		// std::vector<int>	_arrayVector;
-		// int				_arraySize;
-		std::time_t		_timeTime;
-		std::clock_t	_timeClock;
-		struct timeval	_timeTimeval;
-		double			_timeDifference;
-	public:
-		PmergeMe( void ); // Default Constructor.
-		PmergeMe( int argc, char **argv ); // Argument Constructor.
-		~PmergeMe( void ); // Destructor.
+private:
+	std::list<int>	_arrayList;
+	std::deque<int>	_arrayDeque;
+	// std::vector<int>	_arrayVector;
+	// int				_arraySize;
+	std::time_t		_timeTime;
+	std::clock_t	_timeClock;
+	struct timeval	_timeTimeval;
+	double			_timeDifference;
+public:
+	PmergeMe( void ); // Default Constructor.
+	PmergeMe( int argc, char **argv ); // Argument Constructor.
+	~PmergeMe( void ); // Destructor.
 
 /* _________________________ MAIN FUCTION ___________________________________ */
 
-		void	executePmergeSort( void );
+	void	executePmergeSort( void );
 /* -------------------------------------------------------------------------- */
 /* _________________________ SET/GET FUNCTIONS ______________________________ */
 
-		int		setArgsToArray( int argc, char **argv );
-		template<typename T>
-		T		getPrev(T it,
-			typename std::iterator_traits<T>::difference_type n = 1);
+	int		setArgsToArray( int argc, char **argv );
+	template<typename T>
+	T		getPrev(T it,
+		typename std::iterator_traits<T>::difference_type n = 1);
 /* -------------------------------------------------------------------------- */
 /* _________________________ TIME FUNCTIONS _________________________________ */
 
-		void	calcTimeWithTimeFunc( int status );
-		void	calcTimeWithClockFunc( int status );
-		void	calcTimeWithGettimeofdayFunc( int status );
-		void	timeTestFunction( void );
+	void	calcTimeWithTimeFunc( int status );
+	void	calcTimeWithClockFunc( int status );
+	void	calcTimeWithGettimeofdayFunc( int status );
+	void	timeTestFunction( void );
 /* -------------------------------------------------------------------------- */
 /* _________________________ IF FUNCTIONS ___________________________________ */
 
-		template<typename T>
-		int		ifArrayIsSorted( std::string string, T &container );
+	template<typename T>
+	int		ifArrayIsSorted( std::string string, T &container );
 /* -------------------------------------------------------------------------- */
 /* _________________________ SORTING FUNCTIONS ______________________________ */
 
-		template<typename T>
-		void	sortAlgorithmMergeInsert( T &container,
-			typename T::iterator begin, typename T::iterator end );
-		// template<typename T>
-		// void	deneme( T &container );
-		template<typename T>
-		void	deneme( T &container,
-			typename T::iterator begin, typename T::iterator end );
-		template<typename T>
-		void	sortAlgorithmInsertSort( T &container,
-			typename T::iterator begin, typename T::iterator end );
-		template<typename T>
-		void	sortAlgorithmMergeSort( T &container,
-			typename T::iterator begin, typename T::iterator end );
-		template<typename T>
-		void	sortAlgorithmMerge( T &container,
-			typename T::iterator begin,
-			typename T::iterator mid,
-			typename T::iterator end );
+	template<typename T>
+	void	sortAlgorithmMergeInsert( T &container,
+		typename T::iterator begin, typename T::iterator end );
+	// template<typename T>
+	// void	deneme( T &container );
+	template<typename T>
+	void	deneme( T &container,
+		typename T::iterator begin, typename T::iterator end );
+	template<typename T>
+	void	sortAlgorithmInsertSort( T &container,
+		typename T::iterator begin, typename T::iterator end );
+	template<typename T>
+	void	sortAlgorithmMergeSort( T &container,
+		typename T::iterator begin, typename T::iterator end );
+	template<typename T>
+	void	sortAlgorithmMerge( T &container,
+		typename T::iterator begin,
+		typename T::iterator mid,
+		typename T::iterator end );
 /* -------------------------------------------------------------------------- */
 /* _________________________ PRINT FUCTIONS _________________________________ */
 
-		// void	printArrayTopIterator( void );
-		template<typename T>
-		void	printArrayAll( std::string message, const T &container );
-		void	printTimeDifference( std::string string );
-		template<typename T>
-		void	printTimeDifference( std::string string, T &container );
+	// void	printArrayTopIterator( void );
+	template<typename T>
+	void	printArrayAll( std::string message, const T &container );
+	void	printTimeDifference( std::string string );
+	template<typename T>
+	void	printTimeDifference( std::string string, T &container );
 /* -------------------------------------------------------------------------- */
 /* _________________________ EXCEPTIONS _____________________________________ */
-		class ExceptionArrayNotSorted : public std::exception
-		{
-			public:
-				virtual const char	*what() const throw();
-		};
+
+/* exception -> Array Not Sorted */
+
+	class exceptionArrayNotSorted : public std::exception
+	{
+		public:
+			virtual const char	*what() const throw();
+	};
+/* ------------------------- */
+/* exception -> Invalid Argument */
+
+	class exceptionInvalidArgument : public std::exception
+	{
+		private:
+			std::string	_message;
+		public:
+			exceptionInvalidArgument( void );
+			exceptionInvalidArgument( std::string string );
+			~exceptionInvalidArgument() throw(); // err; fixed: exception specification of overriding function is more lax than base version
+			virtual const char	*what() const throw();
+	};
+/* ------------------------- */
 /* -------------------------------------------------------------------------- */
 };
 

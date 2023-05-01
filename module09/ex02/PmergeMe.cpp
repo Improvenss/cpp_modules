@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/05/01 17:20:29 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/01 21:10:31 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PmergeMe::PmergeMe( void ) {}
 PmergeMe::PmergeMe( int argc, char **argv )
 {
 	if (setArgsToArray(argc, argv) == EXIT_FAILURE)
-		throw (std::invalid_argument("Invalid input value."));
+		throw (PmergeMe::exceptionInvalidArgument("Invalid input value."));
 }
 
 PmergeMe::~PmergeMe( void ) {}
@@ -185,7 +185,7 @@ int	PmergeMe::ifArrayIsSorted( std::string string, T &container )
 		if (*(this->getPrev(it)) <= *it)
 			continue;
 		else
-			throw (PmergeMe::ExceptionArrayNotSorted());
+			throw (PmergeMe::exceptionArrayNotSorted());
 	}
 	std::cout << B_GREEN << string << " is sorted. -> 'SUCCES'." END\
 		<< std::flush << std::endl;
@@ -221,23 +221,14 @@ void	PmergeMe::sortAlgorithmMergeInsert( T &container,
 	typename T::iterator		mid = begin;
 	std::advance(mid, dist / 2); // Setting iterator's middle.
 
-	// std::cout << "begin -> " << *begin << std::flush << std::endl;
-	// std::cout << "mid   -> " << *mid << std::flush << std::endl;
-	// std::cout << "end   -> " << *end << std::flush << std::endl;
-	// std::cout << "end 2 -> " << *(--(container.end())) << std::flush << std::endl;
 	if (dist <= INSERTION_THRESHOLD)
 	{
-		// this->calcTimeWithClockFunc(TIME_START);
 		this->sortAlgorithmInsertSort(container, begin, end);
-		// this->nasilaq(container);
 		// this->deneme(container);
 		// this->deneme(container, begin, end);
-		// this->calcTimeWithClockFunc(TIME_END);
 	}
 	else
 	{
-		// this->sortAlgorithmMergeSort(container, begin, mid);
-		// this->sortAlgorithmMergeSort(container, mid, end);
 		this->sortAlgorithmMergeInsert(container, begin, mid);
 		this->sortAlgorithmMergeInsert(container, mid, end);
 		this->sortAlgorithmMerge(container, begin, mid, end);
@@ -439,8 +430,43 @@ void	PmergeMe::printTimeDifference( std::string string, T &container )
 /* -------------------------------------------------------------------------- */
 /* _________________________ EXCEPTIONS _____________________________________ */
 
-const char	*PmergeMe::ExceptionArrayNotSorted::what() const throw()
+const char	*PmergeMe::exceptionArrayNotSorted::what() const throw()
 {
 	return ("Array is not sorted!");
 }
+
+/**
+ * @brief Self detailed exceptions.
+ * 
+ * @link https://stackoverflow.com/questions/29906737/how-to-correctly-implement-my-own-exception-handler-in-c
+ * 
+ * @return const char* 
+ */
+
+/* exception -> Invalid Argument */
+PmergeMe::exceptionInvalidArgument::exceptionInvalidArgument( void )
+	: _message("Invalid argument.")
+{
+	// this->_message = "Invalid argument.";
+}
+
+PmergeMe::exceptionInvalidArgument::exceptionInvalidArgument( std::string string )
+	: _message(string)
+{
+	// this->_message = string;
+}
+
+PmergeMe::exceptionInvalidArgument::~exceptionInvalidArgument( void ) throw() {}
+
+const char	*PmergeMe::exceptionInvalidArgument::what() const throw()
+{
+	// return ("Invalid argument found.");
+	// return ("Invalid operator. You can use [+, -, /, *].");
+	// std::stringstream	ss;
+
+	// ss << this->_message;
+	// return (ss.str().c_str());
+	return (this->_message.c_str());
+}
+/* ------------------------- */
 /* -------------------------------------------------------------------------- */
