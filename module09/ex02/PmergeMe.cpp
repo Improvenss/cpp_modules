@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:46:11 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/26 17:45:53 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/01 17:20:29 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -401,15 +401,40 @@ void	PmergeMe::printTimeDifference( std::string string )
 /**
  * @brief Your string after this->_timeDifference value printing.
  * 
+ * @note Set precision (after the comma).
+ * @link https://en.cppreference.com/w/cpp/io/manip/setprecision C++11
+ * @link https://en.cppreference.com/w/cpp/io/ios_base/precision C++98
+ * 
+ * @fn std::cout.precision(int width); Setting width for how many digit
+ *  will print. etc: 12.12345 -> 7
+ * @note std::ios::precision()'s output stream class member's function.
+ * 
  * @param string Your message.
  */
 template<typename T>
 void	PmergeMe::printTimeDifference( std::string string, T &container )
 {
+	// float	prec = 23.23424234235235235;
 	// Time to process a range of 3000 elements with std::[..] : 62.14389 us
-	std::cout << "Time to process a range of " << container.size()\
-		<< " elements with " << string << ": " << this->_timeDifference\
-		<< " us" << std::flush << std::endl;
+	// std::cout << "Default std::cout.precision(): " << std::cout.precision()\
+	// 	<< "and prec: " << prec << std::flush << std::endl;
+	// std::cout.precision(10);
+	// std::cout << "After std::cout.precision(): " << std::cout.precision()\
+	// 	<< "and prec: " << prec << std::flush << std::endl;
+
+	// std::cout << "Time to process a range of " << container.size()\
+	// 	<< " elements with " << string << ": " << this->_timeDifference\
+	// 	<< " μs" << std::flush << std::endl;
+
+	// std::cout << "Time to process a range of " << container.size()\
+	// 	<< " elements with " << string << ": " << std::cout.precision(5)\
+	// 	<< this->_timeDifference << " μs" << std::flush << std::endl;
+
+	std::cout << B_CYAN "Time to process a range of " << container.size()\
+		<< " elements with " << string << ": " << std::flush;
+	std::cout.precision(7);
+	std::cout << this->_timeDifference << " μs" END << std::flush << std::endl;
+
 }
 /* -------------------------------------------------------------------------- */
 /* _________________________ EXCEPTIONS _____________________________________ */
