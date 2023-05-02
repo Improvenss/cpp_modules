@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 20:43:48 by gsever            #+#    #+#             */
-/*   Updated: 2023/05/01 17:24:46 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/02 15:40:05 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	main( int argc, char **argv )
 	try
 	{
 		if (argc <= 1)
-			throw (std::invalid_argument("You must be enter ./PmergeMe\
- 3 5 9 7 4"));
+			throw (PmergeMe::exceptionInvalidArgument(\
+				"You must be enter ./PmergeMe 3 5 9 7 4"));
 		PmergeMe	pmerge(argc, argv);
 		pmerge.executePmergeSort();
 	}
