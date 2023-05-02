@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:10:35 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/30 15:05:27 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/02 15:11:46 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,43 +42,71 @@
  */
 class BitcoinExchange
 {
-	private:
-		std::map<std::string, float>	_data;
-		std::fstream					_fileInput;
-		std::fstream					_fileData;
-		std::string						_lineReaded;
-		char							_fileSeperatorInput;
-		char							_fileSeperatorData;
-		float							_fileInputValue;
-	public:
-		BitcoinExchange( void ); // Default Constructor. (We are not using this.)
-		BitcoinExchange( char *inputFilePath ); // File Path Constructor.
-		~BitcoinExchange( void ); // Destructor.
+private:
+	std::map<std::string, float>	_data;
+	std::fstream					_fileInput;
+	std::fstream					_fileData;
+	std::string						_lineReaded;
+	char							_fileSeperatorInput;
+	char							_fileSeperatorData;
+	float							_fileInputValue;
+public:
+	BitcoinExchange( void ); // Default Constructor. (We are not using this.)
+	BitcoinExchange( char *inputFilePath ); // File Path Constructor.
+	~BitcoinExchange( void ); // Destructor.
 
 /* _________________________ MAIN FUCTION ___________________________________ */
 
-		void	runBTCExchange( void );
+	void	runBTCExchange( void );
 /* -------------------------------------------------------------------------- */
 /* _________________________ SET/GET FUNCTIONS ______________________________ */
 
-		void	setFileData( void );
-		void	setFileSeperator( std::fstream &file, char &seperator );
+	void	setFileData( void );
+	void	setFileSeperator( std::fstream &file, char &seperator );
 /* -------------------------------------------------------------------------- */
 /* _________________________ IF FUNCTIONS ___________________________________ */
 /* -------------------------------------------------------------------------- */
 /* _________________________ CHECK FUNCTIONS ________________________________ */
 
-		bool	checkFileData( void );
-		bool	checkFileInput( char *inputFilePath );
-		bool	checkFileInputValues( std::string dateStr,\
-			std::string valueStr );
+	bool	checkFileData( void );
+	bool	checkFileInput( char *inputFilePath );
+	bool	checkFileInputValues( std::string dateStr,\
+		std::string valueStr );
 /* -------------------------------------------------------------------------- */
 /* _________________________ PRINT FUCTIONS _________________________________ */
 
-		void	printArray( void );
-		void	printEvaluatedInput( std::string dateStr );
+	void	printArray( void );
+	void	printEvaluatedInput( std::string dateStr );
 /* -------------------------------------------------------------------------- */
+/* _________________________ EXCEPTIONS _____________________________________ */
 
+/* exception -> Invalid Argument */
+
+	class exceptionInvalidArgument : public std::exception
+	{
+		private:
+			std::string	_message;
+		public:
+			exceptionInvalidArgument( void );
+			exceptionInvalidArgument( std::string string );
+			~exceptionInvalidArgument() throw(); // err; fixed: exception specification of overriding function is more lax than base version
+			virtual const char	*what() const throw();
+	};
+/* ------------------------- */
+/* exception -> FooBar */
+
+	class exceptionIosBaseFailure : public std::exception
+	{
+		private:
+			std::string	_message;
+		public:
+			exceptionIosBaseFailure( void );
+			exceptionIosBaseFailure( std::string string );
+			~exceptionIosBaseFailure() throw(); // err; fixed: exception specification of overriding function is more lax than base version
+			virtual const char	*what() const throw();
+	};
+/* ------------------------- */
+/* -------------------------------------------------------------------------- */
 };
 
 #endif // BITCOINEXCHANGE_HPP

@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 19:15:43 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/30 15:06:55 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/02 15:30:49 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,8 +181,8 @@ bool	BitcoinExchange::checkFileData( void )
 {
 	this->_fileData.open(FILE_DATA_BTC, std::fstream::in | std::fstream::out);
 	if (this->_fileData.fail())
-		throw (std::ios_base::failure("Error: could not open file["\
-			FILE_DATA_BTC "]"));
+		throw (BitcoinExchange::exceptionIosBaseFailure(\
+			"Error: could not open file[" FILE_DATA_BTC "]"));
 	else if (this->_fileData.is_open())
 	{
 		std::cout << B_GREEN FILE_DATA_BTC " checked, file open. OK!" END\
@@ -203,8 +203,9 @@ bool	BitcoinExchange::checkFileInput( char *inputFilePath )
 {
 	this->_fileInput.open(inputFilePath, std::fstream::in | std::fstream::out); // Checking input.txt are okay.
 	if (this->_fileInput.fail())
-		throw (std::ios_base::failure("Error: could not open file["\
-			+ (std::string)inputFilePath + "]."));
+		throw (BitcoinExchange::exceptionIosBaseFailure(\
+			"Error: could not open file[" + (std::string)inputFilePath + "]."\
+			+ ": unspecified iostream_category error"));
 	else if (this->_fileInput.is_open())
 	{
 		std::cout << B_GREEN << (std::string)inputFilePath\
@@ -297,4 +298,68 @@ void	BitcoinExchange::printEvaluatedInput( std::string dateStr )
 	std::cout << dateStr << " => " << this->_fileInputValue << " = " // This dateStr -> it->first but we need to see output like input.txt.
 		<< it->second * this->_fileInputValue << std::flush << std::endl;
 }
+/* -------------------------------------------------------------------------- */
+/* _________________________ EXCEPTIONS _____________________________________ */
+
+/**
+ * @brief Self detailed exceptions.
+ * 
+ * @link https://stackoverflow.com/questions/29906737/how-to-correctly-implement-my-own-exception-handler-in-c
+ * 
+ * @return const char* 
+ */
+
+/* exception -> Invalid Argument */
+BitcoinExchange::exceptionInvalidArgument::exceptionInvalidArgument( void )
+	: _message("Invalid argument.")
+{
+	// this->_message = "Invalid argument.";
+}
+
+BitcoinExchange::exceptionInvalidArgument::exceptionInvalidArgument( std::string string )
+	: _message(string)
+{
+	// this->_message = string;
+}
+
+BitcoinExchange::exceptionInvalidArgument::~exceptionInvalidArgument( void ) throw() {}
+
+const char	*BitcoinExchange::exceptionInvalidArgument::what() const throw()
+{
+	// return ("Invalid argument found.");
+	// return ("Invalid operator. You can use [+, -, /, *].");
+	// std::stringstream	ss;
+
+	// ss << this->_message;
+	// return (ss.str().c_str());
+	return (this->_message.c_str());
+}
+/* ------------------------- */
+/* exception -> Invalid Argument */
+
+BitcoinExchange::exceptionIosBaseFailure::exceptionIosBaseFailure( void )
+	: _message("Input-Output stream error.")
+{
+	// this->_message = "Invalid argument.";
+}
+
+BitcoinExchange::exceptionIosBaseFailure::exceptionIosBaseFailure( std::string string )
+	: _message(string)
+{
+	// this->_message = string;
+}
+
+BitcoinExchange::exceptionIosBaseFailure::~exceptionIosBaseFailure( void ) throw() {}
+
+const char	*BitcoinExchange::exceptionIosBaseFailure::what() const throw()
+{
+	// return ("Invalid argument found.");
+	// return ("Invalid operator. You can use [+, -, /, *].");
+	// std::stringstream	ss;
+
+	// ss << this->_message;
+	// return (ss.str().c_str());
+	return (this->_message.c_str());
+}
+/* ------------------------- */
 /* -------------------------------------------------------------------------- */

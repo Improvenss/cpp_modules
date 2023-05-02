@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:46:54 by gsever            #+#    #+#             */
-/*   Updated: 2023/04/11 19:28:00 by gsever           ###   ########.fr       */
+/*   Updated: 2023/05/02 14:59:35 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ int	main( int argc, char **argv )
 	try
 	{
 		if (argc != 2)
-			throw (std::invalid_argument("You must be enter just one arguman!"));
+			// throw (std::invalid_argument("You must be enter just one arguman!"));
+			throw (BitcoinExchange::exceptionInvalidArgument(
+				"You must be enter just one arguman!"));
 		// std::cout << "argv[1]: " << argv[1] << std::flush << std::endl;
 
 		// BitcoinExchange	*btcExchange = new BitcoinExchange(argv[1]); // Main class for all calculating.
